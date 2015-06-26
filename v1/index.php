@@ -190,14 +190,12 @@ $app->get('/albums', function() {
 * Will return 404 if the task doesn't belongs to user
 */
 $app->get('/album/:id', function($task_id) {
-	//global $user_id;
+	global $user_id;
 	$response = array();
 	$db = new DbHandler();
-	//echo "hi". $task_id;
-	// fetch task
 	$result = $db->getAlbum($task_id);
     $response["error"] = false;
-   // $response["tasks"] = array();
+    $response["tasks"] = array();
 
 	if ($result != NULL) {
         // looping through result and preparing tasks array

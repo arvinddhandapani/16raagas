@@ -315,12 +315,12 @@ class DbHandler {
      * @param String $task_id id of the album
      */
     public function getAlbum($task_id) {
-        $stmt = $this->conn->prepare("SELECT s.song_id, s.album_id, s.song_name, s.price, s.artist_details from songs s WHERE s.album_id = ?");
-        $stmt->bind_param("i", $task_id);
+       $stmt = $this->conn->prepare("SELECT s.* from songs s WHERE s.album_id = ?");
+       $stmt->bind_param("i", $task_id);
         if ($stmt->execute()) {
-            $task = $stmt->get_result()->fetch_assoc();
+            $task = $stmt->get_result();
             $stmt->close();
-            return $task;
+		   return $task;
         } else {
             return NULL;
         }
