@@ -151,6 +151,75 @@ $app->post('/login', function() use ($app) {
             echoRespnse(200, $response);
         });
 
+/**
+* Listing all albums 
+* method GET
+* url /albums
+* returns id, album_year, album_img, album_desc, music_director         
+*/
+$app->get('/albums', function() {
+		            global $user_id;
+		            $response = array();
+		            $db = new DbHandler();
+
+		            // fetching all user tasks
+		            $result = $db->getAllAlbums();
+
+		            $response["error"] = false;
+		            $response["tasks"] = array();
+
+		            // looping through result and preparing tasks array
+		            while ($task = $result->fetch_assoc()) {
+		                $tmp = array();
+		                $tmp["id"] = $task["id"];
+		                $tmp["album_year"] = $task["album_year"];
+		                $tmp["album_img"] = $task["album_img"];
+						$tmp["music_director"] = $task["music_director"];
+		                $tmp["album_desc"] = $task["album_desc"];
+						
+		                array_push($response["tasks"], $tmp);
+		            }
+
+		            echoRespnse(200, $response);
+		        });
+
+/**
+* Listing single task of particual user
+* method GET
+* url /album/:id
+* Will return 404 if the task doesn't belongs to user
+*/
+$app->get('/album/:id', function($task_id) {
+	//global $user_id;
+	$response = array();
+	$db = new DbHandler();
+	//echo "hi". $task_id;
+	// fetch task
+	$result = $db->getAlbum($task_id);
+    $response["error"] = false;
+   // $response["tasks"] = array();
+
+	if ($result != NULL) {
+        // looping through result and preparing tasks array
+        while ($task = $result->fetch_assoc()) {
+            $tmp = array();
+            $tmp["song_id"] = $task["song_id"];
+            $tmp["album_id"] = $task["album_id"];
+            $tmp["song_name"] = $task["song_name"];
+			$tmp["price"] = $task["price"];
+            $tmp["artist_details"] = $task["artist_details"];
+			
+            array_push($response["tasks"], $tmp);
+        }
+		echoRespnse(200, $response);
+	} else {
+		$response["error"] = true;
+		$response["message"] = "The requested resource doesn't exists";
+		echoRespnse(404, $response);
+	}
+});
+
+
 /*
  * ------------------------ METHODS WITH AUTHENTICATION ------------------------
  */
