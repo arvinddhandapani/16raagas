@@ -261,8 +261,7 @@
 					</div><!-- def block -->
 				</div><!-- span8 posts -->
 
-				<div class="span4 sidebar">
-					
+				<div class="span4 sidebar">					
 					<div class="def-block widget">
 						<h4> Featured Videos </h4><span class="liner"></span>
 						<div class="widget-content row-fluid">
@@ -307,48 +306,11 @@
 <!-- Scripts -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/theme20.js"></script>
-	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
 	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
 	<script type="text/javascript" src="js/jquery.nanoscroller.js"></script>
 	<script type="text/javascript" src="js/twitter/jquery.tweet.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
-	<!--<script type="text/javascript" src="customize/script.js"></script><link rel="stylesheet" type="text/css" href="customize/style.css" media="screen" /><style id="themecolors" type="text/css"></style>
-            <div class="style-picker">
-		<div class="container bgChanger">
-			<a href="#" class="handler">&nbsp;</a>
-			<div class="options">
-				<span> Layout </span>
-				<select name="layouts" id="layouts"><option value="boxed">Boxed</option><option value="boxed-margin">Boxed Margin</option><option value="full">Fullwide</option></select>
-
-				<span> Version </span>
-				<select name="version" id="version"><option value="dark">Dark</option><option value="light">Light</option></select>
-
-    				<div id="bgs">
-                        			<div class="stBgs stBlock">
-        						<span> Backgrounds </span>
-		                                                        <a rel="images/bg/1.jpg" class="thumb-img bgBody" title="bg1" style="background:#fff url(images/bg/1.jpg)">&nbsp;</a>
-		                                                        <a rel="images/bg/2.jpg" class="thumb-img bgBody" title="bg2" style="background:#fff url(images/bg/2.jpg)">&nbsp;</a>
-		                                                        <a rel="images/bg/3.jpg" class="thumb-img bgBody" title="bg3" style="background:#fff url(images/bg/3.jpg)">&nbsp;</a>
-		                                                        <a rel="images/bg/4.jpg" class="thumb-img bgBody" title="bg4" style="background:#fff url(images/bg/4.jpg)">&nbsp;</a>
-		                                                        <a rel="images/bg/5.jpg" class="thumb-img bgBody" title="bg5" style="background:#fff url(images/bg/5.jpg)">&nbsp;</a>
-		                                                        <a rel="images/bg/6.jpg" class="thumb-img bgBody" title="bg6" style="background:#fff url(images/bg/6.jpg)">&nbsp;</a>
-		                                                        <a rel="images/bg/7.jpg" class="thumb-img bgBody" title="bg7" style="background:#fff url(images/bg/7.jpg)">&nbsp;</a>
-		                                                        <a rel="images/bg/8.jpg" class="thumb-img bgBody" title="bg8" style="background:#fff url(images/bg/8.jpg)">&nbsp;</a>
-		                                                        <a rel="images/bg/9.jpg" class="thumb-img bgBody" title="bg9" style="background:#fff url(images/bg/9.jpg)">&nbsp;</a>
-		                                                        <a rel="images/bg/10.jpg" class="thumb-img bgBody" title="bg10" style="background:#fff url(images/bg/10.jpg)">&nbsp;</a>
-		                                                        <a rel="images/bg/11.jpg" class="thumb-img bgBody" title="bg11" style="background:#fff url(images/bg/11.jpg)">&nbsp;</a>
-		                                                        <a rel="images/bg/12.jpg" class="thumb-img bgBody" title="bg12" style="background:#fff url(images/bg/12.jpg)">&nbsp;</a>
-		                                                        <a rel="images/bg/13.jpg" class="thumb-img bgBody" title="bg13" style="background:#fff url(images/bg/13.jpg)">&nbsp;</a>
-		                                                        <a rel="images/bg/14.jpg" class="thumb-img bgBody" title="bg14" style="background:#fff url(images/bg/14.jpg)">&nbsp;</a>
-					</div>
-					<div><a href="#" class="bgColor">Background Color <span id="bgColor" title="fff" style="background-color:#ddd;">&nbsp;</span></a></div>
-				</div>
-				<div class="cl"><a href="#" class="bgColor">Color Scheme<span id="bgHeaderColor" title="FF0078" style="background-color:#FF0078;">&nbsp;</span></a></div>
-				<span>Headings Font</span><select name="hfont" id="hfont"></select>
-				<span>Content Font</span><select name="pfont" id="pfont"></select>
-			</div>
-		</div>
-	</div> -->
 </body>
 </html>

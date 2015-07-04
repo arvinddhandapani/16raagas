@@ -32,9 +32,8 @@
 	<![endif]-->
 </head>
 <body id="fluidGridSystem">
-	<div id="layout" class="full">
-	
-	<?php include 'header.php'; ?>
+	<div id="layout" class="full">	
+	   <?php include 'header.php'; ?>
 	
 		<div class="under_header">
 			<img src="images/assets/breadcrumbs2.png" alt="#">
@@ -169,7 +168,6 @@
 							</div>
 						</div><!-- widget content -->
 					</div><!-- def block widget popular items -->
-
 				</div><!-- span4 sidebar -->
 			</div><!-- row clearfix -->
 		</div><!-- end page content -->
@@ -180,13 +178,12 @@
 <!-- Scripts -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/theme20.js"></script>
-	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
 	<script type="text/javascript" src="js/jquery.jplayer.js"></script>
 	<script type="text/javascript" src="js/ttw-music-player-min.js"></script>
 	<script type="text/javascript" src="music/single-track.js"></script>
 	<script type="text/javascript" src="js/jquery.nanoscroller.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
-	
 </body>
 </html>

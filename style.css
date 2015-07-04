@@ -335,7 +335,6 @@ textarea {
 }
 .under_header {
 	height: 375px;
-	position: absolute;
 }
 .under_header img {
 	width: 100%;
@@ -1255,7 +1254,7 @@ li.track:hover .buy, .playing .buy {
 	border: 0;
 }
 .back_to_up {
-	/* margin: -180px 0 40px !important */
+	margin: -340px 0 40px !important
 }
 .error-page i {
 	font-size: 15em;
