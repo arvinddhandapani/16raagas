@@ -34,15 +34,18 @@
 	<style > 
 	body {
   margin: 0;
-  background: #000000 url('../images/bg.jpg') no-repeat;
+  background: #fefefe url('../images/bg.jpg') no-repeat;
   background-size: cover;
 }
+.page-content {
+  margin: 20px 0;
+}
 .company-name {
-  height: 80px;
+  height: 50px;
   border-bottom: 1px solid rgba(161, 161, 161, 0.25);
 }
 .company-name .company {
-  width: 200px;
+  width: 150px;
   margin: 0 auto;
 }
 .company-name .company a {
@@ -50,16 +53,20 @@
   line-height: 80px;
 }
 .register-main {
-  margin-top: 58px;
+  margin-top: 10px;
 }
 .register-main p {
-  color: #ffffff;
+  color: #000000;
   font-family: 'Raleway', sans-serif;
   font-size: 24px;
   font-weight: 600;
   text-transform: uppercase;
   text-align: center;
 }
+p {
+  margin-bottom: 0px;
+}
+
 .register-main .register-block {
   margin-top: 20px;
   background: rgba(17, 17, 17, 0.5);
