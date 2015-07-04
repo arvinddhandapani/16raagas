@@ -365,9 +365,9 @@ textarea {
 	cursor:pointer;
 	position:relative;
 	word-spacing:0.2em;
-	background:#4285f4;
+	background: none repeat scroll 0 0 #66CCFF;
 	-webkit-border-radius: 2px;
-	border-radius: 2px;
+	border: 0 none;
 	color:#fff;
 	white-space: nowrap;	
 	text-transform:uppercase;
@@ -379,22 +379,25 @@ textarea {
 	background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0.08) 0%, rgba(128,128,128,0.08) 50%, rgba(255,255,255,0.08) 100%);
 	background-image: -ms-linear-gradient(bottom, rgba(0,0,0,0.08) 0%, rgba(128,128,128,0.08) 50%, rgba(255,255,255,0.08) 100%);
 	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgba(0,0,0,0.08)),color-stop(0.5, rgba(128,128,128,0.08)),color-stop(1, rgba(255,255,255,0.08)));
-	-moz-box-shadow:inset 0 0 1px rgba(0,0,0,0.1);
-	-webkit-box-shadow:inset 0 0 1px rgba(0,0,0,0.1);
-	box-shadow:inset 0 0 1px rgba(0,0,0,0.1);
+	-moz-box-shadow:-3px 3px 0 #4285f4, -2px 2px #4285f4, -1px 1px 0 #4285f4;
+	-webkit-box-shadow:-3px 3px 0 #4285f4, -2px 2px #4285f4, -1px 1px 0 #4285f4;
+	box-shadow: -3px 3px 0 #4285f4, -2px 2px #4285f4, -1px 1px 0 #4285f4;
 	-webkit-transition: all 0.2s ease;
 	transition: all 0.2s ease;
+	
 }
 .tbutton:hover {
-	color: #fff;
-	background:#4683ea
+	color: #000;
+	background:#66CCFF
 }
 .tbutton.color2 {
-	background:#181818
+	 background: none repeat scroll 0 0 #99cc00;
+     box-shadow: -3px 3px 0 #669900, -2px 2px #669900, -1px 1px 0 #669900;
 }
 .tbutton.color2:hover {
-	color: #fff;
-	background:#111
+	color: #000;
+	background: none repeat scroll 0 0 #99cc00;
+	box-shadow: -3px 3px 0 #669900, -2px 2px #669900, -1px 1px 0 #669900;
 }
 .tbutton.color3 {
 	background: #FF7000;
@@ -2682,9 +2685,8 @@ html[xmlns] .slides {display: block;}
 	color: #fff;
 	margin: 0 10px 0 0
 }
-#contactForm #senderName, 
-#contactForm #senderEmail, 
-#contactForm #message {
+#contactForm #senderName, #contactForm #senderEmail, #contactForm #message, #contactForm #username, #contactForm #userEmail, #contactForm #userPassword,
+#contactForm #userConfirmPassword {
 	display: block;
 	width: 100%;
 	border: 1px solid #EAEAEA;
