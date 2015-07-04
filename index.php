@@ -14,7 +14,7 @@
 		<meta name="keywords" content="16RaaGa, music, light, MP3 Store">
 
 	<!-- Styles -->
-		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="style.css" id="dark" media="screen" />
 		<link id="light" media="screen" href="styles/light.css" type="text/css" rel="stylesheet">
@@ -26,37 +26,35 @@
 		<link rel="shortcut icon" href="images/favicon.ico">
 		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 		<script src="js/jquery.min.js"></script>
-<script src="js/ajaxGetPost.js"></script>
-<script>
+		<script src="js/ajaxGetPost.js"></script>
+		<script>
+		$(document).ready(function()
+		{
+		var base_url="http://localhost:8888/adhandapani/16raagas/v1/";
+		var url,encodedata;
+		//$("#update").focus();
 
-
-$(document).ready(function()
-{
-var base_url="http://localhost:8888/adhandapani/16raagas/v1/";
-var url,encodedata;
-//$("#update").focus();
-
-/* Load Updates */
-url=base_url+'albums';
-encodedata='';
-ajax_data('GET',url, function(data)
-{
-	var j=0;
-	$.each(data.tasks, function(i,tasks)
-{
-	$.each(data.tasks[j], function(i,tasks)
-	{
-	alert (data.tasks[j].id);
-	//console.log(data.tasks);
-var html="<div class='news row-fluid animtt' data-gen='fadeUp' style='opacity:0;'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"' alt='hi'></div>";
-//var html="<div class='news row-fluid animtt' data-gen='fadeUp' style='opacity:0;'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"'alt='#'></div><div class='span7'><h3 class='news-title'> <a href='news_single.html'>"+data.tasks[j].album_year+"</a> </h3><p>"+data.tasks[j].album_desc+"</p><a href='' class='sign-btn tbutton small'><span>Buy Now</span></a></div><!-- span7 --></div><!-- news -->";
-$(html).appendTo("#mainContent");
-j=j+1;
-});
-});
-});
-});
-</script>
+		/* Load Updates */
+		url=base_url+'albums';
+		encodedata='';
+		ajax_data('GET',url, function(data)
+		{
+			var j=0;
+			$.each(data.tasks, function(i,tasks)
+		{
+			$.each(data.tasks[j], function(i,tasks)
+			{
+			//alert (data.tasks[j].id);
+			console.log(data.tasks);
+		//var html="<div class='news row-fluid animtt' data-gen='fadeUp' style='opacity:1;'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"' alt='hi'></div>";
+			var html="<div class='news row-fluid animtt' data-gen='fadeUp'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"'alt='#'></div><div class='span7'><h3 class='news-title'> <a href='news_single.html'>"+data.tasks[j].album_year+"</a> </h3><p>"+data.tasks[j].album_desc+"</p><a href='' class='sign-btn tbutton small'><span>Buy Now</span></a></div></div>";
+		$(html).appendTo("#mainContent");
+		j=j+1;
+		});
+		});
+		});
+		});
+		</script>
 
 	<!--[if IE]>
 		<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=EmulateIE8; IE=EDGE" />
@@ -193,10 +191,8 @@ j=j+1;
 							</div>
 						</div><!-- widget content -->
 					</div><!-- def block widget popular items -->
-
 				</div><!-- span4 sidebar -->
 			</div><!-- row clearfix -->
-
 		</div><!-- end page content -->
 
 	<?php include 'footer.php'; ?>
@@ -205,7 +201,7 @@ j=j+1;
 <!-- Scripts -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/theme20.js"></script>
-	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/rs-plugin/pluginsources/jquery.themepunch.plugins.min.js"></script>	
 	<script type="text/javascript" src="js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
@@ -243,6 +239,5 @@ j=j+1;
 		});
 	/* ]]> */
 	</script>
-	
 </body>
 </html>

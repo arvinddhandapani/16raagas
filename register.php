@@ -176,19 +176,19 @@ p {
                     <form role="form" method="post" action="index.html">
                         <div class="form-group">
                             <label for="username">user name</label>
-                            <input type="text" class="form-control" id="username" placeholder="">
+                            <input type="text" class="form-control" id="username" placeholder="UserName *" required="">
                         </div>
                         <div class="form-group">
                             <label for="email-addr">Email address</label>
-                            <input type="email" class="form-control" id="email-addr" placeholder="">
+                            <input type="email" class="form-control" id="email-addr" placeholder="Email Address *" required="">
                         </div>
                         <div class="form-group">
                             <label for="Password1">Password</label>
-                            <input type="password" class="form-control" id="Password1" placeholder="">
+                            <input type="password" class="form-control" id="Password1" placeholder="Password *" required="">
                         </div>
                         <div class="form-group">
                             <label for="Password2">Confirm Password</label>
-                            <input type="password" class="form-control" id="Password2" placeholder="">
+                            <input type="password" class="form-control" id="Password2" placeholder="Confirm Password *" required="">
                         </div>
                         <button type="submit" class="btn btn-default submit-btn">Submit now</button>
                     </form>
@@ -203,30 +203,8 @@ p {
 	</div><!-- end layout -->
 <!-- Scripts -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/theme20.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
-	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
-	<script type="text/javascript" src="js/jquery.nanoscroller.js"></script>
-	<script type="text/javascript" src="js/twitter/jquery.tweet.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-	<script type="text/javascript" src="js/gmap3.js"></script>
-	<script type="text/javascript">
-	/* <![CDATA[ */
-		jQuery(function () {
-		    jQuery("#map").gmap3({
-		        marker: {
-		            address: "Chennai"
-		        },
-		        map: {
-		            options: {
-		                zoom: 10
-		            }
-		        }
-		    });
-		});
-	/* ]]> */
-	</script>
+	
 </body>
 </html>
