@@ -2685,8 +2685,7 @@ html[xmlns] .slides {display: block;}
 	color: #fff;
 	margin: 0 10px 0 0
 }
-#contactForm #senderName, #contactForm #senderEmail, #contactForm #message, #contactForm #username, #contactForm #userEmail, #contactForm #userPassword,
-#contactForm #userConfirmPassword {
+#contactForm #senderName, #contactForm #senderEmail, #contactForm #message {
 	display: block;
 	width: 100%;
 	border: 1px solid #EAEAEA;
