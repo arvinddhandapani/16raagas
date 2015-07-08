@@ -93,9 +93,7 @@ class DbHandler {
             } else {
                 // user password is incorrect
                 return FALSE;
-		       // $full_salt = substr($password_hash, 0, 29);
-		        //$new_hash = crypt($password, $full_salt);
-				//return FALSE;
+		   
             }
         } else {
             $stmt->close();
