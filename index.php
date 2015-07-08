@@ -41,17 +41,19 @@ url=base_url+'albums';
 encodedata='';
 ajax_data('GET',url, function(data)
 {
-	
+	var j=0;
 	$.each(data.tasks, function(i,tasks)
 {
-	$.each()
-	alert (data.tasks[0].id);
+	$.each(data.tasks[j], function(i,tasks)
+	{
+	alert (data.tasks[j].id);
 	//console.log(data.tasks);
-var html="<div class='span5'><img class='four-radius' src='"+data.tasks[0].album_year+"'></div>";
-
+var html="<div class='news row-fluid animtt' data-gen='fadeUp' style='opacity:0;'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"' alt='hi'></div>";
+//var html="<div class='news row-fluid animtt' data-gen='fadeUp' style='opacity:0;'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"'alt='#'></div><div class='span7'><h3 class='news-title'> <a href='news_single.html'>"+data.tasks[j].album_year+"</a> </h3><p>"+data.tasks[j].album_desc+"</p><a href='' class='sign-btn tbutton small'><span>Buy Now</span></a></div><!-- span7 --></div><!-- news -->";
 $(html).appendTo("#mainContent");
+j=j+1;
 });
-
+});
 });
 });
 </script>
@@ -78,33 +80,18 @@ $(html).appendTo("#mainContent");
 							<div id="mainContent">
 								
 							</div>
-						<div class="news row-fluid animtt" data-gen="fadeUp" style="opacity:0;">
+						
+						<!--<div class="news row-fluid animtt" data-gen="fadeUp" style="opacity:0;">
 							
 							<div class="span5"><img class="four-radius" src="images/assets/news1.jpg" alt="#"></div>
 							<div class="span7">
 								<h3 class="news-title"> <a href="news_single.html">Ok Kanmani 2015</a> </h3>
 								<p>O Kadhal Kanmani (English: Oh Love, Apple of my Eye), also known as OK Kanmani, is a 2015 Indian Tamil romantic film written, directed and produced by Mani Ratnam.</p>
-								<a href="" class="sign-btn tbutton small"><span>Buy Now</span></a>
-							</div><!-- span7 -->
-						</div><!-- news -->
+								<a href="" class="sign-btn tbutton small"><span>Buy Now</span></a>-->
+							<!--</div>--><!-- span7 -->
+							<!--</div>--><!-- news -->
 
-						<div class="news row-fluid animtt" data-gen="fadeUp" style="opacity:0;">
-							<div class="span5"><img class="four-radius" src="images/assets/news2.jpg" alt="#"></div>
-							<div class="span7">
-								<h3 class="news-title"> <a href="news_single.html">Anjaan 2015</a> </h3>
-								<p>O Kadhal Kanmani (English: Oh Love, Apple of my Eye), also known as OK Kanmani, is a 2015 Indian Tamil romantic film written, directed and produced by Mani Ratnam.</p>
-								<a href="" class="sign-btn tbutton small"><span>Buy Now</span></a>
-							</div><!-- span7 -->
-						</div><!-- news -->
-
-						<div class="news row-fluid animtt" data-gen="fadeUp" style="opacity:0;">
-							<div class="span5"><img class="four-radius" src="images/assets/news3.jpg" alt="#"></div>
-							<div class="span7">
-								<h3 class="news-title"> <a href="news_single.html">Ok Kanmani 2015 'Remix'</a> </h3>
-								<p>O Kadhal Kanmani (English: Oh Love, Apple of my Eye), also known as OK Kanmani, is a 2015 Indian Tamil romantic film written, directed and produced by Mani Ratnam.</p>
-								<a href="" class="tbutton small"><span>Buy Now</span></a>
-							</div><!-- span7 -->
-						</div><!-- news -->
+					
 
 						<div class="load-news tac"><a href="#" class="tbutton small"><span>Load More</span></a></div>
 					</div><!-- def block -->
