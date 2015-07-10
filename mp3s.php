@@ -91,86 +91,86 @@
 								<div class="post no-border no-mp clearfix">
 									<ul class="tab-content-items">
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-1.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">Shamitabh 2015</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-1.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">Shamitabh 2015</a></h3>
 											<span> Ilayaraja </span>
 											<span> 22,250 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-2.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">Masss 2015</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-2.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">Masss 2015</a></h3>
 											<span> Yuvan Shanker Raja </span>
 											<span> 38,879 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-3.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">OK Kanmani 2015</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-3.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">OK Kanmani 2015</a></h3>
 											<span> A. R. Rahman </span>
 											<span> 12,240 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-4.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">Kakki Sattai 2015</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-4.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">Kakki Sattai 2015</a></h3>
 											<span> Anirudh R </span>
 											<span> 8,471 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-5.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">Pencil 2015</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-5.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">Pencil 2015</a></h3>
 											<span> G. V. Prakash </span>
 											<span> 10,105 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-6.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">2015</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-6.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">2015</a></h3>
 											<span> Babel </span>
 											<span> 1,748 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-7.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">2015</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-7.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">2015</a></h3>
 											<span> Alexander </span>
 											<span> 82,250 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-8.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">2015</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-8.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">2015</a></h3>
 											<span> Alexander Mikoole </span>
 											<span> 8,879 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-9.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">2015</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-9.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">2015</a></h3>
 											<span> Joe </span>
 											<span> 2,240 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-10.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">2015</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-10.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">2015</a></h3>
 											<span> Enrique </span>
 											<span> 8,471 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-1.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">2015</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-1.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">2015</a></h3>
 											<span> Ilayaraja </span>
 											<span> 2,105 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-2.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">2015</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-2.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">2015</a></h3>
 											<span> Yuvan Shanker Raja </span>
 											<span> 4,748 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-3.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">2015</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-3.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">2015</a></h3>
 											<span> A. R. Rahman </span>
 											<span> 109,240 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-4.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">2015</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-4.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">2015</a></h3>
 											<span> Anirudh R </span>
 											<span> 88,471 Plays </span>
 										</li>
@@ -182,26 +182,26 @@
 								<div class="post no-border no-mp clearfix">
 									<ul class="tab-content-items">
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-6.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">Skyfool ( Dubstep Remix )</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-6.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">Skyfool ( Dubstep Remix )</a></h3>
 											<span> Babel </span>
 											<span> 4,451,748 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-7.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">Don’t go mary ( Remix )</a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-7.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">Don’t go mary ( Remix )</a></h3>
 											<span> Alexander </span>
 											<span> 3,582,250 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-8.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">That's My Kind Of Night </a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-8.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">That's My Kind Of Night </a></h3>
 											<span> Alexander Mikoole </span>
 											<span> 3,258,879 Plays </span>
 										</li>
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-9.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">Magna Carta... Holy Grail </a></h3>
+											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/thumb-mp3-9.jpg" alt="#"></a>
+											<h3><a href="mp3_single_half.php">Magna Carta... Holy Grail </a></h3>
 											<span> Joe </span>
 											<span> 1,992,244 Plays </span>
 										</li>
