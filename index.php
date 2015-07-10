@@ -28,32 +28,32 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/ajaxGetPost.js"></script>
 		<script>
-		$(document).ready(function()
-		{
-		var base_url="http://localhost:8888/adhandapani/16raagas/v1/";
-		var url,encodedata;
-		//$("#update").focus();
-
-		/* Load Updates */
-		url=base_url+'albums';
-		encodedata='';
-		ajax_data('GET',url, function(data)
-		{
-			var j=0;
-			$.each(data.tasks, function(i,tasks)
-		{
-			$.each(data.tasks[j], function(i,tasks)
+			$(document).ready(function()
 			{
-			//alert (data.tasks[j].id);
-			console.log(data.tasks);
-		//var html="<div class='news row-fluid animtt' data-gen='fadeUp' style='opacity:1;'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"' alt='hi'></div>";
-			var html="<div class='news row-fluid animtt' data-gen='fadeUp'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"'alt='#'></div><div class='span7'><h3 class='news-title'> <a href='news_single.html'>"+data.tasks[j].album_year+"</a> </h3><p>"+data.tasks[j].album_desc+"</p><a href='' class='sign-btn tbutton small'><span>Buy Now</span></a></div></div>";
-		$(html).appendTo("#mainContent");
-		j=j+1;
-		});
-		});
-		});
-		});
+			var base_url="http://127.0.0.1/16raagas/v1/";
+			var url,encodedata;
+			//$("#update").focus();
+
+			/* Load Updates */
+			url=base_url+'albums';
+			encodedata='';
+			ajax_data('GET',url, function(data)
+			{
+				var j=0;
+				$.each(data.tasks, function(i,tasks)
+			{
+				$.each(data.tasks[j], function(i,tasks)
+				{
+				//alert (data.tasks[j].id);
+				//console.log(data.tasks);
+				//var html="<div class='news row-fluid animtt' data-gen='fadeUp' style='opacity:1;'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"' alt='hi'></div>";
+				var html="<div class='news row-fluid animtt' data-gen='fadeUp'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"'alt='#'></div><div class='span7'><h3 class='news-title'> <a href='mp3_single_half.php'>"+data.tasks[j].album_year+"</a> </h3><p>"+data.tasks[j].album_desc+"</p><a href='' class='sign-btn tbutton small'><span>Buy Now</span></a></div></div>";
+			$(html).appendTo("#mainContent");
+			j=j+1;
+			});
+			});
+			});
+			});
 		</script>
 
 	<!--[if IE]>
@@ -78,19 +78,6 @@
 							<div id="mainContent">
 								
 							</div>
-						
-						<!--<div class="news row-fluid animtt" data-gen="fadeUp" style="opacity:0;">
-							
-							<div class="span5"><img class="four-radius" src="images/assets/news1.jpg" alt="#"></div>
-							<div class="span7">
-								<h3 class="news-title"> <a href="news_single.html">Ok Kanmani 2015</a> </h3>
-								<p>O Kadhal Kanmani (English: Oh Love, Apple of my Eye), also known as OK Kanmani, is a 2015 Indian Tamil romantic film written, directed and produced by Mani Ratnam.</p>
-								<a href="" class="sign-btn tbutton small"><span>Buy Now</span></a>-->
-							<!--</div>--><!-- span7 -->
-							<!--</div>--><!-- news -->
-
-					
-
 						<div class="load-news tac"><a href="#" class="tbutton small"><span>Load More</span></a></div>
 					</div><!-- def block -->
 				</div><!-- span8 news -->

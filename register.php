@@ -10,8 +10,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<!-- Seo Meta -->
-		<meta name="description" content="Contact | Remix - Music & Band Site Template HTML5 and CSS3">
-		<meta name="keywords" content="remix, music, light, dark, themeforest, multi purpose, band, css3, html5">
+		<meta name="description" content="16RaaGas - Music & Music Store">
+		<meta name="keywords" content="16RaaGas, music, light, MP3 Store">
 
 	<!-- Styles -->
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" media="screen" />
@@ -33,122 +33,13 @@
 	
 	<style > 
 	body {
-  margin: 0;
-  background: #fefefe url('../images/bg.jpg') no-repeat;
-  background-size: cover;
-}
-.page-content {
-  margin: 20px 0;
-}
-.company-name {
-  height: 50px;
-  border-bottom: 1px solid rgba(161, 161, 161, 0.25);
-}
-.company-name .company {
-  width: 150px;
-  margin: 0 auto;
-}
-.company-name .company a {
-  text-decoration: none;
-  line-height: 80px;
-}
-.register-main {
-  margin-top: 10px;
-}
-.register-main p {
-  color: #000000;
-  font-family: 'Raleway', sans-serif;
-  font-size: 24px;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-align: center;
-}
-p {
-  margin-bottom: 0px;
-}
-
-.register-main .register-block {
-  margin-top: 20px;
-  background: rgba(17, 17, 17, 0.5);
-}
-.register-main .register-block .sign-up {
-  padding-top: 24px;
-  padding-bottom: 60px;
-}
-.register-main .register-block .sign-up p {
-  font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #ffffff;
-  text-align: center;
-  padding-bottom: 30px;
-  border-bottom: 2px solid rgba(161, 161, 161, 0.25);
-  margin-bottom: 22px;
-  letter-spacing: 0.5px;
-}
-.register-main .register-block .sign-up p span a {
-  font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #33b5e5;
-  text-decoration: none;
-  text-align: center;
-}
-.register-main .register-block .sign-up label {
-  color: #ffffff;
-  font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: capitalize;
-  line-height: 20px;
-}
-.register-main .register-block .sign-up input {
-  background-color: #f9f9f9;
-}
-.register-main .register-block .sign-up .form-control {
-  border-radius: 0;
-  height: 45px;
-  border: 0;
-}
-.register-main .register-block .sign-up .form-control:focus {
-  outline: 0;
-  box-shadow: none;
-  border: 0;
-}
-.register-main .register-block .sign-up .submit-btn {
-  margin-top: 18px;
-  border-radius: 0;
-  border: 0;
-  height: 48px;
-  width: 100%;
-  background-color: #33b5e5;
-  color: #ffffff;
-  font-family: 'Raleway', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  line-height: 48px;
-  padding: 0px;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  border: 1px solid #33b5e5;
-}
-.register-main .register-block .sign-up .submit-btn:focus {
-  outline: 0;
-  box-shadow: none;
-  border: 0;
-  background: #ffffff;
-  color: #33b5e5;
-}
-.register-main .register-block .sign-up .submit-btn:hover {
-  background: #1a9bcb;
-  color: #FFFFFF;
-}
+	  margin: 0;
+	  background: #eee url("../images/bg/light_bg.png") repeat scroll 0 0;
+	  background-size: cover;
+	}
+	p {
+	  margin-bottom: 0px;
+	}
 	</style>
 	
 </head>
@@ -156,14 +47,31 @@ p {
 
 <div class="page-content">
 
-<div class="company-name">
+	<div class="company-name">
         <div class="container company">
-            <a href="#">
+            <a href="index.php">
                 <img src="images/logo.png" alt="logo">
             </a>
         </div>
     </div>
     <!--    end of company-name-->
+	
+	<!-- popup login -->
+	<div id="popupLogin">
+		<div class="def-block widget">
+			<h4> Sign In </h4><span class="liner"></span>
+			<div class="widget-content row-fluid">
+				<form id="popup_login_form">
+					<input type="text" name="login_username" id="login_username" onfocus="if (this.value=='username') this.value = '';" onblur="if (this.value=='') this.value = 'username';" value="username" placeholder="username">
+					<input type="password" name="login_password" id="login_password" onfocus="if (this.value=='password') this.value = '';" onblur="if (this.value=='') this.value = 'password';" value="password" placeholder="password">
+					<a href="#" class="tbutton small"><span>Sign In</span></a>
+				</form><!-- login form -->
+			</div><!-- content -->
+		</div><!-- widget -->
+		<div id="popupLoginClose">x</div>
+	</div><!-- popup login -->
+	<div id="LoginBackgroundPopup"></div>
+	
     <!--    register-block-->
     <div class="register-main">
         <div class="container">
@@ -171,7 +79,7 @@ p {
             <div class="col-md-offset-4 col-md-4 register-block">
                 <!--                sign-up-->
                 <div class="sign-up">
-                    <p>Already have an account? <span><a href="#">Sign in Now</a></span>
+                    <p>Already have an account? <span><a id="Login_PopUp_Link" >Sign in Now</a></span>
                     </p>
                     <form role="form" method="post" action="index.html">
                         <div class="form-group">

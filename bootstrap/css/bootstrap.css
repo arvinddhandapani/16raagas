@@ -168,7 +168,7 @@ input[type="search"]::-webkit-search-decoration {
 select,textarea,input[type="text"],input[type="password"],input[type="datetime"],input[type="datetime-local"],input[type="date"],input[type="month"],
 input[type="time"],input[type="week"],input[type="number"],input[type="email"],input[type="url"],input[type="search"],input[type="tel"],input[type="color"],
 .uneditable-input{
-	display:inline-block;height:20px;padding:4px 6px;margin-bottom:10px;font-size:14px;line-height:20px;color:#555;
+	display:inline-block;padding:4px 6px;margin-bottom:10px;font-size:14px;line-height:20px;color:#555;
 	vertical-align:middle;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px
 }
 
@@ -6806,3 +6806,10 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+/*----------------Changes from old CSS-------------------*/
+.clearfix{*zoom:1}
+.clearfix:before, .clearfix:after{display:table;line-height:0;content:""}
+.clearfix:after{clear:both}
+.hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
+.input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
