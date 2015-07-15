@@ -23,7 +23,7 @@
 					<!-- <div class="rege-btn tbutton color2 small"><a href="register.php"><span>Register</span></a></div> -->
 					<div id="Login_PopUp_Link" class="sign-btn tbutton small"><span>Sign In / Register</span></div>
 					<div class="search">
-						<form action="" id="search" method="get">
+						<form action="search.php" id="search" method="get">
 							<input id="inputhead" name="search" type="text" onfocus="if (this.value=='Start Searching...') this.value = '';" onblur="if (this.value=='') this.value = 'Start Searching...';" value="Start Searching..." placeholder="Start Searching ...">
 							<button type="submit"><i class="icon-search"></i></button>
 						</form><!-- end form -->
@@ -48,8 +48,8 @@
 									<li><a href="#">Malayalam</a></li>
 								</ul>
 							</li>
-							<li><a href="">Archive</a></li>
-							<li><a href="">Gallery</a></li>							
+							<li><a href="archive.php">Archive</a></li>
+							<li><a href="profile.php">Profile</a></li>							
 						</ul><!-- end menu -->
 					</nav><!-- end nav -->
 				</div><!-- row -->

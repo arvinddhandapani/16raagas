@@ -18,14 +18,12 @@
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="style.css" id="dark" media="screen" />
 		<link id="light" media="screen" href="styles/light.css" type="text/css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="js/rs-plugin/css/settings.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="styles/icons/icons.css" media="screen" />
 		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 
 	<!-- Favicon -->
 		<link rel="shortcut icon" href="images/favicon.ico">
 		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-		<script src="js/jquery.min.js"></script>
 		<script src="js/ajaxGetPost.js"></script>
 		<script>
 			$(document).ready(function()

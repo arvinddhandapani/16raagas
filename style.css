@@ -4510,6 +4510,116 @@ a.notification-close {
 .evo_fc_widget .eventon_fullcal .eventon_fc_daynames .evo_fc_day:first-letter{visibility:visible;}
 .evo_fc_widget .eventon_fullcal .evo_fc_day{font-size:12px;}
 
+/*--------------------Register Page Styles-----------------*/
+.page-content {
+  margin: 20px 0;
+}
+.company-name {
+  height: 50px;
+  border-bottom: 1px solid rgba(161, 161, 161, 0.25);
+}
+.company-name .company {
+  width: 150px;
+  margin: 0 auto;
+}
+.company-name .company a {
+  text-decoration: none;
+  line-height: 80px;
+}
+.register-main {
+  margin-top: 10px;
+}
+.register-main p {
+  color: #000000;
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+.register-main .register-block {
+  margin-top: 20px;
+  background: rgba(17, 17, 17, 0.5);
+}
+.register-main .register-block .sign-up {
+  padding-top: 24px;
+  padding-bottom: 60px;
+}
+.register-main .register-block .sign-up p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-align: center;
+  padding-bottom: 30px;
+  border-bottom: 2px solid rgba(161, 161, 161, 0.25);
+  margin-bottom: 22px;
+  letter-spacing: 0.5px;
+}
+.register-main .register-block .sign-up p span a {
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #33b5e5;
+  text-decoration: none;
+  text-align: center;
+}
+.register-main .register-block .sign-up label {
+  color: #ffffff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: capitalize;
+  line-height: 20px;
+}
+.register-main .register-block .sign-up input {
+  background-color: #f9f9f9;
+}
+.register-main .register-block .sign-up .form-control {
+  border-radius: 0;
+  height: 45px;
+  border: 0;
+}
+.register-main .register-block .sign-up .form-control:focus {
+  outline: 0;
+  box-shadow: none;
+  border: 0;
+}
+.register-main .register-block .sign-up .submit-btn {
+  margin-top: 18px;
+  border-radius: 0;
+  border: 0;
+  height: 48px;
+  width: 100%;
+  background-color: #33b5e5;
+  color: #ffffff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 48px;
+  padding: 0px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid #33b5e5;
+}
+.register-main .register-block .sign-up .submit-btn:focus {
+  outline: 0;
+  box-shadow: none;
+  border: 0;
+  background: #ffffff;
+  color: #33b5e5;
+}
+.register-main .register-block .sign-up .submit-btn:hover {
+  background: #1a9bcb;
+  color: #FFFFFF;
+}
+
 /*	More Styles
 ----------------------------------------------------------------------*/
 .mi { margin-right: 4px }
@@ -4553,7 +4663,6 @@ a.notification-close {
 .news-title a{
 	color: #666;
 }
-
 /*	IE8 & IE9 Hacks
 ----------------------------------------------------------------------*/
 .ie8 #header, .ie8 .sf-menu ul li, .ie8 .ttw-music-player .buy, .ie8 #LoginBackgroundPopup {
@@ -4915,114 +5024,4 @@ a.notification-close {
 	#popupLogin {width: 310px}
 	.ajde_evcal_calendar .calendar_header p {font-size: 26px}
 	.forum .search-forum {position: relative;width: 100%}
-}
-
-/*--------------------Register Page Styles-----------------*/
-.page-content {
-  margin: 20px 0;
-}
-.company-name {
-  height: 50px;
-  border-bottom: 1px solid rgba(161, 161, 161, 0.25);
-}
-.company-name .company {
-  width: 150px;
-  margin: 0 auto;
-}
-.company-name .company a {
-  text-decoration: none;
-  line-height: 80px;
-}
-.register-main {
-  margin-top: 10px;
-}
-.register-main p {
-  color: #000000;
-  font-family: 'Raleway', sans-serif;
-  font-size: 24px;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-align: center;
-}
-.register-main .register-block {
-  margin-top: 20px;
-  background: rgba(17, 17, 17, 0.5);
-}
-.register-main .register-block .sign-up {
-  padding-top: 24px;
-  padding-bottom: 60px;
-}
-.register-main .register-block .sign-up p {
-  font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #ffffff;
-  text-align: center;
-  padding-bottom: 30px;
-  border-bottom: 2px solid rgba(161, 161, 161, 0.25);
-  margin-bottom: 22px;
-  letter-spacing: 0.5px;
-}
-.register-main .register-block .sign-up p span a {
-  font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #33b5e5;
-  text-decoration: none;
-  text-align: center;
-}
-.register-main .register-block .sign-up label {
-  color: #ffffff;
-  font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: capitalize;
-  line-height: 20px;
-}
-.register-main .register-block .sign-up input {
-  background-color: #f9f9f9;
-}
-.register-main .register-block .sign-up .form-control {
-  border-radius: 0;
-  height: 45px;
-  border: 0;
-}
-.register-main .register-block .sign-up .form-control:focus {
-  outline: 0;
-  box-shadow: none;
-  border: 0;
-}
-.register-main .register-block .sign-up .submit-btn {
-  margin-top: 18px;
-  border-radius: 0;
-  border: 0;
-  height: 48px;
-  width: 100%;
-  background-color: #33b5e5;
-  color: #ffffff;
-  font-family: 'Raleway', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  line-height: 48px;
-  padding: 0px;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  border: 1px solid #33b5e5;
-}
-.register-main .register-block .sign-up .submit-btn:focus {
-  outline: 0;
-  box-shadow: none;
-  border: 0;
-  background: #ffffff;
-  color: #33b5e5;
-}
-.register-main .register-block .sign-up .submit-btn:hover {
-  background: #1a9bcb;
-  color: #FFFFFF;
 }
