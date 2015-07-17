@@ -24,11 +24,13 @@
 	<!-- Favicon -->
 		<link rel="shortcut icon" href="images/favicon.ico">
 		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+		<script src="js/jquery.min.js"></script>
 		<script src="js/ajaxGetPost.js"></script>
 		<script>
 			$(document).ready(function()
 			{
-			var base_url="http://127.0.0.1/16raagas/v1/";
+			//var base_url="http://127.0.0.1/16raagas/v1/";
+			var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
 			var url,encodedata;
 			//$("#update").focus();
 

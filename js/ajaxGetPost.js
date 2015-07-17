@@ -6,16 +6,19 @@ url:url,
 data :encodedata,
 dataType:"json",
 restful:true,
-contentType: 'application/json',
+//contentType: 'application/json',
+contentType: 'application/x-www-form-urlencoded',
 cache:false,
 timeout:20000,
 async:true,
 beforeSend :function(data) { },
 success:function(data){
+	//alert("error");
 success.call(this, data);
 },
 error:function(data){
-alert("Error In Connecting");
+//alert("Error In Connecting");
+alert("Please Check your credentials");
 }
 });
 }

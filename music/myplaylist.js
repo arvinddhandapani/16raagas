@@ -5,7 +5,7 @@
 var myPlaylist = [
 	
 	{
-		mp3:'music/1.Mental Manadhil.mp3',
+		mp3:'music/1.Mental_Manadhil.mp3',
 		// oga:'music/5.ogg',
 		title:'ok kanmani',
 		artist:'A. R. Rahman',
