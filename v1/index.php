@@ -84,25 +84,51 @@ $app->post('/register', function() use ($app) {
             $name = $app->request->post('name');
             $email = $app->request->post('email');
             $password = $app->request->post('password');
+			$verification_code = md5($email.$password."dskjnfsdlknf123sdlkfm");
+			$status = 0;
 
             // validating email address
             validateEmail($email);
 
             $db = new DbHandler();
-            $res = $db->createUser($name, $email, $password);
+            $res = $db->createUser($name, $email, $password, $verification_code, $status);
 
             if ($res == USER_CREATED_SUCCESSFULLY) {
                 $response["error"] = false;
                 $response["message"] = "You are successfully registered";
+				$response["url1"] = "http://localhost/adhandapani/16raagas/16raagas/register.php?email=".$email."&auth_code=".$verification_code;
+			
+				$headers  = 'MIME-Version: 1.0' . "\r\n";
+				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+				$headers .= 'To: arvind.mib@gmail.com' . "\r\n";
+				$headers .= 'From: 16raagas <support@16raagas.com>' . "\r\n";
+				$message = '
+				<html>
+				<head>
+				  <title>16raagas.com Registration link</title>
+				</head>
+				<body>
+				 <h1> <p>16raagas.com</p> </h1>
+				 <p>
+				 Thank you for registring with 16raaga.com. Please click the below link to activate your account.<br>
+				 http://localhost/adhandapani/16raagas/16raagas/register.php?email='.$email.'&auth_code='.$verification_code.'
+				</body>
+				</html>
+				';
+				$to="arvind.mib@gmail.com";
+				$subject="16raagas.com registration Confirmation";
+				mail($to, $subject, $message, $headers);
+				
             } else if ($res == USER_CREATE_FAILED) {
                 $response["error"] = true;
-                $response["message"] = "Oops! An error occurred while registereing";
+                $response["message"] = "Sorry, Could not process your request. Internal server Error";
             } else if ($res == USER_ALREADY_EXISTED) {
                 $response["error"] = true;
-                $response["message"] = "Sorry, this email already existed";
+                $response["message"] = "Sorry, this email already exists";
             }
             // echo json response
-            echoRespnse(201, $response);
+            echoRespnse(200, $response);
         });
 
 /**
