@@ -131,6 +131,47 @@ $app->post('/register', function() use ($app) {
             echoRespnse(200, $response);
         });
 
+		/**
+		 * User Registration Verification
+		 * url - /authorise
+		 * method - POST
+		 * params - email, auth_code
+		 */
+		$app->post('/authorise', function() use ($app) {
+		            // check for required params
+		            verifyRequiredParams(array('email', 'auth_code'));
+
+		            $response = array();
+
+		            // reading post params
+		           
+		            $email = $app->request->post('email');
+		            $auth_code = $app->request->post('auth_code');
+					
+					$status = 1;
+
+		            // validating email address
+		            validateEmail($email);
+
+		            $db = new DbHandler();
+		            $res = $db->authVerify($email, $auth_code);
+
+		            if ($res == 1) {
+		         	   $response["error"] = false;
+					   $response["message"] = "Your Email is Successfully registered. Please login to Continue.";
+				
+		            } elseif ($res == 3) {
+		                $response["error"] = true;
+		                $response["message"] = "Sorry, Could not process your request. Auth Code/emailID is Invalid";
+		            } elseif ($res == 2) {
+		                $response["error"] = true;
+		                $response["message"] = "User is already Registered and Verified";
+		            } 
+		            // echo json response
+		            echoRespnse(200, $response);
+		        });
+
+
 /**
  * User Login
  * url - /login
@@ -435,8 +476,10 @@ function validateEmail($email) {
     }
 }
 
-/**
- * Echoing json response to client
+
+
+
+ /* Echoing json response to client
  * @param String $status_code Http response code
  * @param Int $response Json response
  */

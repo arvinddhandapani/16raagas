@@ -102,6 +102,40 @@ class DbHandler {
             return FALSE;
         }
     }
+    /**
+     * Checking for duplicate user by email address
+     * @param String $email email to check in db
+     * @return boolean
+     */
+	
+	public function authVerify($email, $auth_code) {
+		$stmt = $this->conn->prepare("SELECT status from users WHERE email = ? AND verification_code = ?");
+		$stmt->bind_param("ss", $email,$auth_code);
+        $stmt->execute();
+		 $stmt->bind_result($status);
+        $stmt->store_result();
+		 if ($stmt->num_rows > 0) {
+             $stmt->fetch();
+ 
+             $stmt->close();
+			  if ($status == "0") {
+          
+		
+		         $stmt = $this->conn->prepare("UPDATE users set status = 1 WHERE email = ? AND verification_code = ?");
+		         $stmt->bind_param("ss", $email,$auth_code);
+		         $stmt->execute();
+		         $num_affected_rows = $stmt->affected_rows;
+		         $stmt->close();
+		         return 1;
+			 } else {
+				 return 2;
+			 } 
+		 } else {
+			 return 3;
+		 }
+				
+		
+	}
  
     /**
      * Checking for duplicate user by email address

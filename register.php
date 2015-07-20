@@ -45,7 +45,32 @@
 			<script src="js/jquery.min.js"></script>
 			<script src="js/ajaxGetPost.js"></script>
 
-			<script>
+			<script type="text/javascript">
+	
+	function verifyemail(email,auth_code) {
+		//alert (email);
+		//alert (auth_code);
+		
+		var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
+		url=base_url+'authorise';
+		var encode="email="+email+"&"+"auth_code="+auth_code;
+		post_ajax_data(url,encode, function(data)
+		{
+		   if(data.error===true){
+			   var msg12="<span>"+data.message+"</span>";
+			   $(msg12).appendTo("#authfailed");
+			   window.location.href="register.php?authMessage="+msg12;
+			   //alert(data.message);
+			} else {
+			var msg12="<span>"+data.message+"</span>";
+		   $(msg12).appendTo("#authfailed");
+		   window.location.href="login.php?register=success";
+		   window.location.href="login.php?authMessage=success";
+		}
+	});
+}
+	
+	
 	function register() {
 		var username=$('#username').val();
 		var emailaddr=$('#emailaddr').val();
@@ -124,9 +149,19 @@
 	
     <!--    register-block-->
     <div class="register-main">
-		
 		<?php
-		if (!isset($_GET['register']) || $_GET['register']!="success") {
+	
+		if (isset($_GET['email']) && isset($_GET['auth_code'])) {
+			echo "inside";
+			echo 	'<script> verifyemail("'.$_GET['email'].'","'.$_GET['auth_code'].'") </script>';
+		?>
+		<!--<script>
+		"verifyemail()";
+		</script> -->
+		
+		 <p><?php echo $_GET['authMessage']?></p>
+		<?php
+	} elseif (!isset($_GET['register']) || $_GET['register']!="success") {
 		?>
 		
         <div class="container">
@@ -144,7 +179,7 @@
 					<p><?php echo $_GET['register'];?>
 					<?php } ?>
                     </p></span>
-					
+				
                     <form role="form" method="post" onsubmit="return false;">
                         <div class="form-group">
                             <label for="username">user name</label>
