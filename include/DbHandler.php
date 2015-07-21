@@ -371,13 +371,56 @@ class DbHandler {
         return $tasks;
     }
 	
-	
+	    /**
+	     * Fetching all user tasks
+	     * @param String $user_id id of the user
+	     */
+	    public function getAllAlbumsbyLang($lang) {
+	        $stmt = $this->conn->prepare("SELECT a.* FROM albums a where a.language = ?");
+	        $stmt->bind_param("s", $lang);
+	        $stmt->execute();
+	        $tasks = $stmt->get_result();
+	        $stmt->close();
+	        return $tasks;
+	    }
+		
+		
+		
+	    public function getAllAlbumsbyLangswitch($lang,$switch) {
+			if ($switch != "all") {
+				$switch = $switch."%";
+			} else {
+				$switch = "%";
+			}
+			
+	        $stmt = $this->conn->prepare("SELECT a.* FROM albums a where a.language = ? AND a.album_name like ?");
+	        $stmt->bind_param("ss", $lang,$switch);
+	        $stmt->execute();
+	        $tasks = $stmt->get_result();
+	        $stmt->close();
+	        return $tasks;
+	    }
+		
     /**
      * Fetching all user tasks
      * @param String $user_id id of the user
      */
     public function getAllUserTasks($user_id) {
         $stmt = $this->conn->prepare("SELECT a.* FROM albums a");
+       // $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $tasks = $stmt->get_result();
+        $stmt->close();
+        return $tasks;
+    }
+	
+	
+    /**
+     * Fetching all user tasks
+     * @param String $user_id id of the user
+     */
+    public function getAllSlider() {
+        $stmt = $this->conn->prepare("SELECT a.* FROM main_slider a where a.show_hide = 1");
        // $stmt->bind_param("i", $user_id);
         $stmt->execute();
         $tasks = $stmt->get_result();

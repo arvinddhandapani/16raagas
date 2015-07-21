@@ -19,7 +19,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css" id="dark" media="screen" />
 		<link id="light" media="screen" href="styles/light.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styles/icons/icons.css" media="screen" />
-		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	<!--	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'> -->
 
 	<!-- Favicon -->
 		<link rel="shortcut icon" href="images/favicon.ico">
@@ -44,13 +44,14 @@
 			{
 				$.each(data.tasks[j], function(i,tasks)
 				{
-				//alert (data.tasks[j].id);
-				//console.log(data.tasks);
-				//var html="<div class='news row-fluid animtt' data-gen='fadeUp' style='opacity:1;'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"' alt='hi'></div>";
-				var html="<div class='news row-fluid animtt' data-gen='fadeUp'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"'alt='#'></div><div class='span7'><h3 class='news-title'> <a href='mp3_single_half.php'>"+data.tasks[j].album_year+"</a> </h3><p>"+data.tasks[j].album_desc+"</p><a href='' class='sign-btn tbutton small'><span>Buy Now</span></a></div></div>";
+					if (j<4){
+						
+				var html="<div class='news row-fluid animtt' data-gen='fadeUp'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"'alt='#'></div><div class='span7'><h3 class='news-title'> <a href='mp3_single_half.php'>"+data.tasks[j].album_name+"</a> </h3><p>"+data.tasks[j].album_desc+"</p><a href='' class='sign-btn tbutton small'><span>Buy Now</span></a></div></div>";
 			$(html).appendTo("#mainContent");
+		}
 			j=j+1;
-			});
+			
+		});
 			});
 			});
 			});

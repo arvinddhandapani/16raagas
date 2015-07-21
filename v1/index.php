@@ -131,12 +131,12 @@ $app->post('/register', function() use ($app) {
             echoRespnse(200, $response);
         });
 
-		/**
-		 * User Registration Verification
-		 * url - /authorise
-		 * method - POST
-		 * params - email, auth_code
-		 */
+/**
+* User Registration Verification
+* url - /authorise
+* method - POST
+* params - email, auth_code
+*/
 		$app->post('/authorise', function() use ($app) {
 		            // check for required params
 		            verifyRequiredParams(array('email', 'auth_code'));
@@ -239,6 +239,7 @@ $app->get('/albums', function() {
 		            while ($task = $result->fetch_assoc()) {
 		                $tmp = array();
 		                $tmp["id"] = $task["id"];
+						$tmp["album_name"] = $task["album_name"];
 		                $tmp["album_year"] = $task["album_year"];
 		                $tmp["album_img"] = $task["album_img"];
 						$tmp["music_director"] = $task["music_director"];
@@ -249,6 +250,108 @@ $app->get('/albums', function() {
 
 		            echoRespnse(200, $response);
 		        });
+
+
+/**
+* Listing all albums by name
+* method GET
+* url /albumsLanguage
+* returns id, album_year, album_img, album_desc, music_director         
+*/
+				
+				$app->get('/albumsLanguage/:lang', function($lang) {
+					global $user_id;
+					$response = array();
+					$db = new DbHandler();
+					
+					$result = $db->getAllAlbumsbyLang($lang);
+				    $response["error"] = false;
+				    $response["tasks"] = array();
+
+					if ($result != NULL) {
+				        // looping through result and preparing tasks array
+				        while ($task = $result->fetch_assoc()) {
+		   				 $tmp = array();
+		   				 $tmp["id"] = $task["id"];
+						 $tmp["album_name"] = $task["album_name"];
+		   				 $tmp["album_year"] = $task["album_year"];
+		   				 $tmp["album_img"] = $task["album_img"];
+		   				 $tmp["music_director"] = $task["music_director"];
+		   				 $tmp["album_desc"] = $task["album_desc"];
+		   			     array_push($response["tasks"], $tmp);
+				        }
+						echoRespnse(200, $response);
+					} else {
+						$response["error"] = true;
+						$response["message"] = $lang;
+						echoRespnse(404, $response);
+					}
+				});
+
+
+
+				/**
+				* Listing all albums by name
+				* method GET
+				* url /albumsLanguage
+				* returns id, album_year, album_img, album_desc, music_director         
+				*/
+				
+								$app->get('/albumsLanguageSwitch/:lang/:switch', function($lang,$switch) {
+									global $user_id;
+									$response = array();
+									$db = new DbHandler();
+					
+									$result = $db->getAllAlbumsbyLangswitch($lang,$switch);
+								    $response["error"] = false;
+								    $response["tasks"] = array();
+
+									if ($result != NULL) {
+								        // looping through result and preparing tasks array
+								        while ($task = $result->fetch_assoc()) {
+						   				 $tmp = array();
+						   				 $tmp["id"] = $task["id"];
+										 $tmp["album_name"] = $task["album_name"];
+						   				 $tmp["album_year"] = $task["album_year"];
+						   				 $tmp["album_img"] = $task["album_img"];
+						   				 $tmp["music_director"] = $task["music_director"];
+						   				 $tmp["album_desc"] = $task["album_desc"];
+						   			     array_push($response["tasks"], $tmp);
+								        }
+										echoRespnse(200, $response);
+									} else {
+										$response["error"] = true;
+										$response["message"] = $lang;
+										echoRespnse(404, $response);
+									}
+								});
+
+
+/**
+* Listing all albums 
+* method GET
+* url /albums
+* returns id, album_year, album_img, album_desc, music_director         
+*/
+    $app->get('/slider', function() {
+        global $user_id;
+        $response = array();
+        $db = new DbHandler();
+        // fetching all user tasks
+        $result = $db->getAllSlider();
+
+        $response["error"] = false;
+        $response["slider1"] = array();
+
+        // looping through result and preparing tasks array
+        while ($slider1 = $result->fetch_assoc()) {
+        $tmp = array();
+        $tmp["image_name"] = $slider1["image_name"];
+        array_push($response["slider1"], $tmp);
+         }
+        echoRespnse(200, $response);
+ });
+
 
 /**
 * Listing single task of particual user
