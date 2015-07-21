@@ -52,12 +52,17 @@
 				test_ajax_data('GET',url, function(data)
 				{
 					var j=0;
-					
+					//description
 					var album_desc="<p>"+data.tasks[0].album_desc+"</p>";
 					$(album_desc).appendTo("#description");
 					
+					//tags
 					var tag="<span> Tags: </span><a href='search.php?artist="+data.tasks[0].artist_details +"'class='#'>"+data.tasks[0].artist_details+" </a>,<a href='mp3s.php?lang="+ data.tasks[0].language +"'class='#'>"+data.tasks[0].language+" </a>";
 					$(tag).appendTo("#tags");
+					
+					//Breadcrumbs
+					var bred="<li><a href='index.html' class='toptip' title='Homepage'> <i class='icon-home'></i> </a></li><li><a href='mp3s.html'> Songs </a></li>\<li><a href='mp3s.php?lang="+data.tasks[0].language+"'>"+data.tasks[0].language+"</a></li><li> "+data.tasks[0].album_name+" </li>";
+					$(bred).appendTo("#breadcrumbs");
 					
 					$.each(data.tasks, function(i,tasks)
 				{
@@ -66,7 +71,7 @@
 					
 					$.each(data.tasks[j], function(i,tasks)
 					{
-						myplaylist[
+					/*	myplaylist[
 							mp3:'music/Bagulu Odayum Dagulu Mari.mp3',
 							oga:'music/5.ogg',
 							title:'ok kanmani',
@@ -89,7 +94,7 @@
 								autoPlay:false
 							});
 						});
-						}
+						}*/
 						
 					
 		
@@ -117,10 +122,8 @@
 			<div class="row clearfix mb">
 				<div class="breadcrumbIn">
 					<ul>
-						<li><a href="index.html" class="toptip" title="Homepage"> <i class="icon-home"></i> </a></li>
-						<li><a href="mp3s.html"> MP3s </a></li>
-						<li><a href="mp3s.html"> A. R. Rahman </a></li>
-						<li> O Kadhal Kanmani </li>
+						
+						<div id="breadcrumbs"></div>
 					</ul>
 				</div><!-- breadcrumb -->
 			</div><!-- row -->
@@ -255,7 +258,7 @@
 	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
 	<script type="text/javascript" src="js/jquery.jplayer.js"></script>
 	<script type="text/javascript" src="js/ttw-music-player-min.js"></script>
-	<!--<script type="text/javascript" src="music/single-track.js"></script>-->
+	<script type="text/javascript" src="music/single-track.js"></script>
 	<script type="text/javascript" src="js/jquery.nanoscroller.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
 </body>
