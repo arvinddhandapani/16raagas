@@ -347,7 +347,7 @@ class DbHandler {
      * @param String $task_id id of the album
      */
     public function getAlbum($task_id) {
-       $stmt = $this->conn->prepare("SELECT s.* from songs s WHERE s.album_id = ?");
+       $stmt = $this->conn->prepare("SELECT s.*,a.* from songs s, albums a WHERE s.album_id = ? AND a.id=s.album_id");
        $stmt->bind_param("i", $task_id);
         if ($stmt->execute()) {
             $task = $stmt->get_result();

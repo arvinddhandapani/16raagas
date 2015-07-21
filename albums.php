@@ -18,18 +18,92 @@
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="style.css" id="dark" media="screen" />
 		<link rel="stylesheet" type="text/css" href="styles/icons/icons.css" media="screen" />
-		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+		<!--<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>-->
 		<link id="light" media="screen" href="styles/light.css" type="text/css" rel="stylesheet">
 
 	<!-- Favicon -->
 		<link rel="shortcut icon" href="images/favicon.ico">
 		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+		
 
 	<!--[if IE]>
 		<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=EmulateIE8; IE=EDGE" />
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles/icons/font-awesome-ie7.min.css" />
 	<![endif]-->
+		
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="js/ajaxGetPost.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				var myPlaylist = [];
+				<?php if (!isset($_GET['album']) || !isset($_GET['a_id'])) {?>
+					window.location.href="mp3s.php";
+					<?} else {?>
+			
+						var encode="<?php echo $_GET['a_id'];?>";
+				
+					
+			
+				url='album/'+encode;
+				encodedata='';
+				test_ajax_data('GET',url, function(data)
+				{
+					var j=0;
+					
+					var album_desc="<p>"+data.tasks[0].album_desc+"</p>";
+					$(album_desc).appendTo("#description");
+					
+					var tag="<span> Tags: </span><a href='search.php?artist="+data.tasks[0].artist_details +"'class='#'>"+data.tasks[0].artist_details+" </a>,<a href='mp3s.php?lang="+ data.tasks[0].language +"'class='#'>"+data.tasks[0].language+" </a>";
+					$(tag).appendTo("#tags");
+					
+					$.each(data.tasks, function(i,tasks)
+				{
+					//alert (data.tasks);
+					
+					
+					$.each(data.tasks[j], function(i,tasks)
+					{
+						myplaylist[
+							mp3:'music/Bagulu Odayum Dagulu Mari.mp3',
+							oga:'music/5.ogg',
+							title:'ok kanmani',
+							artist:'A. R. Rahman',
+							rating:5,
+							buy:'#',
+							price:'29.99',
+							duration:'03.25',
+							cover:'music/maari.jpg'	];
+							$('.music-single').ttwMusicPlayer(myPlaylist, {
+								currencySymbol:'<del>&#2352;</del>',
+								buyText:'Add to Cart',
+								tracksToShow:3,
+								ratingCallback:function(index, playlistItem, rating){
+									//some logic to process the rating, perhaps through an ajax call
+								},
+								jPlayer:{
+									swfPath:'../../../www.jplayer.org/2.1.0/js'
+								},
+								autoPlay:false
+							});
+						});
+						}
+						
+					
+		
+				j=j+1;
+			
+			});
+				});
+				});
+				<?php }?>
+			});
+		</script>
+		
+		
+		
 </head>
 <body id="fluidGridSystem">
 	<div id="layout" class="full">	
@@ -57,11 +131,10 @@
 						<div class="post row-fluid clearfix">
 							<div class="music-single mbf clearfix"></div><!-- Player -->
 							
-							<p>O Kadhal Kanmani (English: Oh Love, Apple of my Eye), also known as OK Kanmani, is a 2015 Indian Tamil romantic film written, directed and produced by Mani Ratnam.[2] The film stars Dulquer Salmaan and Nithya Menen in the lead roles, portraying a young couple in a live-in relationship in Mumbai. Prakash Raj and Leela Samson play supporting roles as an older couple in the film, portraying the younger couple's landlords. The film was said to be a "reflection of the modern mindset of urban India", dealing with issues such as marriage and traditional values.</p>
+							<div id="description"></div>
 							<p>
-								<span> Tags: </span>
-								<a href="#" class="#"> A. R. Rahman </a>,
-								<a href="#" class="#"> Tamil </a>
+								
+								<div id="tags"></div>
 							</p><!-- tags -->
 
 							<div class="meta">
@@ -182,7 +255,7 @@
 	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
 	<script type="text/javascript" src="js/jquery.jplayer.js"></script>
 	<script type="text/javascript" src="js/ttw-music-player-min.js"></script>
-	<script type="text/javascript" src="music/single-track.js"></script>
+	<!--<script type="text/javascript" src="music/single-track.js"></script>-->
 	<script type="text/javascript" src="js/jquery.nanoscroller.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
 </body>
