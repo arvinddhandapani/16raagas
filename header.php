@@ -1,54 +1,13 @@
-<?php
-	session_start();
-	header("Content-type: application/javascript");
-?>
-
-		<script src="js/jquery.min.js"></script>
-		<script src="js/ajaxGetPost.js"></script>
-
-		<script>
-function login() {
-	
-			var update=$('#login_username').val();
-			
-		var encode="email="+$('#login_username').val()+"&"+"password="+$('#login_password').val();
-		var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
-		url=base_url+'login';
-		if(update.length>0)
-		{
-			post_ajax_data(url,encode, function(data)
-			{
-				   if(data.error===true){
-					   var msg="<span>"+data.message+"</span>";
-					   $(msg).appendTo("#loginfailedmsg");
-					   //alert(data.message);
-					} else {
-					window.location.href="session_write.php?session_id_raagas="+data.session_id_raagas+"&session_raagas_name="+data.name+"&landing="+window.location.href;
-					}
-			});
-		}
-
-		//});
-}
-		</script>	
-
 	<div id="layout" class="full">
 		<!-- popup login -->
 			<div id="popupLogin">
 				<div class="def-block widget">
-					
-					
-					
 					<h4> Sign In </h4><span class="liner"></span>
-				
 					<div class="widget-content row-fluid">
 						<form id="popup_login_form">
-						     <div id="loginfailedmsg">
-							 </div>
 							<input type="text" name="login_username" id="login_username" onfocus="if (this.value=='username') this.value = '';" onblur="if (this.value=='') this.value = 'username';" value="username" placeholder="username">
 							<input type="password" name="login_password" id="login_password" onfocus="if (this.value=='password') this.value = '';" onblur="if (this.value=='') this.value = 'password';" value="password" placeholder="password">
-							<!--<input type="submit" value="Sign in" class="tbutton small"> -->
-						<a href="#" class="tbutton small" onClick="login()"><span>Sign In</span></a>
+							<a href="#" class="tbutton small"><span>Sign In</span></a>
 							<a href="register.php" class="tbutton color2 small"><span>Register</span></a>
 						</form><!-- login form -->
 					</div><!-- content -->
@@ -60,25 +19,80 @@ function login() {
 
 		<header id="header" class="glue">
 			<div class="row clearfix">
-				<div class="little-head">
-					<!-- <div class="rege-btn tbutton color2 small"><a href="register.php"><span>Register</span></a></div> -->
-					<?php
+				<div class="little-head">				  
+					<div id="Login_PopUp_Link" class="sign-btn tbutton small"><span>Sign In / Register</span></div>
 					
-					// Start the session
-					session_start();
-					if(isset($_SESSION['session_id_raagas'])){
-					?>
-					<div class="sign-btn tbutton small"><span><a href="session_die.php"><?php echo $_SESSION['session_raagas_name'];?></a></span></div>
-					
-						
-						<?php
-					} else {
-						?>
-						<div id="Login_PopUp_Link" class="sign-btn tbutton small"><span>Sign In / Register</span></div>
-							<?php
-						}
-							?>
-					
+					<!---Starting of User Profile -->
+					<div class="navbar-right" style="display:none">
+						<ul class="nav navbar-nav m-n hidden-xs nav-user user">
+						<li class="hidden-xs">
+							<a href="#" class="dropdown-toggle lt" data-toggle="dropdown">
+							  <i class="icon-shopping-cart"></i>
+							  <span class="badge badge-sm up bg-danger count">2</span>
+							</a>
+							<section class="dropdown-menu aside-xl animated fadeInUp">
+							  <section class="panel bg-white">
+								<div class="panel-heading b-light bg-light">
+								  <strong>You have <span class="count">2</span> Items</strong>
+								</div>
+								<div class="list-group list-group-alt">
+								  <a href="#" class="media list-group-item">
+									<span class="pull-left thumb-sm">
+									  <img src="images/a0.png" alt="..." class="img-circle">
+									</span>
+									<span class="media-body block m-b-none">
+									  Use awesome animate.css<br>
+									  <small class="text-muted">10 minutes left</small>
+									</span>
+								  </a>
+								  <a href="#" class="media list-group-item">
+									<span class="media-body block m-b-none">
+									  1.0 initial released<br>
+									  <small class="text-muted">30 minutes left</small>
+									</span>
+								  </a>
+								</div>
+								<div class="panel-footer text-sm">
+								  <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
+								  <a href="register.php" class="tbutton small"><span>Check Out</span></a>
+								  <a href="#" class="tbutton color2 small"><span>Continue Shopping</span></a>
+								</div>
+							  </section>
+							</section>
+						  </li>
+						  <li class="dropdown">
+							<a href="#" class="dropdown-toggle bg clear" data-toggle="dropdown">
+							 <!-- <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+								<img src="images/a0.png" alt="...">
+							  </span> -->
+							  Rajkamal <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu animated fadeInRight">            
+							  <li>
+								<span class="arrow top"></span>
+								<a href="#">Settings</a>
+							  </li>
+							  <li>
+								<a href="profile.php">Profile</a>
+							  </li>
+							  <li>
+								<a href="#">
+								  <span class="badge bg-danger pull-right">3</span>
+								  Notifications
+								</a>
+							  </li>
+							  <li>
+								<a href="#">Help</a>
+							  </li>
+							  <li class="divider"></li>
+							  <li>
+								<a href="#" >Logout</a>
+							  </li>
+							</ul>
+						  </li>
+						</ul>
+					  </div><!---end of User Profile -->
+					  
 					<div class="search">
 						<form action="search.php" id="search" method="get">
 							<input id="inputhead" name="search" type="text" onfocus="if (this.value=='Start Searching...') this.value = '';" onblur="if (this.value=='') this.value = 'Start Searching...';" value="Start Searching..." placeholder="Start Searching ...">

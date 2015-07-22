@@ -401,7 +401,11 @@ textarea {
 }
 .tbutton:hover {
 	color: #000;
-	background:#66CCFF
+	background:#66CCFF;
+	box-shadow: none
+}
+.tbutton:focus {
+	outline: none;
 }
 .tbutton.color2 {
 	 background: none repeat scroll 0 0 #99cc00;
@@ -411,6 +415,7 @@ textarea {
 	color: #000;
 	background: none repeat scroll 0 0 #99cc00;
 	box-shadow: -3px 3px 0 #669900, -2px 2px #669900, -1px 1px 0 #669900;
+	box-shadow: none
 }
 .tbutton.color3 {
 	background: #FF7000;

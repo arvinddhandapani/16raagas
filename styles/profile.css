@@ -207,7 +207,7 @@ a.list-group-item:focus {
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
-  background-color: #edf2f3;
+  background-color: transparent;
 }
 .nav.nav-sm > li > a {
   padding: 6px 8px;
@@ -215,7 +215,7 @@ a.list-group-item:focus {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #edf2f3;
+  background-color: transparent;
 }
 .nav-tabs {
   border-color: #eaeef1;
@@ -228,6 +228,11 @@ a.list-group-item:focus {
   border-color: #eaeef1 !important;
   border-bottom-color: #fff !important;
 }
+
+.navbar-nav > li > a{
+	padding: 5px;
+}
+
 .pagination > li > a {
   border-color: #eaeef1;
 }

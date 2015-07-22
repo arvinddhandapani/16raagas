@@ -38,6 +38,12 @@
 			visibility: visible;
 			width: auto;
 		}
+		#Login_PopUp_Link{
+			display:none
+		}
+		.navbar-right{
+			display:block !important;
+		}
 	</style>
 </head>
 <body id="fluidGridSystem">
@@ -89,7 +95,7 @@
                       <ul class="nav nav-tabs nav-white">
                         <li class="active"><a href="#activity" data-toggle="tab">Download History</a></li>
                         <li class=""><a href="#events" data-toggle="tab">Purchase History</a></li>
-                        <li class=""><a href="#interaction" data-toggle="tab">Interaction</a></li>
+                        <!-- <li class=""><a href="#interaction" data-toggle="tab">Interaction</a></li> -->
                       </ul>
                     </header>
                     <section class="scrollable">
@@ -104,6 +110,7 @@
                                 <small class="pull-right">3 days ago</small>
                                 <strong class="block">Maari 2015</strong>
                                 <small>Welcome and play the Songs in this web application ... </small>
+								<small><a>Invoice - Maari 2015</a></small>
                               </a>
                             </li>
                             <li class="list-group-item">
@@ -203,11 +210,11 @@
                             <i class="fa fa-spinner fa fa-spin fa fa-large"></i>
                           </div>
                         </div>
-                        <div class="tab-pane" id="interaction">
+                        <!--<div class="tab-pane" id="interaction">
                           <div class="text-center wrapper">
                             <i class="fa fa-spinner fa fa-spin fa fa-large"></i>
                           </div>
-                        </div>
+                        </div> -->
                       </div>
                     </section>
                   </section>
