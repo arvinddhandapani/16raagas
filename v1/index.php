@@ -381,6 +381,11 @@ $app->get('/album/:id', function($task_id) {
 			$tmp["album_desc"] = $task["album_desc"];
 			$tmp["music_director"] = $task["music_director"];
 			$tmp["language"] = $task["language"];
+			$tmp["demo_song"] = $task["demo_song"];
+			$tmp["main_song_duration"] = $task["main_song_duration"];
+			$tmp["demo_song_duration"] = $task["demo_song_duration"];
+				
+			
 			
             array_push($response["tasks"], $tmp);
         }

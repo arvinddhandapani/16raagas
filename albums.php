@@ -35,10 +35,13 @@
 		
 		<script src="js/jquery.min.js"></script>
 		<script src="js/ajaxGetPost.js"></script>
+		<script src="js/ttw-music-player-min.js"></script>
 		<script>
+		var myPlaylist = [];
 			$(document).ready(function()
 			{
-				var myPlaylist = [];
+				
+				
 				<?php if (!isset($_GET['album']) || !isset($_GET['a_id'])) {?>
 					window.location.href="mp3s.php";
 					<?} else {?>
@@ -51,6 +54,7 @@
 				encodedata='';
 				test_ajax_data('GET',url, function(data)
 				{
+					
 					var j=0;
 					//description
 					var album_desc="<p>"+data.tasks[0].album_desc+"</p>";
@@ -67,10 +71,25 @@
 					$.each(data.tasks, function(i,tasks)
 				{
 					//alert (data.tasks);
-					
+				
 					
 					$.each(data.tasks[j], function(i,tasks)
 					{
+						//jQuery(document).ready(function ($) {
+						//alert (myPlaylist);
+					//myPlaylist.push(myPlaylist.mp3 = 'music/Bagulu Odayum Dagulu Mari.mp3',myPlaylist.oga = 'music/5.ogg',myPlaylist.title = 'ok Kanmani',myPlaylist.artist='jislkd',myPlaylist.rating='3',myPlaylist.price='10',myPlaylist.duration='02.01',myPlaylist.cover='music/maar.jpg');
+					myPlaylist[j] = {
+					mp3: 'music/'+data.tasks[j].demo_song,
+					oga: 'music/5.ogg',
+					title: data.tasks[j].song_name,
+					artist: 'jislkd',
+					rating: '3',
+					price: '10.00',
+					duration: data.tasks[j].demo_song_duration,
+					cover: 'music/maari.jpg'};
+				    
+					console.log (myPlaylist[j]);
+						//alert ("hi");
 					/*	myplaylist[
 							mp3:'music/Bagulu Odayum Dagulu Mari.mp3',
 							oga:'music/5.ogg',
@@ -95,7 +114,19 @@
 							});
 						});
 						}*/
-						
+						/*$('.music-single').ttwMusicPlayer(myPlaylist, {
+							currencySymbol:'<del>&#2352;</del>',
+							buyText:'Add to Cart',
+							tracksToShow:3,
+							ratingCallback:function(index, playlistItem, rating){
+								//some logic to process the rating, perhaps through an ajax call
+							},
+							jPlayer:{
+								swfPath:'../../../www.jplayer.org/2.1.0/js'
+							},
+							autoPlay:false
+						});*/
+						//});
 					
 		
 				j=j+1;

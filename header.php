@@ -113,10 +113,10 @@
 							<li><a href="index.php">About</a></li>
 							<li><a href="mp3s.php">MP3<span class="sub"></span></a>
 								<ul>
-									<li><a href="#">Tamil</a></li>
-									<li><a href="#">Telugu</a></li>
-									<li><a href="#">Hindi</a></li>
-									<li><a href="#">Malayalam</a></li>
+									<li><a href="mp3s.php?lang=tamil">Tamil</a></li>
+									<li><a href="mp3s.php?lang=telugu">Telugu</a></li>
+									<li><a href="mp3s.php?lang=hindi">Hindi</a></li>
+									<li><a href="mp3s.php?lang=malayalam">Malayalam</a></li>
 								</ul>
 							</li>
 							<li><a href="archive.php">Archive</a></li>
