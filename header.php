@@ -54,7 +54,7 @@
 								</div>
 								<div class="panel-footer text-sm">
 								  <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
-								  <a href="register.php" class="tbutton small"><span>Check Out</span></a>
+								  <a href="cart.php" class="tbutton small"><span>Check Out</span></a>
 								  <a href="#" class="tbutton color2 small"><span>Continue Shopping</span></a>
 								</div>
 							  </section>
