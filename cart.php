@@ -57,17 +57,12 @@
 				
 				$.each(data.tasks, function(i,tasks)
 			{
-				<?php
-				$cart_items = array(
-					array(?> <?php)
-				)
+				var album_name=data.tasks[j].album_name;
+				document.getElementById("album_name").innerHTML=album_name;
+			
 				
-				?>
-				//var html="<p>"+data.tasks[j].album_name+"</p>";
-					//var html="<li class='grid_6'><a class='m-thumbnail' href='mp3_single_half.php'><img width='50' height='50' src='images/albums/"+data.tasks[j].album_img+"' alt='#'></a><h3><a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'>"+data.tasks[j].album_name+"</a></h3><span>"+data.tasks[j].music_director+" </span></li>";
-				
-			$(html).appendTo("#cart1");
-			j=j+1;
+		
+		
 		
 			});
 				});
@@ -141,8 +136,8 @@
 							  <img src="images/a0.png">
 							</div>
 							<div class="product-details">
-							  <div class="product-title">Nutro™ Adult Lamb and Rice Dog Food</div>
-							  <p class="product-description">Who doesn't like lamb and rice? We've all hit the halal cart at 3am while quasi-blackout after a night of binge drinking in Manhattan. Now it's your dog's turn!</p>
+							  <div class="product-title"><p id='album_name'></p></div>
+							  <p class="product-description"><!--<?php //echo $cart_items[0][0].": In stock: ".$cart_items[0][1].", sold: ".$cart_items[0][2].".<br>";?>--></p>
 							</div>
 							<div class="product-price">45.99</div>
 							<div class="product-quantity">

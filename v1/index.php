@@ -431,6 +431,8 @@ $app->post('/cart', 'authenticate', function() use ($app) {
                 $tmp["album_name"] = $task["album_name"];
                 $tmp["song_name"] = $task["song_name"];
 				$tmp["price"] = $task["price"];
+				$tmp["album_img"] = $task["album_img"];
+				
                 array_push($response["tasks"], $tmp);
             }
 
