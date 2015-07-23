@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 21, 2015 at 07:06 PM
+-- Generation Time: Jul 22, 2015 at 06:01 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.6.7
 
@@ -86,7 +86,7 @@ CREATE TABLE `login_details` (
 --
 
 INSERT INTO `login_details` (`id`, `email`, `login_at`, `song_session`, `browser`) VALUES
-(1, 'arvind.mib@gmail.com', '2015-07-17 06:23:25', '0105d74d0f37dc18', NULL),
+(1, 'arvind.mib@gmail.com', '2015-07-22 15:53:08', '07a95d1ab25c5e38', NULL),
 (2, 'arvind.mib@live.com', '2015-06-26 16:38:45', 'ad454ace762900b1', NULL);
 
 -- --------------------------------------------------------
@@ -119,6 +119,10 @@ CREATE TABLE `songs` (
   `song_id` int(10) NOT NULL,
   `album_id` int(10) NOT NULL,
   `song_name` varchar(10000) NOT NULL,
+  `demo_song` varchar(50) NOT NULL,
+  `main_song` varchar(50) NOT NULL,
+  `demo_song_duration` time NOT NULL,
+  `main_song_duration` time NOT NULL,
   `price` varchar(10000) NOT NULL,
   `artist_details` varchar(10000) NOT NULL,
   `added_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -128,9 +132,9 @@ CREATE TABLE `songs` (
 -- Dumping data for table `songs`
 --
 
-INSERT INTO `songs` (`song_id`, `album_id`, `song_name`, `price`, `artist_details`, `added_at`) VALUES
-(1, 8, 'test1', '10.00', 'Arr', '2015-06-26 15:15:42'),
-(2, 8, 'test2', '20.00', 'test, test, test', '2015-06-26 15:15:42');
+INSERT INTO `songs` (`song_id`, `album_id`, `song_name`, `demo_song`, `main_song`, `demo_song_duration`, `main_song_duration`, `price`, `artist_details`, `added_at`) VALUES
+(1, 8, 'Mental Manadhil', '1.Mental_Manadhil.mp3', '1.Mental_Manadhil.mp3', '00:02:02', '00:05:25', '10.00', 'Arr', '2015-06-26 15:15:42'),
+(2, 8, 'Bagulu Odayum', 'Bagulu Odayum Dagulu Mari.mp3', 'Bagulu Odayum Dagulu Mari.mp3', '00:03:09', '00:17:02', '20.00', 'test, test, test', '2015-06-26 15:15:42');
 
 -- --------------------------------------------------------
 

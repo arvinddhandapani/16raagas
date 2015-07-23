@@ -178,51 +178,48 @@ $app->post('/register', function() use ($app) {
  * method - POST
  * params - email, password
  */
-$app->post('/login', function() use ($app) {
-            // check for required params
-            verifyRequiredParams(array('email', 'password'));
+				$app->post('/login', function() use ($app) {
+				            // check for required params
+				            verifyRequiredParams(array('email', 'password'));
 
-            // reading post params
-            $email = $app->request()->post('email');
-            $password = $app->request()->post('password');
-            $response = array();
+				            // reading post params
+				            $email = $app->request()->post('email');
+				            $password = $app->request()->post('password');
+				            $response = array();
 
-            $db = new DbHandler();
-            // check for correct email and password
-            if ($db->checkLogin($email, $password)) {
-                // get the user by email
-                $user = $db->getUserByEmail($email);
-				
-				//update the created at 
-				$update_login = $db->updateLoginByEmail($email);
-                //$response['error'] = true;
-                //$response['message'] = "update_login". $update_login;
+				            $db = new DbHandler();
+				            // check for correct email and password
+				            if ($db->checkLogin($email, $password)) {
+				                // get the user by email
+								$db->updateLoginByEmail($email);
+				                $user = $db->getUserByEmail($email);
 
-                if ($user != NULL && $update_login!= NULL) {
-                    $response["error"] = false;
-                    $response['name'] = $user['name'];
-                    $response['email'] = $user['email'];
-                    $response['session_id_raagas'] = $update_login['song_session'];
-                    $response['createdAt'] = $user['created_at'];
-                } else {
-                    // unknown error occurred
-                    $response['error'] = true;
-                    $response['message'] = "Error Occured su";
-                } 
-            } else {
-                // user credentials are wrong
-                $response['error'] = true;
-                $response['message'] = 'Login failed. Incorrect credentials';
-            }
+				                if ($user != NULL) {
+				                    $response["error"] = false;
+				                    $response['name'] = $user['name'];
+				                    $response['email'] = $user['email'];
+				                    $response['apiKey'] = $user['api_key'];
+				                    $response['createdAt'] = $user['created_at'];
+									$response['song_session'] = $user['song_session'];
+				                } else {
+				                    // unknown error occurred
+				                    $response['error'] = true;
+				                    $response['message'] = "An error occurred. Please try again";
+				                }
+				            } else {
+				                // user credentials are wrong
+				                $response['error'] = true;
+				                $response['message'] = 'Login failed. Incorrect credentials';
+				            }
 
-            echoRespnse(200, $response);
-        });
+				            echoRespnse(200, $response);
+				        });
 
 /**
 * Listing all albums 
 * method GET
 * url /albums
-* returns id, album_year, album_img, album_desc, music_director         
+* returns id, album_name, album_year, album_img, album_desc, music_director        
 */
 $app->get('/albums', function() {
 		            global $user_id;
@@ -253,10 +250,10 @@ $app->get('/albums', function() {
 
 
 /**
-* Listing all albums by name
+* Listing all albums by Language
 * method GET
 * url /albumsLanguage
-* returns id, album_year, album_img, album_desc, music_director         
+* returns id, , album_name, album_year, album_img, album_desc, music_director         
 */
 				
 				$app->get('/albumsLanguage/:lang', function($lang) {
@@ -291,9 +288,9 @@ $app->get('/albums', function() {
 
 
 				/**
-				* Listing all albums by name
+				* Filter List Abumns with Alphabets
 				* method GET
-				* url /albumsLanguage
+				* url /albumsLanguageSwitch
 				* returns id, album_year, album_img, album_desc, music_director         
 				*/
 				
@@ -354,10 +351,11 @@ $app->get('/albums', function() {
 
 
 /**
-* Listing single task of particual user
+* Listing all songs in the Album
 * method GET
 * url /album/:id
 * Will return 404 if the task doesn't belongs to user
+* returns song_id, album_id, song_name, price, artist_details, album_name, album_img, album_desc, music_director, language, demo_song, demo_song_duration, main_song_duration
 */
 $app->get('/album/:id', function($task_id) {
 	global $user_id;
@@ -403,33 +401,73 @@ $app->get('/album/:id', function($task_id) {
  */
 
 /**
- * Listing all tasks of particual user
+ * Listing all products in the cart
  * method GET
- * url /tasks          
+ * url /cart          
  */
-$app->get('/tasks', 'authenticate', function() {
-            global $user_id;
+$app->post('/cart', 'authenticate', function() use ($app) {
+            // check for required params
+            verifyRequiredParams(array('user_id'));
+		
+         //   global $user_id;
             $response = array();
             $db = new DbHandler();
-
-            // fetching all user tasks
-            $result = $db->getAllUserTasks($user_id);
+			
+			$email_id = $app->request->post('user_id');
+			$user_id = $db->getUserIdFromEmail($email_id);
+			
+            $result = $db->getCartofUser($user_id);
 
             $response["error"] = false;
             $response["tasks"] = array();
-
+			
             // looping through result and preparing tasks array
             while ($task = $result->fetch_assoc()) {
+			
                 $tmp = array();
-                $tmp["id"] = $task["id"];
-                $tmp["task"] = $task["task"];
-                $tmp["status"] = $task["status"];
-                $tmp["createdAt"] = $task["created_at"];
+				
+           $tmp["cart_id"] = $task["cart_id"];
+                $tmp["cart_song_id"] = $task["cart_song_id"];
+                $tmp["album_name"] = $task["album_name"];
+                $tmp["song_name"] = $task["song_name"];
+				$tmp["price"] = $task["price"];
                 array_push($response["tasks"], $tmp);
             }
 
             echoRespnse(200, $response);
         });
+		
+		
+/**
+* Add to Cart
+* method POST
+* url /tasks/:id
+* Will return 404 if the task doesn't belongs to user
+ */
+		$app->post('/tasks', 'authenticate', function() use ($app) {
+		            // check for required params
+		            verifyRequiredParams(array('task'));
+
+		            $response = array();
+		            $task = $app->request->post('task');
+
+		            global $user_id;
+		            $db = new DbHandler();
+
+		            // creating new task
+		            $task_id = $db->createTask($user_id, $task);
+
+		            if ($task_id != NULL) {
+		                $response["error"] = false;
+		                $response["message"] = "Task created successfully";
+		                $response["task_id"] = $task_id;
+		                echoRespnse(201, $response);
+		            } else {
+		                $response["error"] = true;
+		                $response["message"] = "Failed to create task. Please try again";
+		                echoRespnse(200, $response);
+		            }            
+		        });
 
 /**
  * Listing single task of particual user

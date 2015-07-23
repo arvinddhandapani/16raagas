@@ -1,5 +1,6 @@
 var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
 function post_ajax_data(url,encodedata, success)
+
 {
 $.ajax({
 type:"POST",
@@ -14,12 +15,38 @@ timeout:20000,
 async:true,
 beforeSend :function(data) { },
 success:function(data){
-	//alert("error");
 success.call(this, data);
 },
 error:function(data){
-//alert("Error In Connecting");
-alert("Please Check your credentials");
+alert("Internal Server Error");
+}
+});
+}
+
+
+function post_ajax_data_header(url,encodedata, headerraagas, session_email_16raagas, success)
+
+{
+	var finalurl = base_url+url;
+$.ajax({
+type:"POST",
+url:finalurl,
+	headers: {'sng_auth': headerraagas,
+	'sng_uname': session_email_16raagas},
+data :encodedata,
+dataType:"json",
+restful:true,
+//contentType: 'application/json',
+contentType: 'application/x-www-form-urlencoded',
+cache:false,
+timeout:20000,
+async:true,
+beforeSend :function(data) { },
+success:function(data){
+success.call(this, data);
+},
+error:function(data){
+alert("Internal Server Error");
 }
 });
 }

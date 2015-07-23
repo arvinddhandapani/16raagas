@@ -3,7 +3,7 @@
 	header("Content-type: application/javascript");
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
-<HEAD>
+<head>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/ajaxGetPost.js">	</script>
 	
@@ -35,7 +35,7 @@
 				var slider_name = "<img src='images/slides/"+slider1.image_name+"'alt='"+slider1.image_name+"'>";
 				var sd = "sd"+i;
 				$(slider_name).appendTo("#"+sd);
-				//alert (sd);
+				//alert (sd+i);
 			
 			});
 			});
@@ -43,7 +43,7 @@
 			
 		}
 </script>
-	</HEAD>
+	</head>
 <body>
 
 		<!-- Start Revolution Slider -->
@@ -51,8 +51,8 @@
 				<div class="fullwidthbanner-container">					
 					<div class="revolution">
 						<ul>
-							<li data-transition="random" data-slotamount="7" data-masterspeed="30" >
-							<div id="sd0"></div>	<!--<img src="" id="image_id_here" width="300" height="400">-->
+							<li id="sd1" data-transition="random" data-slotamount="7" data-masterspeed="300" >
+							<!--<div id="sd0"></div>	<img src="" id="image_id_here" width="300" height="400">-->
 						
 														
 			<div class="tp-caption fade"  
@@ -91,12 +91,12 @@
 					 data-easing="easeInOutExpo"  ><a href="movie_single.html" class="tbutton small"><span>Buy Now</span></a></div>
 							</li>
 
-		<li data-transition="random" data-slotamount="7" data-masterspeed="300" >
-				<div id="sd1"></div>
+		<li id="sd0	" data-transition="random" data-slotamount="7" data-masterspeed="300" >
+				
 		</li>
 
-		<li data-transition="random" data-slotamount="7" data-masterspeed="300" >
-	<div id="sd0"></div>
+		<li id="sd2" data-transition="random" data-slotamount="7" data-masterspeed="300" >
+	
 		</li> 
 
 		</ul><!-- End Slides -->

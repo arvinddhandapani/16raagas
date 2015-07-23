@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+	session_start();
+	header("Content-type: application/javascript");
+?>
 <!--[if IE 7 ]><html class="ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie9" xmlns="http://www.w3.org/1999/xhtml" lang="en-US"> <![endif]-->
@@ -19,7 +23,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css" id="dark" media="screen" />
 		<link id="light" media="screen" href="styles/light.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styles/icons/icons.css" media="screen" />
-		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+		<!--<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>-->
 		<link rel="stylesheet" href="styles/profile.css" type="text/css" />
 
 	<!-- Favicon -->
@@ -31,6 +35,52 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles/icons/font-awesome-ie7.min.css" />
 	<![endif]-->
+		
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="js/ajaxGetPost.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				//alert (<?php echo $_SESSION['session_id_raagas'];?>);
+				<?php if (isset($_SESSION['session_id_raagas']) && isset($_SESSION['session_raagas_name'])) {?>
+			var encode="user_id=<?php echo ($_SESSION['session_email_16raagas']);?>";
+			var session_id_raagas="<?php echo ($_SESSION['session_id_raagas'])?>";
+			var session_email_16raagas="<?php echo ($_SESSION['session_email_16raagas'])?>";
+			var url;
+			url='cart';
+			//alert (encode);
+			//alert (encodeheader);
+			var j = 0;
+			post_ajax_data_header(url,encode,session_id_raagas, session_email_16raagas, function(data)
+			{
+				
+				$.each(data.tasks, function(i,tasks)
+			{
+				<?php
+				$cart_items = array(
+					array(?> <?php)
+				)
+				
+				?>
+				//var html="<p>"+data.tasks[j].album_name+"</p>";
+					//var html="<li class='grid_6'><a class='m-thumbnail' href='mp3_single_half.php'><img width='50' height='50' src='images/albums/"+data.tasks[j].album_img+"' alt='#'></a><h3><a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'>"+data.tasks[j].album_name+"</a></h3><span>"+data.tasks[j].music_director+" </span></li>";
+				
+			$(html).appendTo("#cart1");
+			j=j+1;
+		
+			});
+				});
+			<?php } else {?>
+				var elem = document.getElementById("Login_PopUp_Link");
+				if (typeof elem.onclick == "function") {
+				    elem.onclick.apply(elem);
+				}
+			<?php }?>
+		});
+			</script>
+		
+		
 </head>
 <body id="fluidGridSystem">
 	<div id="layout" class="full">
@@ -71,7 +121,8 @@
 							</div>
 							<div class="product-details">
 							  <div class="product-title">Dingo Dog Bones</div>
-							  <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p>
+							 <!-- <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p>-->
+							 <div id="cart1"></div>
 							</div>
 							<div class="product-price">12.99</div>
 							<div class="product-quantity">

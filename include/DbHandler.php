@@ -157,7 +157,8 @@ class DbHandler {
      * @param String $email User email id
      */
     public function getUserByEmail($email) {
-        $stmt = $this->conn->prepare("SELECT name, email, api_key, status, created_at FROM users WHERE email = ?");
+		$stmt = $this->conn->prepare("SELECT u.name, u.email, u.api_key, u.status, u.created_at, l.song_session FROM users u,login_details l WHERE u.email = ? and u.email=l.email");
+       // $stmt = $this->conn->prepare("SELECT u.name, u.email, u.api_key, u.status, u.created_at FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
         if ($stmt->execute()) {
             $user = $stmt->get_result()->fetch_assoc();
@@ -244,6 +245,23 @@ class DbHandler {
             return NULL;
         }
     }
+	
+	/*
+	*   Fetch user id by email id
+	*   @param String email_id
+	*/
+    public function getUserIdFromEmail($email_id) {
+        $stmt = $this->conn->prepare("SELECT id FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email_id);
+        if ($stmt->execute()) {
+			//$name = $mysqli->query("SELECT name FROM contacts WHERE id = 5")->fetch_object()->name;
+            $user_id = $stmt->get_result()->fetch_object()->id;
+            $stmt->close();
+            return $user_id;
+        } else {
+            return NULL;
+        }
+    }
  
     /**
      * Validating user api key
@@ -255,7 +273,7 @@ class DbHandler {
 	 * 3 => Failed Login
      */
     public function isValidApiKey($api_key, $uname) {
-        $stmt = $this->conn->prepare("SELECT created_at from users WHERE api_key = ? AND email = ?");
+        $stmt = $this->conn->prepare("SELECT login_at from login_details WHERE song_session = ? AND email = ?");
         $stmt->bind_param("ss", $api_key,$uname);
         $stmt->execute();
 		$stmt->store_result();
@@ -369,6 +387,21 @@ class DbHandler {
         $tasks = $stmt->get_result();
         $stmt->close();
         return $tasks;
+    }
+	
+	
+    /**
+     * Fetching all user cart
+     * @param String $user_id id of the user
+     */
+    public function getCartofUser($user_id) {
+        $stmt = $this->conn->prepare("SELECT c.*,a.*,s.* FROM cart c, albums a, songs s where c.is_paid = 0 AND c.user_id=? AND a.id=c.album_id AND c.cart_song_id=s.song_id");
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $tasks = $stmt->get_result();
+        $stmt->close();
+		return $tasks;
+        //return $user_id;
     }
 	
 	    /**
