@@ -35,7 +35,9 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles/icons/font-awesome-ie7.min.css" />
 	<![endif]-->
-		
+		<script>
+		var totalPrice = 0.00;
+		</script>
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/theme20.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
@@ -48,6 +50,7 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/ajaxGetPost.js"></script>
 		<script>
+		
 			$(document).ready(function()
 			{
 				//alert (<?php echo $_SESSION['session_id_raagas'];?>);
@@ -60,6 +63,8 @@
 			//alert (encode);
 			//alert (encodeheader);
 			var j =0;
+			var totalPrice =0;
+			
 			post_ajax_data_header(url,encode,session_id_raagas, session_email_16raagas, function(data)
 			{
 				
@@ -77,15 +82,18 @@
 				    data.tasks[j].song_name +
 				    "</div><div id=\"cart1\"></div></div><div class=\"product-price\">" +
 				    data.tasks[j].price +
-				    "</div><div class=\"product-quantity\"><input type=\"text\" value=\"2\" min=\"1\"></div><div class=\"product-removal\"><button class=\"remove-product\" onclick=\"removeItem1(" +
+				    "</div><div class=\"product-removal\"><button class=\"remove-product\" onclick=\"removeItem(" +
 				    data.tasks[j].cart_id +
 				    ")\">Remove</button></div><div class=\"product-line-price\">" +
 				    data.tasks[j].price +
 				    "</div></div>";
 				$(html).appendTo("#cart1");
-		
+				
+				totalPrice = eval(totalPrice) + eval(data.tasks[j].price);
 			j=j+1;
 			});
+			var html1 = "<div class=\"totals-value\" id=\"cart-total\">"+totalPrice+"</div>";
+			$(html1).appendTo("#total1");
 				});
 			<?php } else {?>
 				var elem = document.getElementById("Login_PopUp_Link");
@@ -126,7 +134,7 @@
 							<label class="product-image">Image</label>
 							<label class="product-details">Product</label>
 							<label class="product-price">Price</label>
-							<label class="product-quantity">Quantity</label>
+							
 							<label class="product-removal">Remove</label>
 							<label class="product-line-price">Total</label>
 						  </div>
@@ -136,21 +144,24 @@
 						 
 
 						  <div class="totals">
+							<!--
 							<div class="totals-item">
-							  <label>Subtotal</label>
-							  <div class="totals-value" id="cart-subtotal">71.97</div>
-							</div>
-							<div class="totals-item">
-							  <label>Tax (5%)</label>
-							  <div class="totals-value" id="cart-tax">3.60</div>
-							</div>
-							<div class="totals-item">
-							  <label>Shipping</label>
-							  <div class="totals-value" id="cart-shipping">15.00</div>
-							</div>
+														  <label>Subtotal</label>
+														  <div class="totals-value" id="cart-subtotal">71.97</div>
+														</div>
+														<div class="totals-item">
+														  <label>Tax (5%)</label>
+														  <div class="totals-value" id="cart-tax">3.60</div>
+														</div>
+														<div class="totals-item">
+														  <label>Shipping</label>
+														  <div class="totals-value" id="cart-shipping">15.00</div>
+														</div>-->
+							
 							<div class="totals-item totals-item-total">
 							  <label>Grand Total</label>
-							  <div class="totals-value" id="cart-total">90.57</div>
+							  <div id="total1"></div>
+							 <!-- <div class="totals-value" id="cart-total"><script>totalPrice;</script></div>-->
 							</div>
 						  </div>
 							  <div class="checkout16raagas">
@@ -169,8 +180,8 @@
 <!-- Scripts -->
 	<script type="text/javascript">
 	/* Set rates + misc */
-		var taxRate = 0.05;
-		var shippingRate = 15.00; 
+		var taxRate = 0.00;
+		var shippingRate = 0.00; 
 		var fadeTime = 300;
 		
 		
@@ -178,6 +189,7 @@
 		function removeItem1(val) {
 			 //$(this).closest("div").remove();
 			 var a = document.getElementById(val);
+			 //removeItem(a);
 			 a.parentNode.removeChild(a);
 		  
 						}
@@ -185,8 +197,9 @@
 		
 
 		/* Assign actions */
-		$('cart1 product-quantity input').change( function() {
-		  updateQuantity(this);
+		$('.product-quantity input').change( function() {
+			alert ("hi");
+		  //updateQuantity(this);
 		});
 
 		$('cart1 product-removal button').click( function() {
@@ -206,7 +219,7 @@
 		function recalculateCart()
 		{
 		  var subtotal = 0;
-	  
+		  alert ("hi");
 		  /* Sum up row totals */
 		  $('.product').each(function () {
 			subtotal += parseFloat($(this).children('.product-line-price').text());
@@ -257,11 +270,13 @@
 		function removeItem(removeButton)
 		{
 		  /* Remove row from DOM and recalc cart total */
-		  var productRow = $(removeButton).parent().parent();
-		  productRow.slideUp(fadeTime, function() {
-			productRow.remove();
+			 var a = document.getElementById(removeButton);
+			a.parentNode.removeChild(a);
+		 // var productRow = $(removeButton).parent().parent();
+		  //productRow.slideUp(fadeTime, function() {
+			//productRow.remove();
 			recalculateCart();
-		  });
+		 // });
 		}
 	</script>
 </body>

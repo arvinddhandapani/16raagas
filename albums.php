@@ -82,7 +82,7 @@
 					title: data.tasks[j].song_name,
 					artist: data.tasks[0].artist_details,
 					rating: '3',
-					buy:'addtocart.php?song_id='+data.tasks[0].song_id+'&album_id='+data.tasks[0].album_id+'&base_url_al='+window.location.href,
+					buy:'addtocart.php?song_id='+data.tasks[j].song_id+'&album_id='+data.tasks[j].album_id+'&base_url_al='+window.location.href,
 					price: '10.00',
 					duration: data.tasks[j].demo_song_duration,
 					cover: 'music/maari.jpg'};

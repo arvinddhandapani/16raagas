@@ -16,11 +16,13 @@ session_start();
 	window.location.href="cart.php?error=We could not process your request at this time. Please try again Later";
 		}else{
 			<?php 
-			unset($_SESSION['amount'];
+			if(isset($_SESSION['amount'])){
+			unset($_SESSION['amount']);
+			}
 			$_SESSION['amount'] = $_GET['totalAmount'];
 			?>
-			alert ("else");
-			//window.location.href="transaction/testssl.php";
+			//alert ("else");
+			window.location.href="transaction/testssl.php";
 		}
 		
 		
