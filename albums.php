@@ -41,7 +41,7 @@
 			$(document).ready(function()
 			{
 				
-				
+				//alert ("<?php echo $_SESSION['session_id_raagas'];?>");
 				<?php if (!isset($_GET['album']) || !isset($_GET['a_id'])) {?>
 					window.location.href="mp3s.php";
 					<?} else {?>
@@ -75,58 +75,20 @@
 					
 					$.each(data.tasks[j], function(i,tasks)
 					{
-						//jQuery(document).ready(function ($) {
-						//alert (myPlaylist);
-					//myPlaylist.push(myPlaylist.mp3 = 'music/Bagulu Odayum Dagulu Mari.mp3',myPlaylist.oga = 'music/5.ogg',myPlaylist.title = 'ok Kanmani',myPlaylist.artist='jislkd',myPlaylist.rating='3',myPlaylist.price='10',myPlaylist.duration='02.01',myPlaylist.cover='music/maar.jpg');
+						
 					myPlaylist[j] = {
 					mp3: 'music/'+data.tasks[j].demo_song,
-					oga: 'music/5.ogg',
+					//oga: 'music/5.ogg',
 					title: data.tasks[j].song_name,
-					artist: 'jislkd',
+					artist: data.tasks[0].artist_details,
 					rating: '3',
+					buy:'addtocart.php?song_id='+data.tasks[0].song_id+'&album_id='+data.tasks[0].album_id+'&base_url_al='+window.location.href,
 					price: '10.00',
 					duration: data.tasks[j].demo_song_duration,
 					cover: 'music/maari.jpg'};
 				    
-					console.log (myPlaylist[j]);
-						//alert ("hi");
-					/*	myplaylist[
-							mp3:'music/Bagulu Odayum Dagulu Mari.mp3',
-							oga:'music/5.ogg',
-							title:'ok kanmani',
-							artist:'A. R. Rahman',
-							rating:5,
-							buy:'#',
-							price:'29.99',
-							duration:'03.25',
-							cover:'music/maari.jpg'	];
-							$('.music-single').ttwMusicPlayer(myPlaylist, {
-								currencySymbol:'<del>&#2352;</del>',
-								buyText:'Add to Cart',
-								tracksToShow:3,
-								ratingCallback:function(index, playlistItem, rating){
-									//some logic to process the rating, perhaps through an ajax call
-								},
-								jPlayer:{
-									swfPath:'../../../www.jplayer.org/2.1.0/js'
-								},
-								autoPlay:false
-							});
-						});
-						}*/
-						/*$('.music-single').ttwMusicPlayer(myPlaylist, {
-							currencySymbol:'<del>&#2352;</del>',
-							buyText:'Add to Cart',
-							tracksToShow:3,
-							ratingCallback:function(index, playlistItem, rating){
-								//some logic to process the rating, perhaps through an ajax call
-							},
-							jPlayer:{
-								swfPath:'../../../www.jplayer.org/2.1.0/js'
-							},
-							autoPlay:false
-						});*/
-						//});
+					//console.log (myPlaylist[j]);
+					
 					
 		
 				j=j+1;

@@ -42,18 +42,19 @@ function authenticate(\Slim\Route $route) {
             // api key is not present in users table
             $response["error"] = true;
             $response["message"] = "Session Timed Out";
-            echoRespnse(401, $response);
+            echoRespnse(200, $response);
             $app->stop();
         } elseif ($login_check == 3) {
             $response["error"] = true;
             $response["message"] = "Authorisation Error";
-            echoRespnse(401, $response);
+            echoRespnse(200, $response);
             $app->stop();
         
 		} else {
             global $user_id;
             // get user primary key id
             $user_id = $db->getUserId($api_key);
+			//return $user_id;
         } 
 		//end of result validation
     } else {
@@ -248,6 +249,35 @@ $app->get('/albums', function() {
 		            echoRespnse(200, $response);
 		        });
 
+				/**
+				* Checking for the correctness of the data 
+				* method GET
+				* url /checkCorrectAmount
+				* returns 
+				* if success = 1
+				* if not success = 0       
+				*/
+				$app->get('/checkCorrectAmount/:amount/:email', function($amount,$email) {
+						            global $user_id;
+						            $response = array();
+						            $db = new DbHandler();
+
+						            // FetchEmail Address
+						            $userIDbyEmail = $db->getUserIdFromEmail($email);
+									//Fetch Total unpaid amount in Cart
+									$amountToBePaid = $db->getSumUnpaid($userIDbyEmail);
+									
+									if ($amountToBePaid == $amount) {
+							            $response["error"] = false;
+							            $response["tasks"] = 1;
+										echoRespnse(200, $response);
+									} else {
+							            $response["error"] = true;
+							            $response["tasks"] = 0;
+										echoRespnse(1000, $response);
+									}
+						        });
+
 
 /**
 * Listing all albums by Language
@@ -439,36 +469,189 @@ $app->post('/cart', 'authenticate', function() use ($app) {
             echoRespnse(200, $response);
         });
 		
+		/**
+		* Remove Item From Cart
+		* method POST
+		* url /removeFromCart
+		* Will return 404 if the task doesn't belongs to user
+		 */
+				$app->post('/removeFromCart', 'authenticate', function() use ($app) {
+				            // check for required params
+				     verifyRequiredParams(array('song_id','album_id'));
+					 global $user_id;
+				   $db = new DbHandler();
+				   $album_id = $app->request->post('album_id');
+				   $song_id = $app->request->post('song_id');
+				   $user_id = $db->getUserIdFromEmail($user_id);
+				   $task_id = $db->removeItemFromCart($user_id, $song_id, $album_id);
+       
+								               if ($task_id == 1) {
+								                   $response["error"] = false;
+								                   $response["message"] = "Item Has been removed from Cart";
+								                  //$response["task_id"] = $task_id;
+								                   echoRespnse(201, $response);
+								               } elseif ($task_id == 2) {
+								                   $response["error"] = true;
+								                   $response["message"] = "Item Not present in the cart";
+								                   echoRespnse(200, $response);
+								               }  
+				       
+				        });
+
 		
+		
+						/**
+						* Payment is success
+						* method POST
+						* url /paymentsuccess
+						* Will return 201 if the task doesn't belongs to user
+						 */
+								$app->post('/paymentsuccess', 'authenticate', function() use ($app) {
+								            // check for required params
+								     verifyRequiredParams(array('song_id','album_id'));
+									 global $user_id;
+									 
+				 			 		$ResponseCode = $app->request->post('ResponseCode');
+				 					$Message = $app->request->post('Message');
+				 					$TxnID = $app->request->post('TxnID');
+				 					$ePGTxnID = $app->request->post('ePGTxnID');
+				 					$AuthIdCode = $app->request->post('AuthIdCode');
+				 					$RRN = $app->request->post('RRN');
+				 					$CVRespCode = $app->request->post('CVRespCode'); 
+									$session_name = $app->request->post('session_name');
+									$raagas_amount = $app->request->post('raagas_amount');
+								    $db = new DbHandler();
+								   $user_id = $db->getUserIdFromEmail($user_id);
+								   //first create an orderID
+								   $orderId = $session_name.time();
+								   //insert the values to the order table 
+								   $orderReturn = $db->insertIntoOrderTable($user_id, $order_id, $ResponseCode, $Message, $TxnID, $ePGTxnID, $AuthIdCode, $RRN, $CVRespCode, $raagas_amount);
+								   if ($orderReturn == 1) {
+									   //get the List of songs for Invoice Preparation
+									  $invoice_detail = $db->getSongsForInvoice($userId); 
+									  
+									  // prepare the songs also
+									  //check if the user has a folder
+									  if (!file_exists('../user_songs/'.$user_id)) {
+									      mkdir('../user_songs/'.$user_id, 0777, true);
+									  }
+									  
+							          while ($song123 = $invoice_detail->fetch_assoc()) {
+							          $tmp = array();
+									  $song_name = $song123["song_name"];
+					  				copy('../songs/'.$song_name, '../user_songs/'.$user_id);
+					  				$file_add = '../user_songs/'.$user_id;
+					  				// Open the file to get existing content
+					  				$add_content = file_get_contents($file_add);
+					  				$string1 = strtolower($orderId);
+					  				$search  = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '0','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+					  				$replace = array('!', '@', '#', '$', '%', '^', '&', '*', '(', ')','`', '~', '-', '_', '=', '+', '{', '}', '[', ']', ';', '|', ':', '"', ',', '.', '<', '>', '/', "'", '?', '1', '2', '3', '4', '5');
+					  				$string_new = str_replace ($search, $replace, $string1);
+					  				// Append a new person to the file
+					  				$add_content .= " ???><?;? ".$string_new."\n";
+					  				// Write the contents back to the file
+					  				file_put_contents($file_add, $add_content);
+							         
+							           }
+									  
+									  
+									  // Now update the cart table to is_paid to 1 and Order Id for this Paid user
+									  
+									 $orderTableUpdate = $db->orderTableSuccessUpdate($userId, $orderId);
+									 if ($orderTableUpdate > 0) {
+					                   $response["error"] = false;
+					                   $response["message"] = "Payment Success and Song Ready to Download";
+					                  //$response["task_id"] = $task_id;
+					                   echoRespnse(200, $response);
+									 } else {
+  					                   $response["error"] = true;
+  					                   $response["message"] = "Order Table update Failed";
+									 }
+								   }
+								   $task_id = $db->removeItemFromCart($user_id, $song_id, $album_id);
+       
+												               if ($task_id == 1) {
+												                   $response["error"] = false;
+												                   $response["message"] = "Item Has been removed from Cart";
+												                  //$response["task_id"] = $task_id;
+												                   echoRespnse(201, $response);
+												               } elseif ($task_id == 2) {
+												                   $response["error"] = true;
+												                   $response["message"] = "Item Not present in the cart";
+												                   echoRespnse(200, $response);
+												               }  
+				       
+								        });
+		
+		
+		
+
+
+						/**
+						* CheckOut
+						* method POST
+						* url /removeFromCart
+						* Will return 404 if the task doesn't belongs to user
+						 */
+								$app->post('/checkout', 'authenticate', function() use ($app) {
+								   global $user_id;
+								   $db = new DbHandler();
+								   $album_id = $app->request->post('album_id');
+								   $song_id = $app->request->post('song_id');
+								   $user_id = $db->getUserIdFromEmail($user_id);
+								   //First get the Amount which is unpurchased from the cart table
+								   $amountToBeCredited = $db->getSumUnpaid($user_id);
+				                   $response["error"] = false;
+				                   $response["message"] = $amountToBeCredited;
+								     echoRespnse(201, $response);
+								
+				       
+								        });
+
+
+
 /**
 * Add to Cart
 * method POST
 * url /tasks/:id
 * Will return 404 if the task doesn't belongs to user
  */
-		$app->post('/tasks', 'authenticate', function() use ($app) {
+		$app->post('/addToCart', 'authenticate', function() use ($app) {
 		            // check for required params
-		            verifyRequiredParams(array('task'));
-
-		            $response = array();
-		            $task = $app->request->post('task');
-
-		            global $user_id;
-		            $db = new DbHandler();
-
-		            // creating new task
-		            $task_id = $db->createTask($user_id, $task);
-
-		            if ($task_id != NULL) {
-		                $response["error"] = false;
-		                $response["message"] = "Task created successfully";
-		                $response["task_id"] = $task_id;
-		                echoRespnse(201, $response);
-		            } else {
-		                $response["error"] = true;
-		                $response["message"] = "Failed to create task. Please try again";
-		                echoRespnse(200, $response);
-		            }            
+		     verifyRequiredParams(array('song_id','album_id'));
+			 global $user_id;
+		   $db = new DbHandler();
+		   $album_id = $app->request->post('album_id');
+		   $song_id = $app->request->post('song_id');
+		   $user_id = $db->getUserIdFromEmail($user_id);
+		   $task_id = $db->insertToCart($user_id, $song_id, $album_id);
+          
+					//$user_id = $app->request->post('user_id');
+								$song_id = $app->request->post('song_id');
+													$album_id = $app->request->post('album_id');
+									  
+									   $task_id = $db->insertToCart($user_id, $song_id, $album_id);
+						               if ($task_id == 1) {
+						                   $response["error"] = false;
+						                   $response["message"] = "Item Has been addded to the Cart";
+						                  //$response["task_id"] = $task_id;
+						                   echoRespnse(201, $response);
+						               } elseif ($task_id == 2) {
+						                   $response["error"] = true;
+						                   $response["message"] = "Item not added to the cart. Please Try Again";
+						                   echoRespnse(200, $response);
+						               }   elseif ($task_id == 3) {
+						                   $response["error"] = true;
+										   $response["message"] = "Selected Item is already present in your cart.";
+						                   //$response["message"] = "Selected Item is already present in your cart.";
+						                   echoRespnse(200, $response);
+										
+						               }   else {
+						                   $response["error"] = true;
+										   $response["message"] = "Internal Server Error.";
+										   echoRespnse(200, $response);
+						               }  
+				       
 		        });
 
 /**

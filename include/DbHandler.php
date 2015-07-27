@@ -229,22 +229,45 @@ class DbHandler {
             return NULL;
         }
     }
+	
+ 
  
     /**
      * Fetching user id by api key
      * @param String $api_key user api key
      */
     public function getUserId($api_key) {
-        $stmt = $this->conn->prepare("SELECT id FROM users WHERE api_key = ?");
-        $stmt->bind_param("s", $api_key);
-        if ($stmt->execute()) {
-            $user_id = $stmt->get_result()->fetch_assoc();
-            $stmt->close();
-            return $user_id;
-        } else {
-            return NULL;
-        }
+
+        $stmt = $this->conn->prepare("SELECT email FROM login_details WHERE song_session = ?");
+                $stmt->bind_param("s", $api_key);
+                if ($stmt->execute()) {
+                    $email_id = $stmt->get_result()->fetch_object()->email;
+                    $stmt->close();
+        			//$user_id = getUserIdFromEmail($email_id);
+        			 return $email_id;
+                } else {
+                    return NULL;
+                }
+        
     }
+	
+	/*
+	*Inserting into orders table
+	* 
+	*
+	*/
+	
+	public function insertIntoOrderTable($user_id, $order_id, $ResponseCode, $Message, $TxnID, $ePGTxnID, $AuthIdCode, $RRN, $CVRespCode, $raagas_amount) {
+        $stmt = $this->conn->prepare("Insert into order_master values (??????????)");
+        $stmt->bind_param("sissssssss", $order_id, $user_id, $raagas_amount, $ResponseCode, $Message, $TxnID, $ePGTxnID, $AuthIdCode, $RRN, $CVRespCode);
+        if ($stmt->execute()) {
+            return 1;
+        } else {
+            return 0;
+        }
+		
+	}
+	
 	
 	/*
 	*   Fetch user id by email id
@@ -262,7 +285,7 @@ class DbHandler {
             return NULL;
         }
     }
- 
+	
     /**
      * Validating user api key
      * If the api key is there in db, it is a valid key
@@ -311,6 +334,108 @@ class DbHandler {
      */
     private function generateApiKey() {
         return md5(uniqid(rand(), true));
+    }
+ 
+ 
+    /* ------------- `cart` table method ------------------ */
+ 
+    /**
+     * Inserting into Cart
+     * @param String $user_id user id to whom task belongs to
+     * @param String $task task text
+     */
+    public function insertToCart($user_id, $song_id, $album_id) {   
+		 
+		$user_id = $user_id;
+		$song_id = $song_id;
+		$album_id = $album_id;
+		//Check if Song belongs to album
+        $result = $this->conn->prepare("Select * from songs s where s.song_id = ? AND s.album_id =?");
+      	$result->bind_param("ii", $song_id, $album_id);
+       	$result ->execute();
+		$result->store_result();
+		$num_of_row =  $result->num_rows;
+        $result->close();
+		
+		
+		if ($num_of_row > 0) {
+        $result = $this->conn->prepare("Select * from cart c where c.cart_song_id = ? AND c.user_id =?");
+      	$result->bind_param("ii", $song_id, $user_id);
+       	$result ->execute();
+		$result->store_result();
+		$num_of_row =  $result->num_rows;
+        $result->close();
+		//return $num_of_row;
+	  
+
+
+		if ($num_of_row > 0) {
+						return 3;
+					} else{
+				        $stmt = $this->conn->prepare("INSERT INTO cart(cart_song_id,album_id,user_id) VALUES (?,?,?)");
+				        $stmt->bind_param("iii", $song_id,$album_id,$user_id);
+				        $result = $stmt->execute();
+				        $stmt->close();
+						if ($result) {
+							return 1;
+						} else{
+							return 2;
+						}
+			
+	}   
+	} else {
+		return 4;
+	
+		}	   
+	
+       
+    }
+	
+	
+	/*
+	*   Remove from Cart
+	*   Removes Item From the cart
+	*/
+ 
+    public function removeItemFromCart($user_id, $song_id, $album_id) {   
+		 
+		$user_id = $user_id;
+		$song_id = $song_id;
+		$album_id = $album_id;
+		//Check if Song belongs to album
+ 
+				        $stmt = $this->conn->prepare("Delete from cart where cart_song_id = ? AND user_id = ?");
+				        $stmt->bind_param("ii", $song_id,$user_id);
+				        $result = $stmt->execute();
+				        $stmt->close();
+						if ($result) {
+							return 1;
+						} else {
+							return 2;
+						}
+		
+       
+    }
+	
+	/*
+	*   Remove from Cart
+	*   Removes Item From the cart
+	*/
+ 
+    public function getSumUnpaid($user_id) {   
+		 
+		$user_id = $user_id;
+	
+				        $stmt = $this->conn->prepare("Select SUM(s.price) from songs s, cart c where c.user_id = ? AND c.is_paid = 0 AND c.cart_song_id=s.song_id");
+				        $stmt->bind_param("i", $user_id);
+				        $stmt->execute();
+						$stmt->bind_result($sum);
+						$stmt->fetch();
+						
+				        $stmt->close();
+						return $sum;
+			
+       
     }
  
     /* ------------- `tasks` table method ------------------ */
@@ -447,7 +572,14 @@ class DbHandler {
         return $tasks;
     }
 	
-	
+	public function getSongsForInvoice($user_id) {
+        $stmt = $this->conn->prepare("SELECT s.song_name, s.price FROM songs s, cart c, where c.is_paid = 0 AND c.user_id = ? AND c.cart_song_id=s.song_id");
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $tasks = $stmt->get_result();
+        $stmt->close();
+        return $tasks;
+	}
     /**
      * Fetching all user tasks
      * @param String $user_id id of the user
@@ -475,7 +607,15 @@ class DbHandler {
         $stmt->close();
         return $num_affected_rows > 0;
     }
- 
+ public function orderTableSuccessUpdate($user_id, $orderId) {
+     $stmt = $this->conn->prepare("UPDATE cart c set c.is_paid = 1, c.cart_order_id = ? WHERE c.user_id = ?");
+     $stmt->bind_param("is", $user_id, $orderId);
+     $stmt->execute();
+     $num_affected_rows = $stmt->affected_rows;
+     $stmt->close();
+     return $num_affected_rows > 0;
+	
+ }
     /**
      * Deleting a task
      * @param String $task_id id of the task to delete

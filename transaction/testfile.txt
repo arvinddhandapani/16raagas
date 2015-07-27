@@ -1,0 +1,8 @@
+ResponseCode:2
+ MessageNo Suitable Acquirer Found
+ TxnID:657981047
+ ePGTxnID201507097011792
+ AuthIdCode
+ RRN
+ CVRespCode
+ Cookie

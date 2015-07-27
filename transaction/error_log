@@ -1,0 +1,241 @@
+[06-Jul-2015 16:41:07 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 16:41:07 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/raagas/public_html/transaction/Sfa/Merchant.php on line 364
+[06-Jul-2015 16:41:07 UTC] PHP Warning:  fopen(http://16raagas.com/transaction/key/icici/00215325.key00215325.key): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 46
+[06-Jul-2015 16:41:07 UTC] PHP Warning:  fgets() expects parameter 1 to be resource, boolean given in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 47
+[06-Jul-2015 16:41:07 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 49
+[06-Jul-2015 16:41:07 UTC] PHP Warning:  mdecrypt_generic(): An empty string was passed in /home/raagas/public_html/transaction/Sfa/phpseclib/Crypt/DES.php on line 454
+[06-Jul-2015 16:41:07 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 16:41:08 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 16:41:08 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 16:41:36 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 16:41:36 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/raagas/public_html/transaction/Sfa/Merchant.php on line 364
+[06-Jul-2015 16:41:36 UTC] PHP Warning:  fopen(http://16raagas.com/transaction/key/icici/00215325.key00215325.key): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 46
+[06-Jul-2015 16:41:36 UTC] PHP Warning:  fgets() expects parameter 1 to be resource, boolean given in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 47
+[06-Jul-2015 16:41:36 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 49
+[06-Jul-2015 16:41:36 UTC] PHP Warning:  mdecrypt_generic(): An empty string was passed in /home/raagas/public_html/transaction/Sfa/phpseclib/Crypt/DES.php on line 454
+[06-Jul-2015 16:41:36 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 16:41:37 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 16:41:37 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 16:42:06 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 16:42:06 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/raagas/public_html/transaction/Sfa/Merchant.php on line 364
+[06-Jul-2015 16:42:06 UTC] PHP Warning:  fopen(http://16raagas.com/transaction/key/icici/00215325.key00215325.key): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 46
+[06-Jul-2015 16:42:06 UTC] PHP Warning:  fgets() expects parameter 1 to be resource, boolean given in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 47
+[06-Jul-2015 16:42:06 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 49
+[06-Jul-2015 16:42:06 UTC] PHP Warning:  mdecrypt_generic(): An empty string was passed in /home/raagas/public_html/transaction/Sfa/phpseclib/Crypt/DES.php on line 454
+[06-Jul-2015 16:42:06 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 16:42:07 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 16:42:07 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 16:43:33 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 16:43:33 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/raagas/public_html/transaction/Sfa/Merchant.php on line 364
+[06-Jul-2015 16:43:33 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 16:43:33 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 16:43:33 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 16:43:43 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 16:43:43 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/raagas/public_html/transaction/Sfa/Merchant.php on line 364
+[06-Jul-2015 16:43:43 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 16:43:43 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 16:43:43 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 16:45:22 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 16:45:22 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 16:45:22 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 16:45:22 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 16:48:29 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 16:48:29 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 16:48:29 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 16:48:29 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 16:48:34 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 16:48:34 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 16:48:34 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 16:48:34 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 16:50:11 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 16:50:11 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 16:50:11 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 16:50:11 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 16:52:17 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 16:52:17 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 16:52:17 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 16:52:17 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 16:52:38 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 16:52:38 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 16:52:38 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 16:52:38 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 16:52:51 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 16:52:51 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 16:52:52 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 16:52:52 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 16:57:32 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 16:57:32 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 16:57:32 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 16:57:32 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 16:58:59 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 16:58:59 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 16:59:00 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 16:59:00 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 17:00:48 UTC] PHP Warning:  fopen(www.16raagas.com/transaction/key/icici/00215325.key): failed to open stream: No such file or directory in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 46
+[06-Jul-2015 17:00:48 UTC] PHP Warning:  fgets() expects parameter 1 to be resource, boolean given in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 47
+[06-Jul-2015 17:00:48 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 49
+[06-Jul-2015 17:00:48 UTC] PHP Warning:  mdecrypt_generic(): An empty string was passed in /home/raagas/public_html/transaction/Sfa/phpseclib/Crypt/DES.php on line 454
+[06-Jul-2015 17:07:03 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 17:07:03 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 17:07:04 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 17:07:04 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 17:08:00 UTC] PHP Warning:  fopen(16raagas.com/transaction/key/icici/00215325.key): failed to open stream: No such file or directory in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 46
+[06-Jul-2015 17:08:00 UTC] PHP Warning:  fgets() expects parameter 1 to be resource, boolean given in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 47
+[06-Jul-2015 17:08:00 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/raagas/public_html/transaction/Sfa/EncryptionUtil.php on line 49
+[06-Jul-2015 17:08:00 UTC] PHP Warning:  mdecrypt_generic(): An empty string was passed in /home/raagas/public_html/transaction/Sfa/phpseclib/Crypt/DES.php on line 454
+[06-Jul-2015 17:09:49 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 17:09:49 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 17:09:49 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 17:09:49 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 17:43:28 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 17:43:28 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 17:43:30 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 17:43:30 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 17:50:55 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 17:50:55 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 17:50:55 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 17:50:55 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 18:22:24 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 18:22:24 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 18:22:24 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 18:22:24 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 18:25:25 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 18:25:25 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 18:25:26 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 18:25:26 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 18:26:55 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 18:26:55 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 18:26:56 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 18:26:56 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 18:28:10 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 18:28:10 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 18:28:10 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 18:28:10 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 18:37:49 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 18:37:49 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 18:37:49 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 18:37:49 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 18:38:15 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 18:38:15 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 18:38:16 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 18:38:16 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 18:41:06 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 18:41:06 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 18:41:06 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 18:41:06 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 18:42:38 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 18:42:38 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 18:42:38 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 18:42:38 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 18:50:51 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 18:50:51 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 18:50:51 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 18:50:51 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 18:58:13 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 18:58:13 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 18:58:14 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 18:58:14 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 19:01:56 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 19:01:56 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 19:01:57 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 19:01:57 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 19:06:09 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/raagas/public_html/transaction/TestSsl.php on line 24
+[06-Jul-2015 19:06:40 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 19:06:40 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 19:06:40 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 19:06:40 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 19:09:32 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 19:09:32 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 19:09:32 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 19:09:32 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 19:11:28 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 19:11:28 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 19:11:29 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 19:11:29 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 19:18:12 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 19:18:12 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 19:18:13 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 19:18:13 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 19:21:34 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 19:21:34 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 19:21:34 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 19:21:34 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 19:32:43 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 19:32:44 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 19:32:44 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 19:32:44 UTC] PostLibPHP postSSL Exiting
+[06-Jul-2015 19:33:32 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/raagas/public_html/transaction/SFAResponse.php on line 96
+[06-Jul-2015 19:36:06 UTC] PostLibPHP postSSL Entered
+[06-Jul-2015 19:36:06 UTC] PostLibPHP postData Entered.
+[06-Jul-2015 19:36:06 UTC] PostLibPHP postData Exiting.
+[06-Jul-2015 19:36:06 UTC] PostLibPHP postSSL Exiting
+[07-Jul-2015 10:59:08 UTC] PostLibPHP postSSL Entered
+[07-Jul-2015 10:59:09 UTC] PostLibPHP postData Entered.
+[07-Jul-2015 10:59:09 UTC] PostLibPHP postData Exiting.
+[07-Jul-2015 10:59:09 UTC] PostLibPHP postSSL Exiting
+[08-Jul-2015 12:17:53 UTC] PostLibPHP postSSL Entered
+[08-Jul-2015 12:17:53 UTC] PostLibPHP postData Entered.
+[08-Jul-2015 12:17:54 UTC] PostLibPHP postData Exiting.
+[08-Jul-2015 12:17:54 UTC] PostLibPHP postSSL Exiting
+[08-Jul-2015 13:26:26 UTC] PostLibPHP postSSL Entered
+[08-Jul-2015 13:26:26 UTC] PostLibPHP postData Entered.
+[08-Jul-2015 13:26:27 UTC] PostLibPHP postData Exiting.
+[08-Jul-2015 13:26:27 UTC] PostLibPHP postSSL Exiting
+[09-Jul-2015 04:20:19 UTC] PostLibPHP postSSL Entered
+[09-Jul-2015 04:20:19 UTC] PostLibPHP postData Entered.
+[09-Jul-2015 04:20:19 UTC] PostLibPHP postData Exiting.
+[09-Jul-2015 04:20:19 UTC] PostLibPHP postSSL Exiting
+[09-Jul-2015 04:34:15 UTC] PostLibPHP postSSL Entered
+[09-Jul-2015 04:34:15 UTC] PostLibPHP postData Entered.
+[09-Jul-2015 04:34:15 UTC] PostLibPHP postData Exiting.
+[09-Jul-2015 04:34:15 UTC] PostLibPHP postSSL Exiting
+[09-Jul-2015 04:40:57 UTC] PostLibPHP postSSL Entered
+[09-Jul-2015 04:40:57 UTC] PostLibPHP postData Entered.
+[09-Jul-2015 04:40:57 UTC] PostLibPHP postData Exiting.
+[09-Jul-2015 04:40:57 UTC] PostLibPHP postSSL Exiting
+[09-Jul-2015 07:27:17 UTC] PostLibPHP postSSL Entered
+[09-Jul-2015 07:27:17 UTC] PostLibPHP postData Entered.
+[09-Jul-2015 07:27:17 UTC] PostLibPHP postData Exiting.
+[09-Jul-2015 07:27:17 UTC] PostLibPHP postSSL Exiting
+[09-Jul-2015 07:47:53 UTC] PostLibPHP postSSL Entered
+[09-Jul-2015 07:47:53 UTC] PostLibPHP postData Entered.
+[09-Jul-2015 07:47:53 UTC] PostLibPHP postData Exiting.
+[09-Jul-2015 07:47:53 UTC] PostLibPHP postSSL Exiting
+[09-Jul-2015 07:57:26 UTC] PostLibPHP postSSL Entered
+[09-Jul-2015 07:57:26 UTC] PostLibPHP postData Entered.
+[09-Jul-2015 07:57:27 UTC] PostLibPHP postData Exiting.
+[09-Jul-2015 07:57:27 UTC] PostLibPHP postSSL Exiting
+[09-Jul-2015 13:01:25 UTC] PostLibPHP postSSL Entered
+[09-Jul-2015 13:01:25 UTC] PostLibPHP postData Entered.
+[09-Jul-2015 13:01:26 UTC] PostLibPHP postData Exiting.
+[09-Jul-2015 13:01:26 UTC] PostLibPHP postSSL Exiting
+[09-Jul-2015 13:09:00 UTC] PostLibPHP postSSL Entered
+[09-Jul-2015 13:09:00 UTC] PostLibPHP postData Entered.
+[09-Jul-2015 13:09:00 UTC] PostLibPHP postData Exiting.
+[09-Jul-2015 13:09:00 UTC] PostLibPHP postSSL Exiting
+[09-Jul-2015 13:14:33 UTC] PostLibPHP postSSL Entered
+[09-Jul-2015 13:14:33 UTC] PostLibPHP postData Entered.
+[09-Jul-2015 13:14:33 UTC] PostLibPHP postData Exiting.
+[09-Jul-2015 13:14:33 UTC] PostLibPHP postSSL Exiting
+[09-Jul-2015 13:15:10 UTC] PHP Parse error:  syntax error, unexpected '$ResponseCode' (T_VARIABLE), expecting ',' or ';' in /home/raagas/public_html/transaction/SFAResponse.php on line 100
+[09-Jul-2015 13:27:31 UTC] PostLibPHP postSSL Entered
+[09-Jul-2015 13:27:31 UTC] PostLibPHP postData Entered.
+[09-Jul-2015 13:27:34 UTC] PostLibPHP postData Exiting.
+[09-Jul-2015 13:27:34 UTC] PostLibPHP postSSL Exiting
+[09-Jul-2015 13:32:52 UTC] PostLibPHP postSSL Entered
+[09-Jul-2015 13:32:52 UTC] PostLibPHP postData Entered.
+[09-Jul-2015 13:32:52 UTC] PostLibPHP postData Exiting.
+[09-Jul-2015 13:32:52 UTC] PostLibPHP postSSL Exiting
+[09-Jul-2015 13:33:27 UTC] PHP Parse error:  syntax error, unexpected 'fwrite' (T_STRING) in /home/raagas/public_html/transaction/SFAResponse.php on line 132
+[09-Jul-2015 13:34:40 UTC] PostLibPHP postSSL Entered
+[09-Jul-2015 13:34:40 UTC] PostLibPHP postData Entered.
+[09-Jul-2015 13:34:41 UTC] PostLibPHP postData Exiting.
+[09-Jul-2015 13:34:41 UTC] PostLibPHP postSSL Exiting
+[09-Jul-2015 13:35:06 UTC] PHP Parse error:  syntax error, unexpected 'fwrite' (T_STRING) in /home/raagas/public_html/transaction/SFAResponse.php on line 132
+[09-Jul-2015 13:35:18 UTC] PostLibPHP postSSL Entered
+[09-Jul-2015 13:35:18 UTC] PostLibPHP postData Entered.
+[09-Jul-2015 13:35:18 UTC] PostLibPHP postData Exiting.
+[09-Jul-2015 13:35:18 UTC] PostLibPHP postSSL Exiting

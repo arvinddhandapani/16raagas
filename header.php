@@ -2,6 +2,7 @@
 	session_start();
 	header("Content-type: application/javascript");
 ?>
+
 	<link rel="stylesheet" href="styles/profile.css" type="text/css" />
 	<style>
 		.clear {

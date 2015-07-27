@@ -464,6 +464,7 @@ jQuery(document).ready(function ($) {
 		fade: true,
 		gravity: 'e'
 	});
+	
 	// Theme20 Custom
 	jQuery('.animt').each(function () {
 		var $curr = jQuery(this);
