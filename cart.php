@@ -70,9 +70,7 @@
 				
 				$.each(data.tasks, function(i,tasks)
 			{
-				//alert (data.tasks[j].album_name);
-				//var html="<p>"+data.tasks[j].album_name+"</p>";
-					//var html="<li class='grid_6'><a class='m-thumbnail' href='mp3_single_half.php'><img width='50' height='50' src='images/albums/"+data.tasks[j].album_img+"' alt='#'></a><h3><a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'>"+data.tasks[j].album_name+"</a></h3><span>"+data.tasks[j].music_director+" </span></li>";
+				
 				var html =
 				    "<div class=\"product\" id=\"" +
 				    data.tasks[j].cart_id +
@@ -96,10 +94,39 @@
 			$(html1).appendTo("#total1");
 				});
 			<?php } else {?>
+				
+			   var msg="<span>Please login to Continue</span>";
+			   $(msg).appendTo("#loginfailedmsg");
+			var popupStatus = 0;
+			//Aligning our box in the middle
+			var windowWidth = document.documentElement.clientWidth;
+			var windowHeight = document.documentElement.clientHeight;
+			var popupHeight = $("#popupLogin").height();
+			var popupWidth = $("#popupLogin").width();
+			// Centering
+			$("#popupLogin").css({
+				"top": windowHeight / 2 - popupHeight / 2,
+				"left": windowWidth / 2 - popupWidth / 2
+			});
+			// Aligning bg
+			$("#LoginBackgroundPopup").css({"height": windowHeight});
+	
+			// Pop up the div and Bg
+			if (popupStatus == 0) {
+				$("#LoginBackgroundPopup").css({"opacity": "0.7"});
+				$("#LoginBackgroundPopup").fadeIn("slow");
+				$("#popupLogin").addClass('zigmaIn').fadeIn("slow");
+				popupStatus = 1;
+			}
+			
+			
+	
+				/*
 				var elem = document.getElementById("Login_PopUp_Link");
-				if (typeof elem.onclick == "function") {
-				    elem.onclick.apply(elem);
-				}
+								if (typeof elem.onclick == "function") {
+								    elem.onclick.apply(elem);*/
+				
+				//}
 			<?php }?>
 		});
 			</script>

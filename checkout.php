@@ -22,7 +22,7 @@ session_start();
 			$_SESSION['amount'] = $_GET['totalAmount'];
 			?>
 			//alert ("else");
-			window.location.href="transaction/testssl.php";
+			window.location.href="transaction/TestSsl.php";
 		}
 		
 		

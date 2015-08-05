@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+	session_start();
+	header("Content-type: application/javascript");
+?>
 <!--[if IE 7 ]><html class="ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie9" xmlns="http://www.w3.org/1999/xhtml" lang="en-US"> <![endif]-->
@@ -19,7 +23,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css" id="dark" media="screen" />
 		<link id="light" media="screen" href="styles/light.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styles/icons/icons.css" media="screen" />
-		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+		<!--<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>-->
 		<link rel="stylesheet" href="styles/profile.css" type="text/css" />
 
 	<!-- Favicon -->
@@ -31,20 +35,70 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles/icons/font-awesome-ie7.min.css" />
 	<![endif]-->
-	<style>
-		.clear {
-			clear: none;
-			height: auto;
-			visibility: visible;
-			width: auto;
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/ajaxGetPost.js"></script>
+	<script>
+	
+		$(document).ready(function()
+		{
+			//alert ("myorder");
+		
+			//alert ("<?php echo $_SESSION['session_id_raagas'];?>");
+			
+			<?php if (isset($_SESSION['session_id_raagas']) && isset($_SESSION['session_raagas_name'])) {?>
+		var encode="user_id=<?php echo ($_SESSION['session_email_16raagas']);?>";
+		var session_id_raagas="<?php echo ($_SESSION['session_id_raagas'])?>";
+		var session_email_16raagas="<?php echo ($_SESSION['session_email_16raagas'])?>";
+		var url;
+		url='myOrder';
+		var j = 0;
+	
+		post_ajax_data_header(url,encode,session_id_raagas, session_email_16raagas, function(data)
+		{
+			/*
+			var html ="<li class=\"list-group-item\"><a href=\"#\" class=\"thumb-sm pull-left m-r-sm\"><img src=\"images/a0.png\" class=\"img-circle\"></a><small class=\"pull-right\"><a href=\"#\" > <i class=\"fa icon-download fa-big\"></i></a></small><strong class=\"block\">Maari 2015 <br><br> </strong><small>Welcome and play the Songs in this web application ... </small></li>";
+						$(html).appendTo("#cart1");
+						alert (html);*/
+			
+		
+			$.each(data.tasks, function(i,tasks)
+				{
+					var html ="<li class=\"list-group-item\"><a href=\""+data.tasks[j].song_name+"/"+data.tasks[j].song_name+"\" class=\"thumb-sm pull-left m-r-sm\"><img src=\"images/a0.png\" class=\"img-circle\"></a><small class=\"pull-right\"><a href=\"music/"+data.tasks[j].main_song+"\" > <i class=\"fa icon-download fa-big\"></i></a></small><strong class=\"block\">"+data.tasks[j].album_name+"<br><br> </strong><small>"+data.tasks[j].song_name+"</small></li>";
+					$(html).appendTo("#cart1");
+					
+					j = j+1;
+					});
+		});
+		<?php } else {?>
+		   var msg="<span>Please login to Continue</span>";
+		   $(msg).appendTo("#loginfailedmsg");
+		var popupStatus = 0;
+		//Aligning our box in the middle
+		var windowWidth = document.documentElement.clientWidth;
+		var windowHeight = document.documentElement.clientHeight;
+		var popupHeight = $("#popupLogin").height();
+		var popupWidth = $("#popupLogin").width();
+		// Centering
+		$("#popupLogin").css({
+			"top": windowHeight / 2 - popupHeight / 2,
+			"left": windowWidth / 2 - popupWidth / 2
+		});
+		// Aligning bg
+		$("#LoginBackgroundPopup").css({"height": windowHeight});
+
+		// Pop up the div and Bg
+		if (popupStatus == 0) {
+			$("#LoginBackgroundPopup").css({"opacity": "0.7"});
+			$("#LoginBackgroundPopup").fadeIn("slow");
+			$("#popupLogin").addClass('zigmaIn').fadeIn("slow");
+			popupStatus = 1;
 		}
-		#Login_PopUp_Link{
-			display:none
-		}
-		.navbar-right{
-			display:block !important;
-		}
-	</style>
+			//}
+		<?php }?>
+	});
+		</script>
+	
 </head>
 <body id="fluidGridSystem">
 	<div id="layout" class="full">
@@ -65,29 +119,31 @@
 
 			<div class="row row-fluid clearfix mbf">
 			
+			<!--
 				<div class="span4 sidebar">
-					<div class="def-block widget">
-						<h4> User Info </h4><span class="liner"></span>
-						<div class="wrapper">
-                        <div class="text-center m-b m-t">
-                          <a href="#" class="thumb-lg">
-                            <img src="images/a0.png" class="img-circle">
-                          </a>
-                          <div>
-                            <div class="h3 m-t-xs m-b-xs">Rajkamal T</div>
-                            <small class="text-muted"><i class="fa fa-map-marker"></i> TamilNadu, India</small>
-                          </div>                
-                        </div>                 
-                        <div>
-                          <small class="text-uc text-xs text-muted">about me</small>
-                          <p>Web Designer </p>
-                          <small class="text-uc text-xs text-muted">info</small>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat.</p>
-                          <div class="line"></div>
-                        </div>
-                      </div>
-					</div>
-				</div><!-- span4 sidebar -->
+								<div class="def-block widget">
+									<h4> User Info </h4><span class="liner"></span>
+									<div class="wrapper">
+			                        <div class="text-center m-b m-t">
+			                          <a href="#" class="thumb-lg">
+			                            <img src="images/a0.png" class="img-circle">
+			                          </a>
+			                          <div>
+			                            <div class="h3 m-t-xs m-b-xs">Rajkamal T</div>
+			                            <small class="text-muted"><i class="fa fa-map-marker"></i> TamilNadu, India</small>
+			                          </div>                
+			                        </div>                 
+			                        <div>
+			                          <small class="text-uc text-xs text-muted">about me</small>
+			                          <p>Web Designer </p>
+			                          <small class="text-uc text-xs text-muted">info</small>
+			                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat.</p>
+			                          <div class="line"></div>
+			                        </div>
+			                      </div>
+								</div>
+							</div><!-- span4 sidebar -->
+			
 			
 				<div class="span8 posts">
 					<div class="def-block">
@@ -101,108 +157,9 @@
                     <section class="scrollable">
                       <div class="tab-content">
                         <div class="tab-pane active" id="activity">
+							
                           <ul class="list-group no-radius m-b-none m-t-n-xxs list-group-lg no-border">
-                            <li class="list-group-item">
-                              <a href="#" class="thumb-sm pull-left m-r-sm">
-                                <img src="images/a0.png" class="img-circle">
-                              </a>
-                              <a href="#" class="clear">
-                                <small class="pull-right">3 days ago</small>
-                                <strong class="block">Maari 2015</strong>
-                                <small>Welcome and play the Songs in this web application ... </small>
-								<small><a>Invoice - Maari 2015</a></small>
-                              </a>
-                            </li>
-                            <li class="list-group-item">
-                              <a href="#" class="thumb-sm pull-left m-r-sm">
-                                <img src="images/a0.png" class="img-circle">
-                              </a>
-                              <a href="#" class="clear">
-                                <small class="pull-right">1 hour ago</small>
-                                <strong class="block">Vasantha Kumaran 2015</strong>
-                                <small>Welcome and play the Songs in this web application ... </small>
-                              </a>
-                            </li>
-                            <li class="list-group-item">
-                              <a href="#" class="thumb-sm pull-left m-r-sm">
-                                <img src="images/a0.png" class="img-circle">
-                              </a>
-                              <a href="#" class="clear">
-                                <small class="pull-right">2 hours ago</small>
-                                <strong class="block">Valiyavan 2015</strong>
-                                <small>Welcome and play the Songs in this web application ... </small>
-                              </a>
-                            </li>
-                            <li class="list-group-item">
-                              <a href="#" class="thumb-sm pull-left m-r-sm">
-                                <img src="images/a0.png" class="img-circle">
-                              </a>
-                              <a href="#" class="clear">
-                                <small class="pull-right">1 day ago</small>
-                                <strong class="block">Urumeen 2015</strong>
-                                <small>Welcome and play the Songs in this web application ... </small>
-                              </a>
-                            </li>
-                            <li class="list-group-item">
-                              <a href="#" class="thumb-sm pull-left m-r-sm">
-                                <img src="images/a0.png" class="img-circle">
-                              </a>
-                              <a href="#" class="clear">
-                                <small class="pull-right">3 days ago</small>
-                                <strong class="block">Idhu Namma Aalu 2015</strong>
-                                <small>Welcome and play the Songs in this web application ... </small>
-                              </a>
-                            </li>
-                            <li class="list-group-item">
-                              <a href="#" class="thumb-sm pull-left m-r-sm">
-                                <img src="images/a0.png" class="img-circle">
-                              </a>
-                              <a href="#" class="clear">
-                                <small class="pull-right">Jun 21</small>
-                                <strong class="block">I 2015</strong>
-                                <small>Welcome and play the Songs in this web application ... </small>
-                              </a>
-                            </li>
-                            <li class="list-group-item">
-                              <a href="#" class="thumb-sm pull-left m-r-sm">
-                                <img src="images/a0.png" class="img-circle">
-                              </a>
-                              <a href="#" class="clear">
-                                <small class="pull-right">May 10</small>
-                                <strong class="block">Uttama Villain 2015</strong>
-                                <small>Welcome and play the Songs in this web application ... </small>
-                              </a>
-                            </li>
-                            <li class="list-group-item">
-                              <a href="#" class="thumb-sm pull-left m-r-sm">
-                                <img src="images/a0.png" class="img-circle">
-                              </a>
-                              <a href="#" class="clear">
-                                <small class="pull-right">Jan 2</small>
-                                <strong class="block">Appatakkar 2015</strong>
-                                <small>Welcome and play the Songs in this web application ... </small>
-                              </a>
-                            </li>
-                            <li class="list-group-item" href="#email-content" data-toggle="class:show">
-                              <a href="#" class="thumb-sm pull-left m-r-sm">
-                                <img src="images/a0.png" class="img-circle">
-                              </a>
-                              <a href="#" class="clear">
-                                <small class="pull-right">3 minuts ago</small>
-                                <strong class="block">Ok Kanmini 2015</strong>
-                                <small>Welcome and play the Songs in this web application ... </small>
-                              </a>
-                            </li>
-                            <li class="list-group-item">
-                              <a href="#" class="thumb-sm pull-left m-r-sm">
-                                <img src="images/a0.png" class="img-circle">
-                              </a>
-                              <a href="#" class="clear">
-                                <small class="pull-right">1 hour ago</small>
-                                <strong class="block">Yennai Arindhaal 2015</strong>
-                                <small>Welcome and play the Songs in this web application ... </small>
-                              </a>
-                            </li>
+                          <div id="cart1"></div>
                           </ul>
                         </div>
                         <div class="tab-pane" id="events">

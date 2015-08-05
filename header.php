@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	error_reporting(0);
 	header("Content-type: application/javascript");
 ?>
 
@@ -16,14 +17,45 @@
 
 		<script src="js/jquery.min.js"></script>
 		<script src="js/ajaxGetPost.js"></script>
-
+	<script>
+	
+		$(document).ready(function()
+		{
+		<?php if (isset($_SESSION['session_id_raagas']) && isset($_SESSION['session_raagas_name'])) {?>
+		var encode="user_id=<?php echo ($_SESSION['session_email_16raagas']);?>";
+		var session_id_raagas="<?php echo ($_SESSION['session_id_raagas'])?>";
+		var session_email_16raagas="<?php echo ($_SESSION['session_email_16raagas'])?>";
+		var url;
+		url='myOrder';
+		var j = 0;
+	
+		post_ajax_data_header(url,encode,session_id_raagas, session_email_16raagas, function(data)
+		{
+		$.each(data.tasks, function(i,tasks)
+				{
+					var itemDrop = "<a href=\"cart.php\" class=\"media list-group-item\"><span class=\"pull-left thumb-sm\"><img src=\"images/albums/" +
+				    data.tasks[j].album_img +
+				    "\" class=\"img-circle\"></span><span class=\"media-body block m-b-none\">"+data.tasks[j].song_name+"<br><small class=\"text-muted\">10 minutes left</small></span></a>";
+					$(itemDrop).appendTo("#itemDrop");
+					j = j+1;
+				});
+				item = "<span class=\"badge badge-sm up bg-danger count\">"+j+"</span>";
+				$(item).appendTo("#badgeItem");
+				iite = "<strong>You have <span class=\"count\">"+j+"</span> Items</strong>"
+				$(iite).appendTo("#badgeItem2");
+		});
+		<?php } ?>
+		});
+		</script>
+	
 		<script>
-function login() {
+		function login() {
 	
 			var update=$('#login_username').val();
-			
+			var current_url=window.location.href;
 		var encode="email="+$('#login_username').val()+"&"+"password="+$('#login_password').val();
-		var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
+		var base_url="http://16raagas.com/beta/v1/";
+		//var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
 		url=base_url+'login';
 		if(update.length>0)
 		{
@@ -34,13 +66,24 @@ function login() {
 					   $(msg).appendTo("#loginfailedmsg");
 					   //alert(data.message);
 					} else {
-						alert (data.name);
-						alert (data.email);
-					window.location.href="session_write.php?session_id_raagas="+data.song_session+"&session_raagas_name="+data.name+"&session_email_16raagas="+data.email+"&landing="+window.location.href;
+						//alert (data.name);
+						//alert (data.email);
+						str2 = current_url.replace ("&", "andandand");
+					window.location.href="session_write.php?session_id_raagas="+data.song_session+"&session_raagas_name="+data.name+"&session_email_16raagas="+data.email+"&landing="+str2;
+					
 					}
 			});
-		}
-		//});
+		}	
+}
+
+	function loginClose() {
+	//if (popupStatus == 1) {
+		$("#LoginBackgroundPopup").fadeOut("slow");
+		$("#popupLogin").removeClass('zigmaIn').fadeOut("slow");
+		popupStatus = 0;
+		//alert (window.location.href);
+		//}
+			
 }
 		</script>	
 		
@@ -61,7 +104,7 @@ function login() {
 											</form><!-- login form -->
 					</div><!-- content -->
 				</div><!-- widget -->
-				<div id="popupLoginClose">x</div>
+				<div id="popupLoginClose" onClick="loginClose()">x</div>
 			</div><!-- popup login -->
 			<div id="LoginBackgroundPopup"></div>
 		<!-- popup login -->
@@ -81,31 +124,21 @@ function login() {
 					<div class="navbar-right">
 						<ul class="nav navbar-nav m-n hidden-xs nav-user user">
 						<li class="hidden-xs">
+							<div id="badgeItem"></div>
 							<a href="#" class="dropdown-toggle lt" data-toggle="dropdown">
+								<!---->
 							  <i class="icon-shopping-cart"></i>
-							  <span class="badge badge-sm up bg-danger count">2</span>
+							  
+							<!--  <span class="badge badge-sm up bg-danger count">2</span>-->
 							</a>
 							<section class="dropdown-menu aside-xl animated fadeInUp">
 							  <section class="panel bg-white">
 								<div class="panel-heading b-light bg-light">
-								  <strong>You have <span class="count">2</span> Items</strong>
+									<div id="badgeItem2"></div>
+								<!--  <strong>You have <span class="count">2</span> Items</strong>-->
 								</div>
 								<div class="list-group list-group-alt">
-								  <a href="#" class="media list-group-item">
-									<span class="pull-left thumb-sm">
-									  <img src="images/a0.png" alt="..." class="img-circle">
-									</span>
-									<span class="media-body block m-b-none">
-									  Use awesome animate.css<br>
-									  <small class="text-muted">10 minutes left</small>
-									</span>
-								  </a>
-								  <a href="#" class="media list-group-item">
-									<span class="media-body block m-b-none">
-									  1.0 initial released<br>
-									  <small class="text-muted">30 minutes left</small>
-									</span>
-								  </a>
+								<div id="itemDrop"></div>
 								</div>
 								<div class="panel-footer text-sm">
 								  <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>

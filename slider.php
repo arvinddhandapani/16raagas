@@ -16,14 +16,14 @@
 				
 		//		window.alert("sometext");
 			//var base_url="http://127.0.0.1/16raagas/v1/";
-			var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
+			//var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
 			var url,encodedata;
 			//$("#update").focus();
 
 			/* Load Updates */
-			url=base_url+'slider';
+			url='slider';
 			encodedata='';
-			ajax_data('GET',url, function(data)
+			test_ajax_data('GET',url, function(data)
 			{
 				//alert (data.error);
 				//var j=0;

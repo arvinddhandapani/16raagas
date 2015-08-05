@@ -19,7 +19,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css" id="dark" media="screen" />
 		<link id="light" media="screen" href="styles/light.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styles/icons/icons.css" media="screen" />
-		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+		<!--<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>-->
 
 	<!-- Favicon -->
 		<link rel="shortcut icon" href="images/favicon.ico">
@@ -30,6 +30,69 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles/icons/font-awesome-ie7.min.css" />
 	<![endif]-->
+			<script src="js/jquery.min.js"></script>
+		<script src="js/ajaxGetPost.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				var encode="<?php if (isset($_GET['search'])) {
+				echo ($_GET['search']);
+				} else {
+					echo "all";
+					};?>";
+	
+			
+				var url;
+			
+				url='search/'+encode;
+		
+				test_ajax_data('GET',url, function(data)
+				{
+					
+					var j=0;
+					$.each(data.tasks, function(i,tasks)
+				{
+					
+					$.each(data.tasks[j], function(i,tasks)
+					{
+						var html="<li><a class=\"m-thumbnail\" href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'><img width=\"50\" height=\"50\" src='images/albums/"+data.tasks[j].album_img+"' alt='#'></a><h3><a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'>"+data.tasks[j].album_name+"</a></h3><span>Music Director: "+data.tasks[j].music_director+"</span></li>";
+						
+						
+					
+				$(html).appendTo("#albumList");
+				j=j+1;
+				});
+				});
+				});
+				var url1;
+				url1='searchSong/'+encode;
+		
+				test_ajax_data('GET',url1, function(data)
+				{
+					
+					var j=0;
+					$.each(data.tasks, function(i,tasks)
+				{
+					
+					$.each(data.tasks[j], function(i,tasks)
+					{
+						var html="<li><a class=\"m-thumbnail\" href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'><img width=\"50\" height=\"50\" src='images/albums/"+data.tasks[j].album_img+"' alt='#'></a><h3><a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'>"+data.tasks[j].album_name+"</a></h3><h9>Song Name: "+data.tasks[j].song_name+"</h9><span>Artists: "+data.tasks[j].artist_details+"</span><span>Music Director: "+data.tasks[j].music_director+"</span></li>";
+						
+						
+					
+				$(html).appendTo("#songList");
+				j=j+1;
+				});
+				});
+				});
+				
+		});
+			</script>
+		
+		
+		
+		
+		
 </head>
 <body id="fluidGridSystem">
 	<div id="layout" class="full">
@@ -53,75 +116,51 @@
 				<div class="posts">
 					<div class="grid_5">
 						<div class="def-block widget">
-							<h4> MP3s </h4><span class="liner"></span>
+							<h4> Albums </h4><span class="liner"></span>
 							<div class="widget-content">
 								<ul class="tab-content-items">
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-6.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">Skyfool ( Dubstep Remix )</a></h3>
-											<span> Babel </span>
-											<span> 4,451,748 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-7.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">Don’t go mary ( Remix )</a></h3>
-											<span> Alexander </span>
-											<span> 3,582,250 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-8.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">That's My Kind Of Night </a></h3>
-											<span> Alexander Mikoole </span>
-											<span> 3,258,879 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-9.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">Magna Carta... Holy Grail </a></h3>
-											<span> Joe </span>
-											<span> 1,992,244 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-7.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">Don’t go mary ( Remix )</a></h3>
-											<span> Alexander </span>
-											<span> 82,250 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="images/assets/thumb-mp3-8.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.html">That's My Kind Of Night </a></h3>
-											<span> Alexander Mikoole </span>
-											<span> 8,879 Plays </span>
-										</li>
+										<div id="albumList"></div>
 								</ul>
 							</div><!-- widget content -->
 						</div><!-- block -->
 					</div><!-- grid -->
-
-					<div class="grid_7">
+					<div class="grid_5">
 						<div class="def-block widget">
-							<h4> Videos </h4><span class="liner"></span>
+							<h4> Songs </h4><span class="liner"></span>
 							<div class="widget-content">
-								<div class="video-grid clearfix">
-									<a href="video_single_wide.html" class="grid_6">
-										<img src="images/assets/videos3.jpg" alt="#">
-										<span><strong>Alfered Graceful</strong>Tonight (Remix)</span>
-									</a>
-									<a href="video_single_wide.html" class="grid_6">
-										<img src="images/assets/videos6.jpg" alt="#">
-										<span><strong>Dj Back</strong>I Like It (Radio Edit)</span>
-									</a>
-									<a href="video_single_wide.html" class="grid_6">
-										<img src="images/assets/videos7.jpg" alt="#">
-										<span><strong>Anna</strong>Bad Dog</span>
-									</a>
-									<a href="video_single_wide.html" class="grid_6">
-										<img src="images/assets/videos8.jpg" alt="#">
-										<span><strong>Armando</strong>On Time</span>
-									</a>
-								</div>
+								<ul class="tab-content-items">
+										<div id="songList"></div>
+								</ul>
 							</div><!-- widget content -->
 						</div><!-- block -->
 					</div><!-- grid -->
+				<!--
+					<div class="grid_7">
+										<div class="def-block widget">
+											<h4> Videos </h4><span class="liner"></span>
+											<div class="widget-content">
+												<div class="video-grid clearfix">
+													<a href="video_single_wide.html" class="grid_6">
+														<img src="images/assets/videos3.jpg" alt="#">
+														<span><strong>Alfered Graceful</strong>Tonight (Remix)</span>
+													</a>
+													<a href="video_single_wide.html" class="grid_6">
+														<img src="images/assets/videos6.jpg" alt="#">
+														<span><strong>Dj Back</strong>I Like It (Radio Edit)</span>
+													</a>
+													<a href="video_single_wide.html" class="grid_6">
+														<img src="images/assets/videos7.jpg" alt="#">
+														<span><strong>Anna</strong>Bad Dog</span>
+													</a>
+													<a href="video_single_wide.html" class="grid_6">
+														<img src="images/assets/videos8.jpg" alt="#">
+														<span><strong>Armando</strong>On Time</span>
+													</a>
+												</div>
+											</div><!-- widget content -->
+										<!--</div>--><!-- block -->
+									<!--</div>--><!-- grid -->-->
+				
 
 				</div><!-- posts -->
 

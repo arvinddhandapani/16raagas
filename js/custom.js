@@ -247,6 +247,9 @@ jQuery(document).ready(function ($) {
 				}, 1800);
 		});
 	}
+	
+	
+	
 	// SignIn Popup
 	var popupStatus = 0;
 	$("#Login_PopUp_Link").click(function() {

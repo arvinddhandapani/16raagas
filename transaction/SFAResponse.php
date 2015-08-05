@@ -67,43 +67,35 @@ $astrFileName="http://16raagas.com/transaction/key/icici/00215325.key";
 	 	//print "<h6>Transaction id:: $TxnID<br>";//exit;
 	 	//print "<h6>Epg Transaction ID:: $ePGTxnID<br>";
 	 	//print "<h6>CV Response Code:: $CVRespCode<br>";
-	       if($ResponseCode == 0)
-	 	{	?>
+	     //  if($ResponseCode == 0)
+	 	//{	?>
 			 <script src="js/jquery.min.js"></script>
 			 <script src="js/ajaxGetPost.js"></script>
 
 			 <script>
 			 	$(document).ready(function()
 			 	{
-			 		var ResponseCode = <?php echo $ResponseCode;?>;
-					var Message = <?php echo $Message;?>;
-					var TxnID = <?php echo $TxnID;?>;
-					var ePGTxnID = <?php echo $ePGTxnID;?>;
-					var AuthIdCode = <?php echo $AuthIdCode;?>;
-					var RRN = <?php echo $RRN;?>;
-					var CVRespCode = <?php echo $CVRespCode;?>;
+			 		var ResponseCode = "<?php echo $ResponseCode;?>";
+					var Message = "<?php echo $Message;?>";
+					var TxnID = "<?php echo $TxnID;?>";
+					var ePGTxnID = "<?php echo $ePGTxnID;?>";
+					var AuthIdCode = "<?php echo $AuthIdCode;?>";
+					var RRN = "<?php echo $RRN;?>";
+					var CVRespCode = "<?php echo $CVRespCode;?>";
 					var session_name="<?php echo ($_SESSION['session_raagas_name'])?>";
 					var raagas_amount="<?php echo ($_SESSION['amount'])?>";
+					var raagas_email="<?php echo ($_SESSION['session_email_16raagas'])?>";
 					var url = "paymentsuccess";
-					var encode = "ResponseCode="+ResponseCode+"&Message="+Message+"&TxnID="+TxnID+"&ePGTxnID="+ePGTxnID+"&AuthIdCode="+AuthIdCode+"&RRN="+RRN+"&CVRespCode"+CVRespCode+"&session_name"+session_name+"&raagas_amount"=raagas_amount;
-					var session_id_raagas="<?php echo ($_SESSION['session_id_raagas'])?>";
+					var encode = "ResponseCode="+ResponseCode+"&Message="+Message+"&TxnID="+TxnID+"&ePGTxnID="+ePGTxnID+"&AuthIdCode="+AuthIdCode+"&RRN="+RRN+"&CVRespCode"+CVRespCode+"&session_name"+session_name+"&raagas_amount="+raagas_amount+"&email="+raagas_email;
+					var session_id_raagas="<?php echo ($_SESSION['session_id_raagas']);?>";
 					
-					var session_email_16raagas="<?php echo ($_SESSION['session_email_16raagas'])?>";
+					var session_email_16raagas="<?php echo ($_SESSION['session_email_16raagas']);?>";
 					post_ajax_data_header(url,encode,session_id_raagas, session_email_16raagas, function(data)
 					{
 					var error = (data.error);
 					var message = (data.message);
+					alert (error);
+					alert (message);
 					});
-					
-					
-					
-					
-			 	<?php } else {?>
-			 		var elem = document.getElementById("Login_PopUp_Link");
-			 		if (typeof elem.onclick == "function") {
-			 		    elem.onclick.apply(elem);
-			 		}
-			 	<?php }?>
-			 });
-			 });
+});					
 			 		</script>

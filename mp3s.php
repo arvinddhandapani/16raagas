@@ -30,7 +30,7 @@
 			$(document).ready(function()
 			{
 				
-				<?php if (!isset($_GET['sort'])) {?>
+			<?php if (!isset($_GET['sort'])) {?>
 			var encode="<?php if (isset($_GET['lang'])) {
 			echo ($_GET['lang']);
 			} else {

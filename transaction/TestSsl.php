@@ -22,7 +22,7 @@ $oPGReserveData =	new PGReserveData();
 
 //$oMerchant->setMerchantDetails("00215325","00215325","00215325","10.10.10.238",rand()."","Ord1234","http://16raagas.com/transaction/SFAResponse.php","POST","INR","INV123","req.Sale","$_SESSION[amount]","","Ext1","true","Ext3","Ext4","New PHP");
 
-$oMerchant->setMerchantDetails("00215325","00215325","00215325","10.10.10.238",rand()."","Ord1234","http://16raagas.com/transaction/SFAResponse.php","POST","INR","INV123","req.Sale",$_SESSION['amount'],"","Ext1","true","Ext3","Ext4","New PHP");
+$oMerchant->setMerchantDetails("00215325","00215325","00215325","10.10.10.238",rand()."","Ord1234","http://16raagas.com/beta/transaction/SFAResponse.php","POST","INR","INV123","req.Sale",$_SESSION['amount'],"","Ext1","true","Ext3","Ext4","New PHP");
 
 $oBTA->setAddressDetails ("CID","Tester","Aline1","Aline2","Aline3","Pune","A.P","48927489","IND","tester@soft.com");
 

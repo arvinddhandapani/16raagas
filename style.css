@@ -287,7 +287,7 @@ textarea {
 	background: #333 url(images/bg/1.jpg) repeat;
 }
 .left-sidebar .span8 {
-	float: right;
+	float: none;
 	margin-left: 2.564102564102564% !important
 }
 .left-sidebar .span4 {

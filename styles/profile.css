@@ -13,10 +13,10 @@ small,
   background-color: #aac4c8;
 }
 .badge.up {
-  position: relative;
-  top: -10px;
+  position: absolute;
+  top: -6px;
   padding: 3px 6px;
-  margin-left: -10px;
+  margin-left: 5px;
 }
 .badge-sm {
   font-size: 85%;
@@ -230,7 +230,7 @@ a.list-group-item:focus {
 }
 
 .navbar-nav > li > a{
-	padding: 5px;
+	padding: 0px;
 }
 
 .pagination > li > a {

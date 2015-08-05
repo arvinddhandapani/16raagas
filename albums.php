@@ -42,7 +42,7 @@
 			{
 				
 				//alert ("<?php echo $_SESSION['session_id_raagas'];?>");
-				<?php if (!isset($_GET['album']) || !isset($_GET['a_id'])) {?>
+				<?php if (!isset($_GET['a_id'])) {?>
 					window.location.href="mp3s.php";
 					<?} else {?>
 			
@@ -82,8 +82,9 @@
 					title: data.tasks[j].song_name,
 					artist: data.tasks[0].artist_details,
 					rating: '3',
-					buy:'addtocart.php?song_id='+data.tasks[j].song_id+'&album_id='+data.tasks[j].album_id+'&base_url_al='+window.location.href,
-					price: '10.00',
+					//buy:'addtocart.php?song_id='+data.tasks[j].song_id+'&album_id='+data.tasks[j].album_id+'&base_url_al='+window.location.href,
+					buy:'addtocart.php?song_id='+data.tasks[j].song_id+'&album_id='+data.tasks[j].album_id,
+					price: data.tasks[j].price,
 					duration: data.tasks[j].demo_song_duration,
 					cover: 'music/maari.jpg'};
 				    

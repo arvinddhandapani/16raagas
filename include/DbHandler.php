@@ -169,6 +169,19 @@ class DbHandler {
         }
     }
 	
+    public function getSongSession($email) {
+		$stmt = $this->conn->prepare("SELECT song_session FROM login_details WHERE email = ?");
+       // $stmt = $this->conn->prepare("SELECT u.name, u.email, u.api_key, u.status, u.created_at FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        if ($stmt->execute()) {
+            $user = $stmt->get_result()->fetch_assoc();
+            $stmt->close();
+            return $user;
+        } else {
+            return NULL;
+        }
+    }
+	
 	/**
  	*update the login table
     */
@@ -258,8 +271,14 @@ class DbHandler {
 	*/
 	
 	public function insertIntoOrderTable($user_id, $order_id, $ResponseCode, $Message, $TxnID, $ePGTxnID, $AuthIdCode, $RRN, $CVRespCode, $raagas_amount) {
-        $stmt = $this->conn->prepare("Insert into order_master values (??????????)");
-        $stmt->bind_param("sissssssss", $order_id, $user_id, $raagas_amount, $ResponseCode, $Message, $TxnID, $ePGTxnID, $AuthIdCode, $RRN, $CVRespCode);
+      
+       $stmt = $this->conn->prepare("Insert into order_master(order_id) values (?)");
+             $stmt->bind_param("s", $order_id);
+      
+		//$user_id = "hit";
+      // $stmt = $this->conn->prepare("INSERT INTO order_master(order_id, order_user_id, order_amount, order_ResponseCode, order_Message, order_TxnID, order_ePGTxnID,, order_AuthIdCode, order_RRN, order_CVRespCode) values (??????????)");
+        // $stmt->bind_param("ssssssssss", $order_id,$user_id,$raagas_amount,$ResponseCode,$Message,$TxnID,$ePGTxnID,$AuthIdCode,$RRN,$CVRespCode);
+        //$stmt->bind_param("ssssssssss", $user_id,$user_id,$user_id,$user_id,$user_id,$user_id,$user_id,$user_id,$user_id,$user_id);
         if ($stmt->execute()) {
             return 1;
         } else {
@@ -529,6 +548,20 @@ class DbHandler {
         //return $user_id;
     }
 	
+	
+    /**
+     * Fetching all user Purchased Song
+     * @param String $user_id id of the user
+     */
+    public function getPurchasedSongs($user_id) {
+        $stmt = $this->conn->prepare("SELECT c.*,a.*,s.* FROM cart c, albums a, songs s where c.is_paid = 1 AND c.user_id=? AND a.id=c.album_id AND c.cart_song_id=s.song_id");
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $tasks = $stmt->get_result();
+        $stmt->close();
+		return $tasks;
+        //return $user_id;
+    }
 	    /**
 	     * Fetching all user tasks
 	     * @param String $user_id id of the user
@@ -553,6 +586,36 @@ class DbHandler {
 			
 	        $stmt = $this->conn->prepare("SELECT a.* FROM albums a where a.language = ? AND a.album_name like ?");
 	        $stmt->bind_param("ss", $lang,$switch);
+	        $stmt->execute();
+	        $tasks = $stmt->get_result();
+	        $stmt->close();
+	        return $tasks;
+	    }
+		
+	    public function searchAlbums($switch) {
+			if ($switch != "all") {
+				$switch = "%".$switch."%";
+			} else {
+				$switch = "%";
+			}
+			
+	        $stmt = $this->conn->prepare("SELECT a.* FROM albums a where a.album_name like ? OR a.music_director like ?");
+	        $stmt->bind_param("ss",$switch,$switch);
+	        $stmt->execute();
+	        $tasks = $stmt->get_result();
+	        $stmt->close();
+	        return $tasks;
+	    }
+		
+	    public function searchSong($switch) {
+			if ($switch != "all") {
+				$switch = "%".$switch."%";
+			} else {
+				$switch = "%";
+			}
+			
+	        $stmt = $this->conn->prepare("SELECT s.*, a.* FROM albums a, songs s where s.song_name like ? OR s.artist_details like ? AND s.album_id=a.id");
+	        $stmt->bind_param("ss",$switch,$switch);
 	        $stmt->execute();
 	        $tasks = $stmt->get_result();
 	        $stmt->close();

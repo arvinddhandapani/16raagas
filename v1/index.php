@@ -22,13 +22,13 @@ function authenticate(\Slim\Route $route) {
     $app = \Slim\Slim::getInstance();
 
     // Verifying Authorization Header
-    if (isset($headers['sng_auth']) && isset($headers['sng_uname'])) {
+    if (isset($headers['X-Sngauth']) && isset($headers['X-Snguname'])) {
         $db = new DbHandler();
 
         // get the api key
-        $api_key = $headers['sng_auth'];
+        $api_key = $headers['X-Sngauth'];
 		//get the user name
-		$uname = $headers['sng_uname'];
+		$uname = $headers['X-Snguname'];
         // validating api key
 		$login_check = $db->isValidApiKey($api_key, $uname);
         //Start of response checking 
@@ -45,7 +45,7 @@ function authenticate(\Slim\Route $route) {
             echoRespnse(200, $response);
             $app->stop();
         } elseif ($login_check == 3) {
-            $response["error"] = true;
+            $response["error"] = apache_request_headers();
             $response["message"] = "Authorisation Error";
             echoRespnse(200, $response);
             $app->stop();
@@ -54,12 +54,12 @@ function authenticate(\Slim\Route $route) {
             global $user_id;
             // get user primary key id
             $user_id = $db->getUserId($api_key);
-			//return $user_id;
+			return $user_id;
         } 
 		//end of result validation
     } else {
         // api key is missing in header
-        $response["error"] = true;
+        $response["error"] = apache_request_headers();
         $response["message"] = "Api key is misssing";
         echoRespnse(400, $response);
         $app->stop();
@@ -194,6 +194,7 @@ $app->post('/register', function() use ($app) {
 				                // get the user by email
 								$db->updateLoginByEmail($email);
 				                $user = $db->getUserByEmail($email);
+								$usersession = $db->getSongSession($email);
 
 				                if ($user != NULL) {
 				                    $response["error"] = false;
@@ -201,7 +202,7 @@ $app->post('/register', function() use ($app) {
 				                    $response['email'] = $user['email'];
 				                    $response['apiKey'] = $user['api_key'];
 				                    $response['createdAt'] = $user['created_at'];
-									$response['song_session'] = $user['song_session'];
+									$response['song_session'] = $usersession['song_session'];
 				                } else {
 				                    // unknown error occurred
 				                    $response['error'] = true;
@@ -315,7 +316,71 @@ $app->get('/albums', function() {
 					}
 				});
 
+				/**
+				* Listing all songs and albums by Search String
+				* method GET
+				* url /search
+				* returns id, , album_name, album_year, album_img, album_desc, music_director         
+				*/
+				
+								$app->get('/search/:search1', function($search1) {
+								
+									$response = array();
+									$db = new DbHandler();
+					
+									$result = $db->searchAlbums($search1);
+								    $response["error"] = false;
+								    $response["tasks"] = array();
 
+									if ($result != NULL) {
+								        // looping through result and preparing tasks array
+								        while ($task = $result->fetch_assoc()) {
+						   				 $tmp = array();
+						   				 $tmp["id"] = $task["id"];
+										 $tmp["album_name"] = $task["album_name"];
+						   				 $tmp["album_year"] = $task["album_year"];
+						   				 $tmp["album_img"] = $task["album_img"];
+						   				 $tmp["music_director"] = $task["music_director"];
+						   				 $tmp["album_desc"] = $task["album_desc"];
+						   			     array_push($response["tasks"], $tmp);
+								        }
+										echoRespnse(200, $response);
+									} 
+								});
+								
+								/**
+								* Listing all songs and albums by Search String
+								* method GET
+								* url /search
+								* returns id, , album_name, album_year, album_img, album_desc, music_director         
+								*/
+				
+												$app->get('/searchSong/:search1', function($search1) {
+								
+													$response = array();
+													$db = new DbHandler();
+					
+													$result = $db->searchSong($search1);
+												    $response["error"] = false;
+												    $response["tasks"] = array();
+
+													if ($result != NULL) {
+												        // looping through result and preparing tasks array
+												        while ($task = $result->fetch_assoc()) {
+										   				 $tmp = array();
+										   				 $tmp["id"] = $task["id"];
+														 $tmp["song_name"] = $task["song_name"];
+														 $tmp["artist_details"] = $task["artist_details"];
+														 $tmp["album_name"] = $task["album_name"];
+										   				 $tmp["album_year"] = $task["album_year"];
+										   				 $tmp["album_img"] = $task["album_img"];
+										   				 $tmp["music_director"] = $task["music_director"];
+										   				 $tmp["album_desc"] = $task["album_desc"];
+										   			     array_push($response["tasks"], $tmp);
+												        }
+														echoRespnse(200, $response);
+													} 
+												});
 
 				/**
 				* Filter List Abumns with Alphabets
@@ -470,6 +535,47 @@ $app->post('/cart', 'authenticate', function() use ($app) {
         });
 		
 		/**
+		 * Listing all Purchased product for the user
+		 * method GET
+		 * url /cart          
+		 */
+		$app->post('/myOrder', 'authenticate', function() use ($app) {
+		            // check for required params
+		            verifyRequiredParams(array('user_id'));
+		
+		         //global $user_id;
+		            $response = array();
+		            $db = new DbHandler();
+			
+					$email_id = $app->request->post('user_id');
+					$user_id = $db->getUserIdFromEmail($email_id);
+			
+		            $result = $db->getPurchasedSongs($user_id);
+
+		            $response["error"] = false;
+		            $response["tasks"] = array();
+			
+		            // looping through result and preparing tasks array
+		            while ($task = $result->fetch_assoc()) {
+			
+		                $tmp = array();
+				
+		         	   	//$tmp["cart_id"] = $task["cart_id"];
+		                $tmp["cart_song_id"] = $task["cart_song_id"];
+		                $tmp["album_name"] = $task["album_name"];
+		                $tmp["song_name"] = $task["song_name"];
+						//$tmp["price"] = $task["price"];
+						$tmp["album_img"] = $task["album_img"];
+						$tmp["main_song"] = $task["main_song"];
+						
+				
+		                array_push($response["tasks"], $tmp);
+		            }
+
+		            echoRespnse(200, $response);
+		        });
+		
+		/**
 		* Remove Item From Cart
 		* method POST
 		* url /removeFromCart
@@ -500,35 +606,61 @@ $app->post('/cart', 'authenticate', function() use ($app) {
 
 		
 		
-						/**
-						* Payment is success
-						* method POST
-						* url /paymentsuccess
-						* Will return 201 if the task doesn't belongs to user
-						 */
-								$app->post('/paymentsuccess', 'authenticate', function() use ($app) {
-								            // check for required params
-								     verifyRequiredParams(array('song_id','album_id'));
-									 global $user_id;
-									 
+/**
+* Payment is success
+* method POST
+* url /paymentsuccess
+* Will return 201 if the task doesn't belongs to user
+ */
+$app->post('/paymentsuccess', 'authenticate', function() use ($app) {
+// check for required params
+verifyRequiredParams(array('ResponseCode','raagas_amount'));
+global $user_id;
+$email_id = $app->request->post('email');
+$user_id = $db->getUserIdFromEmail($email_id);
 				 			 		$ResponseCode = $app->request->post('ResponseCode');
+									if (!isset($ResponseCode)) {
+										$ResponseCode = "test";
+									}
 				 					$Message = $app->request->post('Message');
+									if (!isset($Message)) {
+										$Message = "test";
+									}
 				 					$TxnID = $app->request->post('TxnID');
+									if (!isset($TxnID)) {
+										$TxnID = "test";
+									}
 				 					$ePGTxnID = $app->request->post('ePGTxnID');
+									if (!isset($ePGTxnID)) {
+										$ePGTxnID = "test";
+									}
 				 					$AuthIdCode = $app->request->post('AuthIdCode');
+									if (!isset($AuthIdCode)) {
+										$AuthIdCode = "test";
+									}
 				 					$RRN = $app->request->post('RRN');
+									if (!isset($RRN)) {
+										$RRN = "test";
+									}
 				 					$CVRespCode = $app->request->post('CVRespCode'); 
+									if (!isset($CVRespCode)) {
+										$CVRespCode = "test";
+									}
 									$session_name = $app->request->post('session_name');
+									
 									$raagas_amount = $app->request->post('raagas_amount');
+									
 								    $db = new DbHandler();
-								   $user_id = $db->getUserIdFromEmail($user_id);
+								  // $user_id = $db->getUserIdFromEmail($user_id);
 								   //first create an orderID
-								   $orderId = $session_name.time();
+								   $order_id = $session_name.time();
+								   //$order_id = "ord123";
 								   //insert the values to the order table 
+								  // $user_id = '2';
 								   $orderReturn = $db->insertIntoOrderTable($user_id, $order_id, $ResponseCode, $Message, $TxnID, $ePGTxnID, $AuthIdCode, $RRN, $CVRespCode, $raagas_amount);
 								   if ($orderReturn == 1) {
 									   //get the List of songs for Invoice Preparation
-									  $invoice_detail = $db->getSongsForInvoice($userId); 
+									  $invoice_detail = $db->getSongsForInvoice($user_id); 
 									  
 									  // prepare the songs also
 									  //check if the user has a folder
@@ -543,7 +675,7 @@ $app->post('/cart', 'authenticate', function() use ($app) {
 					  				$file_add = '../user_songs/'.$user_id;
 					  				// Open the file to get existing content
 					  				$add_content = file_get_contents($file_add);
-					  				$string1 = strtolower($orderId);
+					  				$string1 = strtolower($order_id);
 					  				$search  = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '0','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
 					  				$replace = array('!', '@', '#', '$', '%', '^', '&', '*', '(', ')','`', '~', '-', '_', '=', '+', '{', '}', '[', ']', ';', '|', ':', '"', ',', '.', '<', '>', '/', "'", '?', '1', '2', '3', '4', '5');
 					  				$string_new = str_replace ($search, $replace, $string1);
@@ -557,7 +689,7 @@ $app->post('/cart', 'authenticate', function() use ($app) {
 									  
 									  // Now update the cart table to is_paid to 1 and Order Id for this Paid user
 									  
-									 $orderTableUpdate = $db->orderTableSuccessUpdate($userId, $orderId);
+									 $orderTableUpdate = $db->orderTableSuccessUpdate($userId, $order_id);
 									 if ($orderTableUpdate > 0) {
 					                   $response["error"] = false;
 					                   $response["message"] = "Payment Success and Song Ready to Download";

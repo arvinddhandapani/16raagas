@@ -1,4 +1,5 @@
 var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
+//var base_url="http://16raagas.com/beta/v1/";
 function post_ajax_data(url,encodedata, success)
 
 {
@@ -31,8 +32,8 @@ function post_ajax_data_header(url,encodedata, headerraagas, session_email_16raa
 $.ajax({
 type:"POST",
 url:finalurl,
-	headers: {'sng_auth': headerraagas,
-	'sng_uname': session_email_16raagas},
+	headers: {'X-Sngauth': headerraagas,
+	'X-Snguname': session_email_16raagas},
 data :encodedata,
 dataType:"json",
 restful:true,
