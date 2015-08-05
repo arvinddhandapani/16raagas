@@ -332,13 +332,13 @@ class DbHandler {
 			$t3 = $t2 - $t1;
 			$t3 = $t3/60;
 			//return $t3;
-			if (($t3) < 60) {
-				$stmt->close();
+		//	if (($t3) < 60) {
+		//		$stmt->close();
 				return 1;
-			} else {
-        		$stmt->close();
-				return 2;
-			} 
+		//	} else {
+        //		$stmt->close();
+		//		return 2;
+		//	} 
 			
 		} else {
 			$stmt->close();
@@ -636,7 +636,7 @@ class DbHandler {
     }
 	
 	public function getSongsForInvoice($user_id) {
-        $stmt = $this->conn->prepare("SELECT s.song_name, s.price FROM songs s, cart c, where c.is_paid = 0 AND c.user_id = ? AND c.cart_song_id=s.song_id");
+        $stmt = $this->conn->prepare("SELECT s.song_name, s.price, s.main_song FROM songs s, cart c where c.is_paid = 0 AND c.user_id = ? AND c.cart_song_id=s.song_id");
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
         $tasks = $stmt->get_result();
@@ -671,12 +671,16 @@ class DbHandler {
         return $num_affected_rows > 0;
     }
  public function orderTableSuccessUpdate($user_id, $orderId) {
+	// $user = $user_id;
      $stmt = $this->conn->prepare("UPDATE cart c set c.is_paid = 1, c.cart_order_id = ? WHERE c.user_id = ?");
      $stmt->bind_param("is", $user_id, $orderId);
+	
      $stmt->execute();
+	 $error1 = $stmt->error;
      $num_affected_rows = $stmt->affected_rows;
      $stmt->close();
-     return $num_affected_rows > 0;
+	 return $error1;
+     //return $num_affected_rows > 0;
 	
  }
     /**

@@ -614,11 +614,15 @@ $app->post('/cart', 'authenticate', function() use ($app) {
  */
 $app->post('/paymentsuccess', 'authenticate', function() use ($app) {
 // check for required params
-verifyRequiredParams(array('ResponseCode','raagas_amount'));
+//verifyRequiredParams(array('ResponseCode','raagas_amount'));
 global $user_id;
 $email_id = $app->request->post('email');
+
+
+ $db = new DbHandler();
 $user_id = $db->getUserIdFromEmail($email_id);
-				 			 		$ResponseCode = $app->request->post('ResponseCode');
+
+				 			 	$ResponseCode = $app->request->post('ResponseCode');
 									if (!isset($ResponseCode)) {
 										$ResponseCode = "test";
 									}
@@ -630,6 +634,7 @@ $user_id = $db->getUserIdFromEmail($email_id);
 									if (!isset($TxnID)) {
 										$TxnID = "test";
 									}
+								
 				 					$ePGTxnID = $app->request->post('ePGTxnID');
 									if (!isset($ePGTxnID)) {
 										$ePGTxnID = "test";
@@ -650,13 +655,12 @@ $user_id = $db->getUserIdFromEmail($email_id);
 									
 									$raagas_amount = $app->request->post('raagas_amount');
 									
-								    $db = new DbHandler();
-								  // $user_id = $db->getUserIdFromEmail($user_id);
+							
 								   //first create an orderID
 								   $order_id = $session_name.time();
-								   //$order_id = "ord123";
+		
 								   //insert the values to the order table 
-								  // $user_id = '2';
+
 								   $orderReturn = $db->insertIntoOrderTable($user_id, $order_id, $ResponseCode, $Message, $TxnID, $ePGTxnID, $AuthIdCode, $RRN, $CVRespCode, $raagas_amount);
 								   if ($orderReturn == 1) {
 									   //get the List of songs for Invoice Preparation
@@ -670,9 +674,9 @@ $user_id = $db->getUserIdFromEmail($email_id);
 									  
 							          while ($song123 = $invoice_detail->fetch_assoc()) {
 							          $tmp = array();
-									  $song_name = $song123["song_name"];
-					  				copy('../songs/'.$song_name, '../user_songs/'.$user_id);
-					  				$file_add = '../user_songs/'.$user_id;
+									  $song_name = $song123["main_song"];
+					  				copy('../music/'.$song_name, '../user_songs/'.$user_id.'/'.$song_name);
+					  				$file_add = '../user_songs/'.$user_id.'/'.$song_name;
 					  				// Open the file to get existing content
 					  				$add_content = file_get_contents($file_add);
 					  				$string1 = strtolower($order_id);
@@ -685,33 +689,30 @@ $user_id = $db->getUserIdFromEmail($email_id);
 					  				file_put_contents($file_add, $add_content);
 							         
 							           }
-									  
+					                   
 									  
 									  // Now update the cart table to is_paid to 1 and Order Id for this Paid user
 									  
-									 $orderTableUpdate = $db->orderTableSuccessUpdate($userId, $order_id);
+									 $orderTableUpdate = $db->orderTableSuccessUpdate($user_id, $order_id);
+				                  
+				                   $response["error"] = false;
+				                   $response["message"] = $orderTableUpdate;
+				                  //$response["task_id"] = $task_id;
+				                   echoRespnse(200, $response);
+									/*
 									 if ($orderTableUpdate > 0) {
-					                   $response["error"] = false;
-					                   $response["message"] = "Payment Success and Song Ready to Download";
-					                  //$response["task_id"] = $task_id;
-					                   echoRespnse(200, $response);
-									 } else {
-  					                   $response["error"] = true;
-  					                   $response["message"] = "Order Table update Failed";
-									 }
+														                   $response["error"] = false;
+														                   $response["message"] = "Payment Success and Song Ready to Download";
+														                  //$response["task_id"] = $task_id;
+														                   echoRespnse(200, $response);
+																		 } else {
+									  					                   $response["error"] = true;
+									  					                   $response["message"] = "Order Table update Failed";
+																		 }*/
+									
 								   }
-								   $task_id = $db->removeItemFromCart($user_id, $song_id, $album_id);
-       
-												               if ($task_id == 1) {
-												                   $response["error"] = false;
-												                   $response["message"] = "Item Has been removed from Cart";
-												                  //$response["task_id"] = $task_id;
-												                   echoRespnse(201, $response);
-												               } elseif ($task_id == 2) {
-												                   $response["error"] = true;
-												                   $response["message"] = "Item Not present in the cart";
-												                   echoRespnse(200, $response);
-												               }  
+								
+
 				       
 								        });
 		
