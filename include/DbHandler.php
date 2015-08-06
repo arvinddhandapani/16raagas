@@ -272,13 +272,21 @@ class DbHandler {
 	
 	public function insertIntoOrderTable($user_id, $order_id, $ResponseCode, $Message, $TxnID, $ePGTxnID, $AuthIdCode, $RRN, $CVRespCode, $raagas_amount) {
       
-       $stmt = $this->conn->prepare("Insert into order_master(order_id) values (?)");
-             $stmt->bind_param("s", $order_id);
+     //mysqli_report(MYSQLI_REPORT_ALL) ;
+     /*
+       $stmt = $this->conn->prepare("Insert into order_master(order_id,order_user_id) values (??)");
+                       $stmt->bind_param("si", $order_id, $user_id);*/
+     
+     
       
 		//$user_id = "hit";
-      // $stmt = $this->conn->prepare("INSERT INTO order_master(order_id, order_user_id, order_amount, order_ResponseCode, order_Message, order_TxnID, order_ePGTxnID,, order_AuthIdCode, order_RRN, order_CVRespCode) values (??????????)");
-        // $stmt->bind_param("ssssssssss", $order_id,$user_id,$raagas_amount,$ResponseCode,$Message,$TxnID,$ePGTxnID,$AuthIdCode,$RRN,$CVRespCode);
-        //$stmt->bind_param("ssssssssss", $user_id,$user_id,$user_id,$user_id,$user_id,$user_id,$user_id,$user_id,$user_id,$user_id);
+      
+       $stmt = $this->conn->prepare("INSERT INTO order_master(order_id,order_user_id,order_amount,order_ResponseCode,order_Message,order_TxnID,order_ePGTxnID,order_AuthIdCode,order_RRN,order_CVRespCode) VALUES (?,?,?,?,?,?,?,?,?,?)");
+      	   
+               $stmt->bind_param("sissssssss", $order_id,$user_id,$raagas_amount,$ResponseCode,$Message,$TxnID,$ePGTxnID,$AuthIdCode,$RRN,$CVRespCode);
+      		 
+      
+       
         if ($stmt->execute()) {
             return 1;
         } else {
@@ -685,13 +693,12 @@ class DbHandler {
  public function orderTableSuccessUpdate($user_id, $orderId) {
 	// $user = $user_id;
      $stmt = $this->conn->prepare("UPDATE cart c set c.is_paid = 1, c.cart_order_id = ? WHERE c.user_id = ?");
-     $stmt->bind_param("is", $user_id, $orderId);
+     $stmt->bind_param("si", $orderId, $user_id);
 	
      $stmt->execute();
-	 $error1 = $stmt->error;
      $num_affected_rows = $stmt->affected_rows;
      $stmt->close();
-	 return $error1;
+	 return $orderId.$user_id;
      //return $num_affected_rows > 0;
 	
  }

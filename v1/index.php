@@ -601,6 +601,7 @@ $app->post('/cart', 'authenticate', function() use ($app) {
 						//$tmp["price"] = $task["price"];
 						$tmp["album_img"] = $task["album_img"];
 						$tmp["main_song"] = $task["main_song_mp3"];
+						$tmp["song_sub"] = $user_id;
 						
 				
 		                array_push($response["tasks"], $tmp);
@@ -697,10 +698,9 @@ $user_id = $db->getUserIdFromEmail($email_id);
 		
 								   //insert the values to the order table 
 
-								   $orderReturn = $db->insertIntoOrderTable($user_id, $order_id, $ResponseCode, $Message, $TxnID, $ePGTxnID, $AuthIdCode, $RRN, $CVRespCode, $raagas_amount);
-				                   $response["error"] = false;
-				                   $response["message"] = $order_id;
-				                   echoRespnse(200, $response);
+								  $orderReturn = $db->insertIntoOrderTable($user_id, $order_id, $ResponseCode, $Message, $TxnID, $ePGTxnID, $AuthIdCode, $RRN, $CVRespCode, $raagas_amount);
+								  
+							 
 								   if ($orderReturn == 1) {
 									   //get the List of songs for Invoice Preparation
 									  $invoice_detail = $db->getSongsForInvoice($user_id); 
@@ -708,7 +708,7 @@ $user_id = $db->getUserIdFromEmail($email_id);
 				                   
 									  // prepare the songs also
 									  //check if the user has a folder
-									/*
+								
 									  if (!file_exists('../user_songs/'.$user_id)) {
 																		      mkdir('../user_songs/'.$user_id, 0777, true);
 																		  }
@@ -739,7 +739,7 @@ $user_id = $db->getUserIdFromEmail($email_id);
 													                   $response["error"] = false;
 													                   $response["message"] = $orderTableUpdate;
 													                  //$response["task_id"] = $task_id;
-													                   echoRespnse(200, $response);*/
+													                   echoRespnse(200, $response);
 									
 									/*
 									 if ($orderTableUpdate > 0) {

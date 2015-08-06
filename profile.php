@@ -59,7 +59,7 @@
 			if (data.tasks.length > 0) {
 			$.each(data.tasks, function(i,tasks)
 				{
-					var html ="<li class=\"list-group-item\"><a href=\""+data.tasks[j].song_name+"/"+data.tasks[j].song_name+"\" class=\"thumb-sm pull-left m-r-sm\"><img src=\"images/a0.png\" class=\"img-circle\"></a><small class=\"pull-right\"><a href=\"music/"+data.tasks[j].main_song+"\" > <i class=\"fa icon-download fa-big\"></i></a></small><strong class=\"block\">"+data.tasks[j].album_name+"<br><br> </strong><small>"+data.tasks[j].song_name+"</small></li>";
+					var html ="<li class=\"list-group-item\"><a href=\""+data.tasks[j].song_name+"/"+data.tasks[j].song_name+"\" class=\"thumb-sm pull-left m-r-sm\"><img src=\"images/a0.png\" class=\"img-circle\"></a><small class=\"pull-right\"><a href=\"download.php?file=user_songs/"+data.tasks[j].song_sub+"/"+data.tasks[j].main_song+"\" > <i class=\"fa icon-download fa-big\"></i></a></small><strong class=\"block\">"+data.tasks[j].album_name+"<br><br> </strong><small>"+data.tasks[j].song_name+"</small></li>";
 					$(html).appendTo("#cart1");
 					
 					j = j+1;
