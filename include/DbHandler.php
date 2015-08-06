@@ -533,6 +533,18 @@ class DbHandler {
         return $tasks;
     }
 	
+    /**
+     * Fetching all user tasks
+     * @param String $user_id id of the user
+     */
+    public function getAllTracks() {
+        $stmt = $this->conn->prepare("SELECT a.*, s.* FROM albums a, songs s WHERE s.album_id=a.id");
+       // $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $tasks = $stmt->get_result();
+        $stmt->close();
+        return $tasks;
+    }
 	
     /**
      * Fetching all user cart
@@ -636,7 +648,7 @@ class DbHandler {
     }
 	
 	public function getSongsForInvoice($user_id) {
-        $stmt = $this->conn->prepare("SELECT s.song_name, s.price, s.main_song FROM songs s, cart c where c.is_paid = 0 AND c.user_id = ? AND c.cart_song_id=s.song_id");
+        $stmt = $this->conn->prepare("SELECT s.song_name, s.price, s.main_song_mp3 FROM songs s, cart c where c.is_paid = 0 AND c.user_id = ? AND c.cart_song_id=s.song_id");
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
         $tasks = $stmt->get_result();

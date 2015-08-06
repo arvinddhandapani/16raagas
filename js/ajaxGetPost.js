@@ -24,6 +24,31 @@ alert("Internal Server Error");
 });
 }
 
+function post_ajax_data_w(url,encodedata, success)
+
+{
+	var finalurl = base_url+url;
+$.ajax({
+type:"POST",
+url:finalurl,
+data :encodedata,
+dataType:"json",
+restful:true,
+//contentType: 'application/json',
+contentType: 'application/x-www-form-urlencoded',
+cache:false,
+timeout:20000,
+async:true,
+beforeSend :function(data) { },
+success:function(data){
+success.call(this, data);
+},
+error:function(data){
+alert("Internal Server Error");
+}
+});
+}
+
 
 function post_ajax_data_header(url,encodedata, headerraagas, session_email_16raagas, success)
 

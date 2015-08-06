@@ -11,6 +11,5 @@ if (isset($_GET['session_id_raagas'])) {
 }
 ?>
 <script>
-alert ("<?php echo $landin_url;?>");
 window.location = "<?php echo $landin_url;?>";
 </script>

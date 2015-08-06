@@ -56,12 +56,7 @@
 	
 		post_ajax_data_header(url,encode,session_id_raagas, session_email_16raagas, function(data)
 		{
-			/*
-			var html ="<li class=\"list-group-item\"><a href=\"#\" class=\"thumb-sm pull-left m-r-sm\"><img src=\"images/a0.png\" class=\"img-circle\"></a><small class=\"pull-right\"><a href=\"#\" > <i class=\"fa icon-download fa-big\"></i></a></small><strong class=\"block\">Maari 2015 <br><br> </strong><small>Welcome and play the Songs in this web application ... </small></li>";
-						$(html).appendTo("#cart1");
-						alert (html);*/
-			
-		
+			if (data.tasks.length > 0) {
 			$.each(data.tasks, function(i,tasks)
 				{
 					var html ="<li class=\"list-group-item\"><a href=\""+data.tasks[j].song_name+"/"+data.tasks[j].song_name+"\" class=\"thumb-sm pull-left m-r-sm\"><img src=\"images/a0.png\" class=\"img-circle\"></a><small class=\"pull-right\"><a href=\"music/"+data.tasks[j].main_song+"\" > <i class=\"fa icon-download fa-big\"></i></a></small><strong class=\"block\">"+data.tasks[j].album_name+"<br><br> </strong><small>"+data.tasks[j].song_name+"</small></li>";
@@ -69,6 +64,15 @@
 					
 					j = j+1;
 					});
+			}
+			else {
+				var html ="<li class=\"list-group-item\"><strong class=\"block\"> Sorry there are no Songs Purchased.<br><br> </strong></li>";
+				$(html).appendTo("#cart1");
+			}
+			/*
+		
+					*/
+		
 		});
 		<?php } else {?>
 		   var msg="<span>Please login to Continue</span>";
@@ -176,16 +180,18 @@
                     </section>
                   </section>
 				<br>
+					<!--
 					<div class="pagination-tt clearfix">
-						<ul>
-							<li><span class="deactive">1</span></li>
-							<li><a href="#" class="tbutton"><span>2</span></a></li>
-							<li><a href="#" class="tbutton"><span>3</span></a></li>
-							<li><span class="deactive">...</span></li>
-							<li><a href="#" class="tbutton"><span>8</span></a></li>
-						</ul>
-						<span class="pages">Page 1 of 8</span>
-					</div><!-- pagination -->
+											<ul>
+												<li><span class="deactive">1</span></li>
+												<li><a href="#" class="tbutton"><span>2</span></a></li>
+												<li><a href="#" class="tbutton"><span>3</span></a></li>
+												<li><span class="deactive">...</span></li>
+												<li><a href="#" class="tbutton"><span>8</span></a></li>
+											</ul>
+											<span class="pages">Page 1 of 8</span>
+										</div>-->
+					<!-- pagination -->
 				</div><!-- def block -->
 			</div><!-- span8 posts -->
 

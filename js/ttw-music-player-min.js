@@ -69,7 +69,7 @@
                 G = 0,
                 A, H;
             O = {
-                listItem: '<li class="track"><span class="title"></span><span class="duration"></span><span class="rating"></span><a href="#" class="buy not-active" target="_blank"></a></li>',
+                listItem: '<li class="track"><span class="title"></span><span class="duration"></span><span class="rating"></span><a href="#" class="buy not-active"></a></li>',
                 ratingBar: '<span class="rating-level rating-bar"></span>'
             };
 

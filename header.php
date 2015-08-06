@@ -26,7 +26,7 @@
 		var session_id_raagas="<?php echo ($_SESSION['session_id_raagas'])?>";
 		var session_email_16raagas="<?php echo ($_SESSION['session_email_16raagas'])?>";
 		var url;
-		url='myOrder';
+		url='cart';
 		var j = 0;
 	
 		post_ajax_data_header(url,encode,session_id_raagas, session_email_16raagas, function(data)
@@ -54,20 +54,18 @@
 			var update=$('#login_username').val();
 			var current_url=window.location.href;
 		var encode="email="+$('#login_username').val()+"&"+"password="+$('#login_password').val();
-		var base_url="http://16raagas.com/beta/v1/";
-		//var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
-		url=base_url+'login';
+		
+		url='login';
 		if(update.length>0)
 		{
-			post_ajax_data(url,encode, function(data)
+			post_ajax_data_w(url,encode, function(data)
 			{
 				   if(data.error===true){
 					   var msg="<span>"+data.message+"</span>";
 					   $(msg).appendTo("#loginfailedmsg");
-					   //alert(data.message);
+				
 					} else {
-						//alert (data.name);
-						//alert (data.email);
+					;
 						str2 = current_url.replace ("&", "andandand");
 					window.location.href="session_write.php?session_id_raagas="+data.song_session+"&session_raagas_name="+data.name+"&session_email_16raagas="+data.email+"&landing="+str2;
 					
@@ -142,8 +140,8 @@
 								</div>
 								<div class="panel-footer text-sm">
 								  <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
-								  <a href="#" class="tbutton small"><span>Check Out</span></a>
-								  <a href="cart.php" class="tbutton color2 small"><span>Continue Shopping</span></a>
+								  <a href="cart.php" class="tbutton small"><span>Check Out</span></a>
+								  <a href="albums.php" class="tbutton color2 small"><span>Continue Shopping</span></a>
 								</div>
 							  </section>
 							</section>

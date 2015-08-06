@@ -46,9 +46,33 @@
 					if (j<4){
 						
 				var html="<div class='news row-fluid animtt' data-gen='fadeUp'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"'alt='#'></div><div class='span7'><h3 class='news-title'> <a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'>"+data.tasks[j].album_name+"</a> </h3><p>"+data.tasks[j].album_desc+"</p><a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"' class='sign-btn tbutton small'><span>Buy Now</span></a></div></div>";
+				
 			$(html).appendTo("#mainContent");
 		}
 			j=j+1;
+			
+		});
+			});
+			});
+			/*
+			*Start of Track listing
+			*
+			*
+			*/
+			url1='tracklist';
+			//encodedata='';
+			test_ajax_data('GET',url1, function(data)
+			{
+				var k=0;
+				$.each(data.tasks, function(i,tasks)
+			{
+				$.each(data.tasks[k], function(i,tasks)
+				{
+					if (k<4){
+						var popularTracks="<li class=\"clearfix\"><a class=\"m-thumbnail\" href=\"mp3_single.html\"><img width=\"50\" height=\"50\" src=\"images/albums/"+data.tasks[k].album_img+"\"alt=\"#\"></a><h3><a href=\"albums.php?album="+data.tasks[k].album_name+"&a_id="+data.tasks[k].id+"\">"+data.tasks[k].song_name+"</a></h3><span>"+data.tasks[k].music_director+"</span><span> "+Number(data.tasks[k].no_Downloads).toLocaleString('en')+" Downloads </span></li>";
+			$(popularTracks).appendTo("#popularTracks");
+		}
+			k=k+1;
 			
 		});
 			});
@@ -68,10 +92,10 @@ error_reporting(0);?>
 <?php include 'slider.php'; ?>
 
 		<div class="page-content">
-			<!--
+		
 			<div class="row clearfix mbf">
 							<div class="music-player-list"></div>
-						</div>-->
+						</div>
 			<!-- row music player -->
 
 			<div class="row row-fluid clearfix mbf">
@@ -81,11 +105,11 @@ error_reporting(0);?>
 							<div id="mainContent">
 								
 							</div>
-						<div class="load-news tac"><a href="#" class="tbutton small"><span>Load More</span></a></div>
+						<div class="load-news tac"><a href="albums.php" class="tbutton small"><span>Load More</span></a></div>
 					</div><!-- def block -->
 				</div><!-- span8 news -->
 
-			<!--
+		
 				<div class="span4">
 								<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
 									<h4> Events </h4><span class="liner"></span>
@@ -97,12 +121,12 @@ error_reporting(0);?>
 										<div class="span9">
 											<p>Bono Serenades Warren Buffet at NYC Event.</p>
 											<a href="#" class="tbutton buy-ticket small"><span>Buy Ticket</span></a>
-										</div>-->
+										</div>
 			
-						<!--</div>--><!-- widget content -->
-				<!--	</div>--><!-- def block widget events -->
+						</div><!-- widget content -->
+				</div><!-- def block widget events -->
 
-					<!--
+			
 					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
 											<h4> Featured Videos </h4><span class="liner"></span>
 											<div class="widget-content row-fluid">
@@ -115,9 +139,9 @@ error_reporting(0);?>
 																<h3>I Know You Want Me</h3>
 																<span>Fitbull</span>
 															</a>
-														</li>-->
+														</li>
 					<!-- slide -->
-									<!--
+									
 									<li class="featured-video">
 																			<a href="video_single_wide.html">
 																				<img src="images/assets/video2.jpg" alt="#">
@@ -125,9 +149,9 @@ error_reporting(0);?>
 																				<h3>I Like It</h3>
 																				<span>Enrique</span>
 																			</a>
-																		</li>-->
+																		</li>
 									<!-- slide -->
-								<!--
+							
 									<li class="featured-video">
 																		<a href="video_single_wide.html">
 																			<img src="images/assets/video3.jpg" alt="#">
@@ -135,64 +159,29 @@ error_reporting(0);?>
 																			<h3>Tommorow</h3>
 																			<span>Dj Michele</span>
 																		</a>
-																	</li>-->
+																	</li>
 								<!-- slide -->
-							<!--
+						
 								</ul>
 														</div>
-													</div>-->
+													</div>
 							<!-- widget content -->
-					<!--</div>--><!-- def block widget videos -->
+				</div><!-- def block widget videos -->
 
-				<!--
+			
 					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
 										<h4> Popular Tracks </h4><span class="liner"></span>
 										<div class="widget-content row-fluid">
 											<div class="mtracks">
 												<div class="content">
 													<ul class="tab-content-items">
-														<li class="clearfix">
-															<a class="m-thumbnail" href="mp3_single.html"><img width="50" height="50" src="images/assets/thumb-mp3-1.jpg" alt="#"></a>
-															<h3><a href="mp3_single_half.html">Kaladi Kanmani</a></h3>
-															<span> Illayaraja </span>
-															<span> 1,892,250 Plays </span>
-														</li>
-														<li class="clearfix">
-															<a class="m-thumbnail" href="mp3_single.html"><img width="50" height="50" src="images/assets/thumb-mp3-2.jpg" alt="#"></a>
-															<h3><a href="mp3_single_half.html">Nan Kadavul</a></h3>
-															<span> Yuvan Shankar Raja </span>
-															<span> 998,879 Plays </span>
-														</li>
-														<li class="clearfix">
-															<a class="m-thumbnail" href="mp3_single.html"><img width="50" height="50" src="images/assets/thumb-mp3-3.jpg" alt="#"></a>
-															<h3><a href="mp3_single_half.html">Ok Kanmani 2015 </a></h3>
-															<span> A.R Rahaman </span>
-															<span> 792,240 Plays </span>
-														</li>
-														<li class="clearfix">
-															<a class="m-thumbnail" href="mp3_single.html"><img width="50" height="50" src="images/assets/thumb-mp3-4.jpg" alt="#"></a>
-															<h3><a href="mp3_single_half.html">Maari 2015</a></h3>
-															<span> Anirudh R </span>
-															<span> 788,471 Plays </span>
-														</li>
-														<li class="clearfix">
-															<a class="m-thumbnail" href="mp3_single.html"><img width="50" height="50" src="images/assets/thumb-mp3-5.jpg" alt="#"></a>
-															<h3><a href="mp3_single_half.html">Burning For you</a></h3>
-															<span> GV Prakash </span>
-															<span> 710,105 Plays </span>
-														</li>
-														<li class="clearfix">
-															<a class="m-thumbnail" href="mp3_single.html"><img width="50" height="50" src="images/assets/thumb-mp3-6.jpg" alt="#"></a>
-															<h3><a href="mp3_single_half.html">Skyfool</a></h3>
-															<span> A.R Rahaman </span>
-															<span> 611,748 Plays </span>
-														</li>
+														<div id="popularTracks"></div>
 													</ul>
 												</div>
-											</div>-->
+											</div>
 				
-						<!--</div>--><!-- widget content -->
-				<!--	</div>--><!-- def block widget popular items -->
+						</div><!-- widget content -->
+				</div><!-- def block widget popular items -->
 				</div><!-- span4 sidebar -->
 			</div><!-- row clearfix -->
 		</div><!-- end page content -->

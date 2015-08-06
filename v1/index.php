@@ -249,7 +249,41 @@ $app->get('/albums', function() {
 
 		            echoRespnse(200, $response);
 		        });
+				/**
+				* Listing all Tracks with Album info also 
+				* method GET
+				* url /albums
+				* returns id, album_name, album_year, album_img, album_desc, music_director        
+				*/
+				$app->get('/tracklist', function() {
+						            global $user_id;
+						            $response = array();
+						            $db = new DbHandler();
 
+						            // fetching all user tasks
+						            $result = $db->getAllTracks();
+
+						            $response["error"] = false;
+						            $response["tasks"] = array();
+
+						            // looping through result and preparing tasks array
+						            while ($task = $result->fetch_assoc()) {
+						                $tmp = array();
+						                $tmp["id"] = $task["id"];
+										$tmp["album_name"] = $task["album_name"];
+						                $tmp["album_year"] = $task["album_year"];
+						                $tmp["album_img"] = $task["album_img"];
+										$tmp["music_director"] = $task["music_director"];
+						                $tmp["album_desc"] = $task["album_desc"];
+										$tmp["song_name"] = $task["song_name"];
+										$tmp["song_id"] = $task["song_id"];
+										$tmp["no_Downloads"] = $task["no_Downloads"];
+						
+						                array_push($response["tasks"], $tmp);
+						            }
+
+						            echoRespnse(200, $response);
+						        });
 				/**
 				* Checking for the correctness of the data 
 				* method GET
@@ -566,11 +600,12 @@ $app->post('/cart', 'authenticate', function() use ($app) {
 		                $tmp["song_name"] = $task["song_name"];
 						//$tmp["price"] = $task["price"];
 						$tmp["album_img"] = $task["album_img"];
-						$tmp["main_song"] = $task["main_song"];
+						$tmp["main_song"] = $task["main_song_mp3"];
 						
 				
 		                array_push($response["tasks"], $tmp);
 		            }
+					
 
 		            echoRespnse(200, $response);
 		        });
@@ -623,82 +658,89 @@ $email_id = $app->request->post('email');
 $user_id = $db->getUserIdFromEmail($email_id);
 
 				 			 	$ResponseCode = $app->request->post('ResponseCode');
-									if (!isset($ResponseCode)) {
+									if (empty($ResponseCode)) {
 										$ResponseCode = "test";
 									}
 				 					$Message = $app->request->post('Message');
-									if (!isset($Message)) {
+									if (empty($Message)) {
 										$Message = "test";
 									}
 				 					$TxnID = $app->request->post('TxnID');
-									if (!isset($TxnID)) {
+									if (empty($TxnID)) {
 										$TxnID = "test";
 									}
 								
 				 					$ePGTxnID = $app->request->post('ePGTxnID');
-									if (!isset($ePGTxnID)) {
+									if (empty($ePGTxnID)) {
 										$ePGTxnID = "test";
 									}
 				 					$AuthIdCode = $app->request->post('AuthIdCode');
-									if (!isset($AuthIdCode)) {
+									if (empty($AuthIdCode)) {
 										$AuthIdCode = "test";
 									}
 				 					$RRN = $app->request->post('RRN');
-									if (!isset($RRN)) {
+									if (empty($RRN)) {
 										$RRN = "test";
 									}
 				 					$CVRespCode = $app->request->post('CVRespCode'); 
-									if (!isset($CVRespCode)) {
+									if (empty($CVRespCode)) {
 										$CVRespCode = "test";
 									}
-									$session_name = $app->request->post('session_name');
+									$session_name = $app->request->post('email');
 									
 									$raagas_amount = $app->request->post('raagas_amount');
 									
 							
 								   //first create an orderID
-								   $order_id = $session_name.time();
+								   $order_id = "ORD".time();
+				                  
 		
 								   //insert the values to the order table 
 
 								   $orderReturn = $db->insertIntoOrderTable($user_id, $order_id, $ResponseCode, $Message, $TxnID, $ePGTxnID, $AuthIdCode, $RRN, $CVRespCode, $raagas_amount);
+				                   $response["error"] = false;
+				                   $response["message"] = $order_id;
+				                   echoRespnse(200, $response);
 								   if ($orderReturn == 1) {
 									   //get the List of songs for Invoice Preparation
 									  $invoice_detail = $db->getSongsForInvoice($user_id); 
 									  
+				                   
 									  // prepare the songs also
 									  //check if the user has a folder
+									/*
 									  if (!file_exists('../user_songs/'.$user_id)) {
-									      mkdir('../user_songs/'.$user_id, 0777, true);
-									  }
-									  
-							          while ($song123 = $invoice_detail->fetch_assoc()) {
-							          $tmp = array();
-									  $song_name = $song123["main_song"];
-					  				copy('../music/'.$song_name, '../user_songs/'.$user_id.'/'.$song_name);
-					  				$file_add = '../user_songs/'.$user_id.'/'.$song_name;
-					  				// Open the file to get existing content
-					  				$add_content = file_get_contents($file_add);
-					  				$string1 = strtolower($order_id);
-					  				$search  = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '0','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
-					  				$replace = array('!', '@', '#', '$', '%', '^', '&', '*', '(', ')','`', '~', '-', '_', '=', '+', '{', '}', '[', ']', ';', '|', ':', '"', ',', '.', '<', '>', '/', "'", '?', '1', '2', '3', '4', '5');
-					  				$string_new = str_replace ($search, $replace, $string1);
-					  				// Append a new person to the file
-					  				$add_content .= " ???><?;? ".$string_new."\n";
-					  				// Write the contents back to the file
-					  				file_put_contents($file_add, $add_content);
-							         
-							           }
-					                   
-									  
-									  // Now update the cart table to is_paid to 1 and Order Id for this Paid user
-									  
-									 $orderTableUpdate = $db->orderTableSuccessUpdate($user_id, $order_id);
-				                  
-				                   $response["error"] = false;
-				                   $response["message"] = $orderTableUpdate;
-				                  //$response["task_id"] = $task_id;
-				                   echoRespnse(200, $response);
+																		      mkdir('../user_songs/'.$user_id, 0777, true);
+																		  }
+																		  
+																          while ($song123 = $invoice_detail->fetch_assoc()) {
+																          $tmp = array();
+																		  $song_name = $song123["main_song_mp3"];
+														  				copy('../music/'.$song_name, '../user_songs/'.$user_id.'/'.$song_name);
+														  				$file_add = '../user_songs/'.$user_id.'/'.$song_name;
+														  				// Open the file to get existing content
+														  				$add_content = file_get_contents($file_add);
+														  				$string1 = strtolower($order_id);
+														  				$search  = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '0','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+														  				$replace = array('!', '@', '#', '$', '%', '^', '&', '*', '(', ')','`', '~', '-', '_', '=', '+', '{', '}', '[', ']', ';', '|', ':', '"', ',', '.', '<', '>', '/', "'", '?', '1', '2', '3', '4', '5');
+														  				$string_new = str_replace ($search, $replace, $string1);
+														  				// Append a new person to the file
+														  				$add_content .= " ???><?;? ".$string_new."\n";
+														  				// Write the contents back to the file
+														  				file_put_contents($file_add, $add_content);
+																         
+																           }
+														                   
+																		  
+																		  // Now update the cart table to is_paid to 1 and Order Id for this Paid user
+																		  
+																		 $orderTableUpdate = $db->orderTableSuccessUpdate($user_id, $order_id);
+													                  
+													                   $response["error"] = false;
+													                   $response["message"] = $orderTableUpdate;
+													                  //$response["task_id"] = $task_id;
+													                   echoRespnse(200, $response);*/
+									
 									/*
 									 if ($orderTableUpdate > 0) {
 														                   $response["error"] = false;

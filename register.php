@@ -14,6 +14,7 @@
 		<meta name="keywords" content="16RaaGas, music, light, MP3 Store">
 
 	<!-- Styles -->
+		<link href='css/style.css' rel='stylesheet' type='text/css'/>
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="style.css" id="dark" media="screen" />
@@ -41,6 +42,80 @@
 	  margin-bottom: 0px;
 	}
 	</style>
+			<script src="js/jquery.min.js"></script>
+			<script src="js/ajaxGetPost.js"></script>
+
+			<script type="text/javascript">
+	
+	function verifyemail(email,auth_code) {
+		//alert (email);
+		//alert (auth_code);
+		
+		var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
+		url=base_url+'authorise';
+		var encode="email="+email+"&"+"auth_code="+auth_code;
+		post_ajax_data(url,encode, function(data)
+		{
+		   if(data.error===true){
+			   var msg12="<span>"+data.message+"</span>";
+			   $(msg12).appendTo("#authfailed");
+			   window.location.href="register.php?authMessage="+msg12;
+			   //alert(data.message);
+			} else {
+			var msg12="<span>"+data.message+"</span>";
+		   $(msg12).appendTo("#authfailed");
+		   window.location.href="login.php?register=success";
+		   window.location.href="login.php?authMessage=success";
+		}
+	});
+}
+	
+	
+	function register() {
+		var username=$('#username').val();
+		var emailaddr=$('#emailaddr').val();
+		var Password1=$('#Password1').val();
+		var Password2=$('#Password2').val();
+		var msg="Password and Confirm Password did not match";
+	 	$(msg).appendTo("#registerfailedmsg");
+		if(Password1===Password2)
+		{	
+			
+		var update=$('#username').val();
+			
+			var encode="name="+$('#username').val()+"&"+"email="+$('#emailaddr').val()+"&"+"password="+$('#Password1').val();
+			var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
+			//var base_url="http://16raagas.com/beta/v1/";
+			url=base_url+'register';
+			if(update.length>0)
+			{
+				post_ajax_data(url,encode, function(data)
+				{
+					   if(data.error===true){
+						   var msg12="<span>"+data.message+"</span>";
+						   $(msg12).appendTo("#loginfailedmsg");
+						   window.location.href="register.php?register="+data.message;
+						   
+						   //alert(data.message);
+						} else {
+ 						   var msg12="<span>"+data.message+"</span>";
+						   alert(data.url1);
+ 						   $(msg12).appendTo("#loginfailedmsg");
+						   window.location.href="register.php?register=success";
+						   
+							//alert(data.message);
+						//window.location.href="session_write.php?session_id_raagas="+data.session_id_raagas+"&session_raagas_name="+data.name+"&landing="+window.location.href;
+						}
+				});
+			}
+			
+	} else {
+		//alert("fail");
+		var msg="Password and Confirm Password did not match";
+	   $(msg).appendTo("#registerfailedmsg");
+	}
+}
+			</script>
 	
 </head>
 <body id="fluidGridSystem">
@@ -74,25 +149,45 @@
 	
     <!--    register-block-->
     <div class="register-main">
+		<?php
+	
+		if (isset($_GET['email']) && isset($_GET['auth_code'])) {
+			echo "inside";
+			echo 	'<script> verifyemail("'.$_GET['email'].'","'.$_GET['auth_code'].'") </script>';
+		?>
+		<!--<script>
+		"verifyemail()";
+		</script> -->
+		
+		 <p><?php echo $_GET['authMessage']?></p>
+		<?php
+	} elseif (!isset($_GET['register']) || $_GET['register']!="success") {
+		?>
+		
         <div class="container">
             <p>register</p>
             <div class="col-md-offset-4 col-md-4 register-block">
-                <!--                sign-up-->
+              
                 <div class="sign-up">
-                    <p>Already have an account? <span><a id="Login_PopUp_Link" >Sign in Now</a></span>
-                    </p>
-                    <form role="form" method="post" action="index.html">
+					<?php
+					if (!isset($_GET['register'])){
+					?>
+                    <p>Already have an account? <span><a id="Login_PopUp_Link" >Sign in Now</a>
+					<?php
+				} else {
+					?>
+					<p><?php echo $_GET['register'];?>
+					<?php } ?>
+                    </p></span>
+				
+                    <form role="form" method="post" onsubmit="return false;">
                         <div class="form-group">
                             <label for="username">user name</label>
                             <input type="text" class="form-control" id="username" placeholder="UserName *" required="">
                         </div>
-						<div class="form-group">
-                            <label for="phone-no">Mobile No</label>
-                            <input type="tel" class="form-control" id="phone-no" placeholder="Phone Number *" required="">
-                        </div>
                         <div class="form-group">
                             <label for="email-addr">Email address</label>
-                            <input type="email" class="form-control" id="email-addr" placeholder="Email Address *" required="">
+                            <input type="email" class="form-control" id="emailaddr" placeholder="Email Address *" required="">
                         </div>
                         <div class="form-group">
                             <label for="Password1">Password</label>
@@ -102,13 +197,29 @@
                             <label for="Password2">Confirm Password</label>
                             <input type="password" class="form-control" id="Password2" placeholder="Confirm Password *" required="">
                         </div>
-                        <button type="submit" class="btn btn-default submit-btn">Submit now</button>
+                        <!--<div class="form-group">
+                            <label for="username">Phone Number</label>
+                            <input type="text" class="form-control" id="phone" placeholder="UserName *" required="">
+                        </div>-->
+                        <button type="submit" class="btn btn-default submit-btn" onClick="register()">Submit now</button>
                     </form>
                 </div>
                 <!--                end of sign-up-->
             </div>
         </div>
     </div>
+	<?
+} else {
+	?>
+    <div class="col-md-offset-4 col-md-4 register-block">
+        <!--                sign-up-->
+        <div class="sign-up">
+            <p>A mail has been sent to you registered mail ID. Please click the link to Activate your account.</p>
+		</div>
+	</div>
+	<?php
+}
+	?>
 </div>
 		<?php include 'footer.php'; ?>
 
