@@ -41,7 +41,7 @@
 			$(document).ready(function()
 			{
 				
-				//alert ("<?php echo $_SESSION['session_id_raagas'];?>");
+				
 				<?php if (!isset($_GET['a_id'])) {?>
 					window.location.href="mp3s.php";
 					<?} else {?>
@@ -65,7 +65,7 @@
 					$(tag).appendTo("#tags");
 					
 					//Breadcrumbs
-					var bred="<li><a href='index.html' class='toptip' title='Homepage'> <i class='icon-home'></i> </a></li><li><a href='mp3s.html'> Songs </a></li>\<li><a href='mp3s.php?lang="+data.tasks[0].language+"'>"+data.tasks[0].language+"</a></li><li> "+data.tasks[0].album_name+" </li>";
+					var bred="<li><a href='index.php' class='toptip' title='Homepage'> <i class='icon-home'></i> </a></li><li><a href='mp3s.html'> Songs </a></li>\<li><a href='mp3s.php?lang="+data.tasks[0].language+"'>"+data.tasks[0].language+"</a></li><li> "+data.tasks[0].album_name+" </li>";
 					$(bred).appendTo("#breadcrumbs");
 					
 					$.each(data.tasks, function(i,tasks)
@@ -77,7 +77,7 @@
 					{
 						
 					myPlaylist[j] = {
-					mp3: 'music/'+data.tasks[j].demo_song,
+					mp3: 'music/demo_songs/'+data.tasks[j].demo_song,
 					//oga: 'music/5.ogg',
 					title: data.tasks[j].song_name,
 					artist: data.tasks[0].artist_details,

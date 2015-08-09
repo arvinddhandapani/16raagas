@@ -29,7 +29,7 @@
                         <span class="pull-right">
                           <i class="icon-angle-left"></i>
                         </span>
-                       &nbsp; <span class="label label-default">2</span>&nbsp;
+                       
                     </a>
                     <ul class="in" id="component-nav">
 						 <li><a href="user_account.php"><i class="icon-table"></i> User Account </a></li>
@@ -44,7 +44,7 @@
                         <span class="pull-right">
                           <i class="icon-angle-left"></i>
                         </span>
-                       &nbsp; <span class="label label-default">2</span>&nbsp;
+                       
                     </a>
                     <ul class="in" id="component-nav">
 						 <li><a href="slider_upload.php"><i class="icon-table"></i> Slider Upload </a></li>
@@ -59,10 +59,10 @@
                         <span class="pull-right">
                           <i class="icon-angle-left"></i>
                         </span>
-                       &nbsp; <span class="label label-default">2</span>&nbsp;
+                       
                     </a>
                     <ul class="in" id="component-nav">
-						 <li><a href="albums_upload.html"><i class="icon-table"></i> Albums Upload </a></li>
+						 <li><a href="albums_upload.php"><i class="icon-table"></i> Albums Upload </a></li>
 						 <li><a href="albums_removal.php"><i class="icon-table"></i> Albums Removal </a></li>
                     </ul>
                 </li> 
@@ -74,10 +74,10 @@
                         <span class="pull-right">
                           <i class="icon-angle-left"></i>
                         </span>
-                       &nbsp; <span class="label label-default">2</span>&nbsp;
+                       
                     </a>
                     <ul class="in" id="component-nav">
-						 <li><a href="songs_upload.html"><i class="icon-table"></i> Songs Upload </a></li>
+						 <li><a href="songs_upload.php"><i class="icon-table"></i> Songs Upload </a></li>
 						 <li><a href="songs_removal.php"><i class="icon-table"></i> Songs Removal </a></li>
                     </ul>
                 </li> 
@@ -89,7 +89,7 @@
                         <span class="pull-right">
                           <i class="icon-angle-left"></i>
                         </span>
-                       &nbsp; <span class="label label-default">2</span>&nbsp;
+                       
                     </a>
                     <ul class="in" id="component-nav">
 						 <li><a href="payment_gateway.php"><i class="icon-table"></i> Payment Gateway Details </a></li>

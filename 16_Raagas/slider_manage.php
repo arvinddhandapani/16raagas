@@ -90,10 +90,10 @@
 									  while ($row=mysqli_fetch_assoc($result)){
 										?>  
 									<tr class="odd gradeX">
-										<form action="slider_update_super.php" method="post">	
+										<form action="slider_manage_handler.php" method="post">	
 										<?php
-										echo("<tr><td><input type=text value=$row[id] name=sid></input></td>");
-										echo ("<td><input type=text value=$row[image_name] name=image_name></input></td>");
+										echo("<tr><td><label>$row[id]</label><input type=text value=$row[id] name=sid hidden></input></td>");
+										echo ("<td><input type=text value=$row[image_name] name=image_name disabled></input></td>");
 										if ($row['show_hide']=='1'){
 										echo("<td>Image Shown in Slider</td>");	
 										}  else {

@@ -19,7 +19,7 @@ if ($Connect->query($sql) === TRUE) {
 }
 $Connect->close();
 
-if(isset($_POST['submit'])){
+
 $name = $_FILES["uploadedfile"]["name"];
 //$size = $_FILES['file']['size']
 //$type = $_FILES['file']['type']
@@ -40,5 +40,5 @@ if (isset ($name)) {
           echo 'Album Image not uploaded';
           }
     }
-}
+
 ?>

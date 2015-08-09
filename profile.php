@@ -57,9 +57,21 @@
 		post_ajax_data_header(url,encode,session_id_raagas, session_email_16raagas, function(data)
 		{
 			if (data.tasks.length > 0) {
+				
 			$.each(data.tasks, function(i,tasks)
 				{
-					var html ="<li class=\"list-group-item\"><a href=\""+data.tasks[j].song_name+"/"+data.tasks[j].song_name+"\" class=\"thumb-sm pull-left m-r-sm\"><img src=\"images/a0.png\" class=\"img-circle\"></a><small class=\"pull-right\"><a href=\"download.php?file=user_songs/"+data.tasks[j].song_sub+"/"+data.tasks[j].main_song+"\" > <i class=\"fa icon-download fa-big\"></i></a></small><strong class=\"block\">"+data.tasks[j].album_name+"<br><br> </strong><small>"+data.tasks[j].song_name+"</small></li>";
+					if (data.tasks[j].main_song!=""){
+						var mp3_download = "<small class=\"pull-right\"><a href=\"download.php?file=user_songs/"+data.tasks[j].song_sub+"/mp3/"+data.tasks[j].main_song+"\" > <i class=\"fa icon-download fa-big\"></i></a></small>";
+					} else {
+						var mp3_download = "";
+					}
+					if (data.tasks[j].main_song_wmv!=""){
+						var wmv_download = "<small class=\"pull-right\"><a href=\"download.php?file=user_songs/"+data.tasks[j].song_sub+"/wmv/"+data.tasks[j].main_song_wmv+"\" > <i class=\"fa icon-download fa-big\"></i></a></small>";
+					} else {
+						var wmv_download = "";
+					}
+					//alert (data.tasks[j].main_song_wmv);
+					var html ="<li class=\"list-group-item\"><a href=\""+data.tasks[j].song_name+"/"+data.tasks[j].song_name+"\" class=\"thumb-sm pull-left m-r-sm\"><img src=\"images/a0.png\" class=\"img-circle\"></a>"+mp3_download+wmv_download+"<strong class=\"block\">"+data.tasks[j].album_name+"<br><br> </strong><small>"+data.tasks[j].song_name+"</small></li>";
 					$(html).appendTo("#cart1");
 					
 					j = j+1;
