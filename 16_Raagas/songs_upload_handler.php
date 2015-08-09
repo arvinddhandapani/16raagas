@@ -31,7 +31,7 @@ if (isset ($name_mp3)) {
 	
     if (!empty($name_mp3)) {
     $is_mp3 = 1; 
-    $location_mp3 = 'Album_Songs_MP3/';
+    $location_mp3 = mp3_Songs;
     if  (move_uploaded_file($tmp_name_mp3, $location_mp3.$name_mp3)){
         echo 'MP3 Song Uploaded Successfully';    
 		echo "<br>";
@@ -46,7 +46,7 @@ if (isset ($name_wmv)) {
 	
     if (!empty($name_wmv)) {
     $is_wmv = 1; 
-    $location_wmv = 'Album_Songs_WMV/';
+    $location_wmv = wmv_songs;
     if  (move_uploaded_file($tmp_name_wmv, $location_wmv.$name_wmv)){
         echo 'WMV Song Uploaded Successfully';    
 		echo "<br>";

@@ -25,9 +25,10 @@ $error = $_FILES['uploadedfile']['error'];
 if (isset ($name)) {
     if (!empty($name)) {
 
-    $location = 'Slider_Image/';
-
+    $location = slider_image_path;
+echo $location;
     if  (move_uploaded_file($tmp_name, $location.$name)){
+		echo $location;
         echo 'Slider Image Uploaded Successfully';    
         }
 

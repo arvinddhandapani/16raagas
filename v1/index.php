@@ -1,5 +1,5 @@
 <?php
-
+include '../16_raagas/includes/psl-config.php';
 require_once '../include/DbHandler.php';
 require_once '../include/PassHash.php';
 require '.././labs/Slim/Slim/Slim.php';
@@ -716,7 +716,7 @@ $user_id = $db->getUserIdFromEmail($email_id);
 																          while ($song123 = $invoice_detail->fetch_assoc()) {
 																          $tmp = array();
 																		  $song_name = $song123["main_song_mp3"];
-														  				copy('../music/'.$song_name, '../user_songs/'.$user_id.'/'.$song_name);
+														  				copy(mp3_Songs.$song_name, '../user_songs/'.$user_id.'/'.$song_name);
 														  				$file_add = '../user_songs/'.$user_id.'/'.$song_name;
 														  				// Open the file to get existing content
 														  				$add_content = file_get_contents($file_add);

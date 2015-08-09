@@ -1,11 +1,12 @@
 <?php
 	session_start();
 	header("Content-type: application/javascript");
+	include 'include/psl-config.php';
     require_once dirname(__FILE__) . '/include/DbConnect.php';
     // opening db connection
     $db = new DbConnect();
     $conn = $db->connect();
-	
+	$slider_path = slider_image_path;
 		
         $stmt = $conn->prepare("SELECT a.* FROM main_slider a where a.show_hide = 1");
       
@@ -76,7 +77,7 @@
 									<?php
 									while($row = $tasks->fetch_assoc()){?>
 										<li data-transition="random" data-slotamount="7" data-masterspeed="300" >
-											<img src="images/slides/<?php echo $row['image_name']?>" alt="<?php echo $row['image_name']?>" >
+											<img src="<?php echo slider_image_path.$row['image_name'];?>" alt="<?php echo $row['image_name']?>" >
 										</li>
 									<?php	
 									   // echo $row['image_name'] . '<br />';

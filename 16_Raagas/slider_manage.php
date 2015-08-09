@@ -43,166 +43,8 @@
     <div id="wrap">
 
 
-         <!-- HEADER SECTION -->
-        <div id="top">
-
-            <nav class="navbar navbar-inverse navbar-fixed-top " style="padding-top: 10px;">
-                <a data-original-title="Show/Hide Menu" data-placement="bottom" data-tooltip="tooltip" class="accordion-toggle btn btn-primary btn-sm visible-xs" data-toggle="collapse" href="#menu" id="menu-toggle">
-                    <i class="icon-align-justify"></i>
-                </a>
-                <!-- LOGO SECTION -->
-                <header class="navbar-header">
-
-                    <a href="index1.html" class="navbar-brand">
-                    <img src="assets/img/logo.png" alt="" /></a>
-                </header>
-                <!-- END LOGO SECTION -->
-                <ul class="nav navbar-top-links navbar-right">
-
-                
-
-                    <!--ADMIN SETTINGS SECTIONS -->
-
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="icon-user "></i>&nbsp; <i class="icon-chevron-down "></i>
-                        </a>
-
-                        <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="icon-user"></i> User Profile </a>
-                            </li>
-                            <li><a href="#"><i class="icon-gear"></i> Settings </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li><a href="login.html"><i class="icon-signout"></i> Logout </a>
-                            </li>
-                        </ul>
-
-                    </li>
-                    <!--END ADMIN SETTINGS -->
-                </ul>
-
-            </nav>
-
-        </div>
-        <!-- END HEADER SECTION -->
-
-
-
-        <!-- MENU SECTION -->
-       <div id="left">
-            <div class="media user-media well-small">
-                <a class="user-link" href="#">
-                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="assets/img/user.jpg" />
-                </a>
-                <br />
-                <div class="media-body">
-                    <h5 class="media-heading"> Jayakumar</h5>
-                    <ul class="list-unstyled user-info">
-                        
-                        <li>
-                             <a class="btn btn-success btn-xs btn-circle" style="width: 10px;height: 12px;"></a> Online
-                           
-                        </li>
-                       
-                    </ul>
-                </div>
-                <br />
-            </div>
-
-            <ul id="menu" class="collapse">
-
-                
-                <li class="panel">
-                    <a href="index1.html" >
-                        <i class="icon-table"></i> Dashboard
-	   
-                       
-                    </a>                   
-                </li>
-
-                <li class="panel active">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
-                        <i class="icon-tasks"> </i> User     
-	   
-                        <span class="pull-right">
-                          <i class="icon-angle-left"></i>
-                        </span>
-                       &nbsp; <span class="label label-default">2</span>&nbsp;
-                    </a>
-                    <ul class="in" id="component-nav">
-						 <li><a href="user_account.php"><i class="icon-table"></i> User Account </a></li>
-						 <li><a href="user_order.php"><i class="icon-table"></i> User Order </a></li>
-                    </ul>
-                </li> 
- 
-				<li class="panel active">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
-                        <i class="icon-tasks"> </i> Slider     
-	   
-                        <span class="pull-right">
-                          <i class="icon-angle-left"></i>
-                        </span>
-                       &nbsp; <span class="label label-default">2</span>&nbsp;
-                    </a>
-                    <ul class="in" id="component-nav">
-						 <li><a href="slider_upload.php"><i class="icon-table"></i> Slider Upload </a></li>
-						 <li><a href="slider_manage.php"><i class="icon-table"></i> Slider Manage </a></li>
-                    </ul>
-                </li> 
-				
-				<li class="panel active">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
-                        <i class="icon-tasks"> </i> Albums     
-	   
-                        <span class="pull-right">
-                          <i class="icon-angle-left"></i>
-                        </span>
-                       &nbsp; <span class="label label-default">2</span>&nbsp;
-                    </a>
-                    <ul class="in" id="component-nav">
-						 <li><a href="albums_upload.html"><i class="icon-table"></i> Albums Upload </a></li>
-						 <li><a href="albums_removal.php"><i class="icon-table"></i> Albums Removal </a></li>
-                    </ul>
-                </li> 
-
-				<li class="panel active">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
-                        <i class="icon-tasks"> </i> Songs     
-	   
-                        <span class="pull-right">
-                          <i class="icon-angle-left"></i>
-                        </span>
-                       &nbsp; <span class="label label-default">2</span>&nbsp;
-                    </a>
-                    <ul class="in" id="component-nav">
-						 <li><a href="songs_upload.php"><i class="icon-table"></i> Songs Upload </a></li>
-						 <li><a href="songs_removal.php"><i class="icon-table"></i> Songs Removal </a></li>
-                    </ul>
-                </li> 
-				
-				<li class="panel active">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
-                        <i class="icon-tasks"> </i> Orders     
-	   
-                        <span class="pull-right">
-                          <i class="icon-angle-left"></i>
-                        </span>
-                       &nbsp; <span class="label label-default">2</span>&nbsp;
-                    </a>
-                    <ul class="in" id="component-nav">
-						 <li><a href="payment_gateway.php"><i class="icon	-table"></i> Payment Gateway Details </a></li>
-						 <li><a href="order_history.php"><i class="icon-table"></i> Order History </a></li>
-                    </ul>
-                </li> 
-				
-                <li><a href="tables.html"><i class="icon-table"></i> Data Tables </a></li>
-                
-                <li><a href="login.html"><i class="icon-signin"></i> Login Page </a></li>
-
-
-        </div>
-        <!--END MENU SECTION -->
+	   <?php include 'header_admin.php'; ?>
+	   <?php include 'side_menu.php'; ?>
 
 
         <!--PAGE CONTENT -->
@@ -224,7 +66,8 @@
                             Slider Image Details
                         </div>
                         <div class="panel-body">
-                            <div class="table-responsive">						
+                            <div class="table-responsive">	
+												
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
@@ -233,8 +76,9 @@
                                             <th>Show-Hide Status</th>                                    
 											<th>Select/Unselect Image</th>									       											
 											<th>Set</th>
-										<th></th>                                    										
+										                                 										
                                         </tr>
+									
                                     </thead>
 									 
                                          <tbody>
@@ -246,25 +90,36 @@
 									  while ($row=mysqli_fetch_assoc($result)){
 										?>  
 									<tr class="odd gradeX">
+										<form action="slider_update_super.php" method="post">	
 										<?php
-										echo ("<td>$row[id]</td>");
-										echo ("<td>$row[image_name]</td>");
+										echo("<tr><td><input type=text value=$row[id] name=sid></input></td>");
+										echo ("<td><input type=text value=$row[image_name] name=image_name></input></td>");
 										if ($row['show_hide']=='1'){
 										echo("<td>Image Shown in Slider</td>");	
 										}  else {
 											echo("<td>Image Not Shown</td>");	
 										}							
                                         if ($row['show_hide']=='1'){
-										echo ("<td><label for=selectn><input type=checkbox name=slider_check value=Yes>Un Select</label></input></td>");
+											?>
+											<td><label><input type="radio" name="optionsRadios" id="optionsRadios1" value="selected" checked="True" /> Selected</label><br>
+										<label><input type="radio" name="optionsRadios" id="optionsRadios1" value="unselected" /> UnSelected</label></td>
+										<?php	
 										}  else {
-											echo ("<td><label for=selectn><input type=checkbox name=slider_check value=Yes>Select</label></input></td>");	
+											?>
+											<td><label><input type="radio" name="optionsRadios" id="optionsRadios1" value="selected"  /> Selected</label><br>
+									<label><input type="radio" name="optionsRadios" id="optionsRadios1" value="unselected" checked="True" /> UnSelected</label></td>
+										<?php
 										}
 										echo("<td><input type=submit name=submit value=Set></input></td>");										
-										echo("<td><input type=text value=$row[id] name=sid></input></td></tr>");										
-	       								}
-									 	?>	  							  		
+										?>
+											</form>	</tr>
+										<?php							
+	       								} 
+									 	?>	  
+													  		
                                     </tbody>									
-                                </table>								
+                                </table>		
+													
                             </div>
                            
                         </div>

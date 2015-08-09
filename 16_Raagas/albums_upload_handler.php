@@ -30,7 +30,7 @@ $error = $_FILES['uploadedfile']['error'];
 if (isset ($name)) {
     if (!empty($name)) {
 
-    $location = 'Album_Image/';
+    $location = album_image;
 
     if  (move_uploaded_file($tmp_name, $location.$name)){
         echo 'Album Image Uploaded Successfully';    
