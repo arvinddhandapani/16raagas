@@ -103,12 +103,12 @@ $app->post('/register', function() use ($app)
     if ($res == USER_CREATED_SUCCESSFULLY) {
         $response["error"]   = false;
         $response["message"] = "You are successfully registered";
-        $response["url1"]    = "http://localhost/adhandapani/16raagas/16raagas/register.php?email=" . $email . "&auth_code=" . $verification_code;
+        $response["url1"]    = "http://16raagas.com/beta/register.php?email=" . $email . "&auth_code=" . $verification_code;
         
         $headers = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
         
-        $headers .= 'To: arvind.mib@gmail.com' . "\r\n";
+        $headers .= 'To: '.$email. "\r\n";
         $headers .= 'From: 16raagas <support@16raagas.com>' . "\r\n";
         $message = '
                 <html>
@@ -651,15 +651,12 @@ $app->post('/removeFromCart', 'authenticate', function() use ($app)
 {
     // check for required params
     verifyRequiredParams(array(
-        'song_id',
-        'album_id'
+        'cart_id'
     ));
     global $user_id;
     $db       = new DbHandler();
-    $album_id = $app->request->post('album_id');
-    $song_id  = $app->request->post('song_id');
-    $user_id  = $db->getUserIdFromEmail($user_id);
-    $task_id  = $db->removeItemFromCart($user_id, $song_id, $album_id);
+    $cart_id = $app->request->post('cart_id');
+    $task_id  = $db->removeItemFromCart($cart_id);
     
     if ($task_id == 1) {
         $response["error"]   = false;

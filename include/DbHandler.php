@@ -424,15 +424,14 @@ class DbHandler {
 	*   Removes Item From the cart
 	*/
  
-    public function removeItemFromCart($user_id, $song_id, $album_id) {   
+    public function removeItemFromCart($cart_id) {   
 		 
-		$user_id = $user_id;
-		$song_id = $song_id;
-		$album_id = $album_id;
+	
+		$cart_id = $cart_id;
 		//Check if Song belongs to album
  
-				        $stmt = $this->conn->prepare("Delete from cart where cart_song_id = ? AND user_id = ?");
-				        $stmt->bind_param("ii", $song_id,$user_id);
+				        $stmt = $this->conn->prepare("Delete from cart where cart_id = ?");
+				        $stmt->bind_param("i",$cart_id);
 				        $result = $stmt->execute();
 				        $stmt->close();
 						if ($result) {

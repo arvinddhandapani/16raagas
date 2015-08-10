@@ -192,7 +192,9 @@
 							</div>
 						  </div>
 							  <div class="checkout16raagas">
-							  <button class="tbutton color2 checkout")>Checkout</button>
+								  <div id="checkboxbutton"></div>
+								   <input type="checkbox" name="option-5" id="option-5"> <label for="option-5">I have read and Understood the Terms of Service.</label>
+							  <button class="tbutton color2 checkout" >Checkout</button>
 							  </div>
 						</div>
 						
@@ -211,7 +213,7 @@
 		var shippingRate = 0.00; 
 		var fadeTime = 300;
 		
-		
+	
 		
 		function removeItem1(val) {
 			 //$(this).closest("div").remove();
@@ -225,8 +227,7 @@
 
 		/* Assign actions */
 		$('.product-quantity input').change( function() {
-			alert ("hi");
-		  //updateQuantity(this);
+			
 		});
 
 		$('cart1 product-removal button').click( function() {
@@ -246,7 +247,7 @@
 		function recalculateCart()
 		{
 		  var subtotal = 0;
-		  alert ("hi");
+		
 		  /* Sum up row totals */
 		  $('.product').each(function () {
 			subtotal += parseFloat($(this).children('.product-line-price').text());
@@ -297,12 +298,25 @@
 		function removeItem(removeButton)
 		{
 		  /* Remove row from DOM and recalc cart total */
-			 var a = document.getElementById(removeButton);
-			a.parentNode.removeChild(a);
-		 // var productRow = $(removeButton).parent().parent();
-		  //productRow.slideUp(fadeTime, function() {
-			//productRow.remove();
-			recalculateCart();
+			var id_cart = removeButton;
+			var encode="cart_id="+id_cart;
+		//	alert (encode);
+			var session_id_raagas="<?php echo ($_SESSION['session_id_raagas'])?>";
+			var session_email_16raagas="<?php echo ($_SESSION['session_email_16raagas'])?>";
+			
+			var url;
+			url='removeFromCart';
+			post_ajax_data_header(url,encode,session_id_raagas, session_email_16raagas, function(data)
+			{
+				var a = document.getElementById(removeButton);
+	   			a.parentNode.removeChild(a);
+	   		 // var productRow = $(removeButton).parent().parent();
+	   		  //productRow.slideUp(fadeTime, function() {
+	   			//productRow.remove();
+	   			recalculateCart();
+				
+			});
+			 
 		 // });
 		}
 	</script>
