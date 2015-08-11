@@ -94,10 +94,7 @@
                                             <input class="form-control" name="song_name">
                                             <p class="help-block">Enter Song Name here.</p>
                                         </div>    
-                                        <div class="form-group">
-                                            <label>Demo Song</label>
-                                            <input name="uploadedfile_demo" type="file" />
-                                        </div>              					              
+                                            					              
                                         <div class="form-group">
                                             <label>MP3 Songs</label>
                                             <input name="uploadedfile_mp3" id="uploadedfile" type="file" />

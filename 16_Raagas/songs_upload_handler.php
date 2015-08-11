@@ -5,7 +5,7 @@ $price = $_POST['price'];
 $artist_details = $_POST['artist_details'];
 $song_name_mp3 = $_FILES["uploadedfile_mp3"]["name"];
 $song_name_wmv = $_FILES["uploadedfile_wmv"]["name"];
-$song_name_demo = $_FILES["uploadedfile_demo"]["name"];
+$song_name_demo = $_FILES["uploadedfile_mp3"]["name"];
 include 'mp3file.class.php';
 include 'includes/psl-config.php';
 $Connect = mysqli_connect(HOST,USER, PASSWORD, DATABASE);
@@ -24,12 +24,12 @@ $duration_wmv = "00:00:00";
 $duration_demo = "00:00:00";
 $name_mp3 = $_FILES["uploadedfile_mp3"]["name"];
 $name_wmv = $_FILES["uploadedfile_wmv"]["name"];
-$name_demo = $_FILES["uploadedfile_demo"]["name"];
+$name_demo = $_FILES["uploadedfile_mp3"]["name"];
 //$size = $_FILES['file']['size']
 //$type = $_FILES['file']['type']
 $tmp_name_mp3 = $_FILES['uploadedfile_mp3']['tmp_name'];
 $tmp_name_wmv = $_FILES['uploadedfile_wmv']['tmp_name'];
-$tmp_name_demo = $_FILES['uploadedfile_demo']['tmp_name'];
+//$tmp_name_demo = $_FILES['uploadedfile_demo']['tmp_name'];
 $error_mp3 = $_FILES['uploadedfile_mp3']['error'];
 if (!empty($name_mp3 or $name_wmv)) {
 if (isset ($name_mp3)) {
@@ -37,6 +37,19 @@ if (isset ($name_mp3)) {
     if (!empty($name_mp3)) {
     $is_mp3 = 1; 
     $location_mp3 = mp3_Songs;
+	//Prepare Demo SOng
+	require_once 'phpmp3.php';
+	$mp3 = new PHPMP3($tmp_name_mp3);
+	$mp3 = $mp3->extract(20, 10);
+	$mp3->save(demo_songs.$name_mp3);
+	$mp3file = new MP3File(demo_songs.$name_demo);
+	$duration2 = $mp3file->getDuration();
+	$duration_demo = MP3File::formatTime($duration2);
+	
+    echo 'Demo Song Uploaded Successfully';    
+	echo "<br>";
+    echo "<br>";
+
     if  (move_uploaded_file($tmp_name_mp3, $location_mp3.$name_mp3)){
 		$mp3file = new MP3File($location_mp3.$name_mp3);
 		$duration2 = $mp3file->getDuration();
@@ -50,24 +63,7 @@ if (isset ($name_mp3)) {
         } 
     }	  
 	
-	if (isset ($name_demo)) {
 	
-	    if (!empty($name_demo)) {
-	    $is_demo = 1; 
-	    $location_demo = demo_songs;
-	    if  (move_uploaded_file($tmp_name_demo, $location_demo.$name_demo)){
-			$mp3file = new MP3File($location_demo.$name_demo);
-			$duration2 = $mp3file->getDuration();
-			$duration_demo = MP3File::formatTime($duration2);
-			
-	        echo 'Demo Song Uploaded Successfully';    
-			echo "<br>";
-		    echo "<br>";
-		} else {
-	          echo 'Demo Song not uploaded';
-	          }
-	        } 
-	    }	  
   
 if (isset ($name_wmv)) {
 	
@@ -86,7 +82,7 @@ if (isset ($name_wmv)) {
           }
         } 
     }
-	$sql = "Insert into songs (album_id,song_name,main_song_mp3,main_song_duration,wmv_song_duration,main_song_wmv,demo_song_duration,price,artist_details,is_MP3,is_WMV) values('$album_id','$song_name','$song_name_mp3','$duration','$duration_wmv','$song_name_wmv','$duration_demo','$price','$artist_details','$is_mp3','$is_wmv')";
+	$sql = "Insert into songs (album_id,song_name,main_song_mp3,main_song_duration,wmv_song_duration,main_song_wmv,demo_song,demo_song_duration,price,artist_details,is_MP3,is_WMV) values('$album_id','$song_name','$song_name_mp3','$duration','$duration_wmv','$song_name_wmv','$song_name_demo','$duration_demo','$price','$artist_details','$is_mp3','$is_wmv')";
 	if ($Connect->query($sql) === TRUE) {
     echo "New record created successfully.";
 	
