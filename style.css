@@ -399,6 +399,37 @@ textarea {
 	transition: all 0.2s ease;
 	
 }
+.tbutton1 {
+	font-family:Oswald, Tahoma, Helvetica;
+	display:inline-block;
+	cursor:pointer;
+	position:relative;
+	word-spacing:0.2em;
+	background: none repeat scroll 0 0 #66CCFF;
+	-webkit-border-radius: 2px;
+	border: 0 none;
+	color:#fff;
+	white-space: nowrap;	
+	text-transform:uppercase;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.2);
+	border:1px solid rgba(0,0,0,0.1);
+	background-image: linear-gradient(bottom, rgba(0,0,0,0.08) 0%, rgba(128,128,128,0.08) 50%, rgba(255,255,255,0.08) 100%);
+	background-image: -o-linear-gradient(bottom, rgba(0,0,0,0.08) 0%, rgba(128,128,128,0.08) 50%, rgba(255,255,255,0.08) 100%);
+	background-image: -moz-linear-gradient(bottom, rgba(0,0,0,0.08) 0%, rgba(128,128,128,0.08) 50%, rgba(255,255,255,0.08) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0.08) 0%, rgba(128,128,128,0.08) 50%, rgba(255,255,255,0.08) 100%);
+	background-image: -ms-linear-gradient(bottom, rgba(0,0,0,0.08) 0%, rgba(128,128,128,0.08) 50%, rgba(255,255,255,0.08) 100%);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgba(0,0,0,0.08)),color-stop(0.5, rgba(128,128,128,0.08)),color-stop(1, rgba(255,255,255,0.08)));
+	-moz-box-shadow:-3px 3px 0 #4285f4, -2px 2px #4285f4, -1px 1px 0 #4285f4;
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	background: #F00;
+    float: right;
+    border: 0;
+    margin-top: 20px;
+    padding: 6px 25px;
+	
+}
+
 .tbutton:hover {
 	color: #000;
 	background:#66CCFF;

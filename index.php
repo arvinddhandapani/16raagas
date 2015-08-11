@@ -6,6 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <!--<![endif]-->
 <head>
+	
 	<title>16RaaGa - Music Store</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -78,6 +79,31 @@
 			});
 			});
 			});
+			function login_popup() {
+		    var msg="<span>Registration Success. Please login to continue.</span>";
+		    $(msg).appendTo("#loginfailedmsg");
+		 var popupStatus = 0;
+		 //Aligning our box in the middle
+		 var windowWidth = document.documentElement.clientWidth;
+		 var windowHeight = document.documentElement.clientHeight;
+		 var popupHeight = $("#popupLogin").height();
+		 var popupWidth = $("#popupLogin").width();
+		 // Centering
+		 $("#popupLogin").css({
+		 	"top": windowHeight / 2 - popupHeight / 2,
+		 	"left": windowWidth / 2 - popupWidth / 2
+		 });
+		 // Aligning bg
+		 $("#LoginBackgroundPopup").css({"height": windowHeight});
+
+		 // Pop up the div and Bg
+		 if (popupStatus == 0) {
+		 	$("#LoginBackgroundPopup").css({"opacity": "0.7"});
+		 	$("#LoginBackgroundPopup").fadeIn("slow");
+		 	$("#popupLogin").addClass('zigmaIn').fadeIn("slow");
+		 	popupStatus = 1;
+		 }
+	 }
 		</script>
 
 	<!--[if IE]>
@@ -90,7 +116,12 @@
 <?php include 'header.php'; 
 error_reporting(0);?>
 <?php include 'slider.php'; ?>
-
+	<?php
+	if (isset($_GET['authMessage'])) {
+		
+		echo 	'<script> login_popup() </script>';
+	}
+	?>
 		<div class="page-content">
 		
 			<div class="row clearfix mbf">

@@ -51,7 +51,7 @@
 		//alert (email);
 		//alert (auth_code);
 		
-		var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
+		var base_url="http://16raagas.com/beta/v1/";
 		url=base_url+'authorise';
 		var encode="email="+email+"&"+"auth_code="+auth_code;
 		post_ajax_data(url,encode, function(data)
@@ -64,8 +64,8 @@
 			} else {
 			var msg12="<span>"+data.message+"</span>";
 		   $(msg12).appendTo("#authfailed");
-		   window.location.href="login.php?register=success";
-		   window.location.href="login.php?authMessage=success";
+		  // window.location.href="login.php?register=success";
+		   window.location.href="index.php?authMessage=success";
 		}
 	});
 }
@@ -84,8 +84,8 @@
 		var update=$('#username').val();
 			
 			var encode="name="+$('#username').val()+"&"+"email="+$('#emailaddr').val()+"&"+"password="+$('#Password1').val();
-			var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
-			//var base_url="http://16raagas.com/beta/v1/";
+			//var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
+			var base_url="http://16raagas.com/beta/v1/";
 			url=base_url+'register';
 			if(update.length>0)
 			{
@@ -99,7 +99,7 @@
 						   //alert(data.message);
 						} else {
  						   var msg12="<span>"+data.message+"</span>";
-						   alert(data.url1);
+						  // alert(data.url1);
  						   $(msg12).appendTo("#loginfailedmsg");
 						   window.location.href="register.php?register=success";
 						   
@@ -152,7 +152,7 @@
 		<?php
 	
 		if (isset($_GET['email']) && isset($_GET['auth_code'])) {
-			echo "inside";
+			
 			echo 	'<script> verifyemail("'.$_GET['email'].'","'.$_GET['auth_code'].'") </script>';
 		?>
 		<!--<script>

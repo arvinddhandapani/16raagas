@@ -86,7 +86,7 @@
 						<h4> NewsLetters </h4><span class="liner"></span>
 						<div class="widget-content">
 							<p>It has survived not only five centuries, but also the leap into electronic typesetting.</p>
-							<form id="newsletters" method="post" action="http://feedburner.google.com/fb/a/mailverify" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=sevenpsd', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+							<form id="newsletters" method="post" action="">
 								<input type="email" onfocus="if (this.value=='Type Your Email') this.value = '';" onblur="if (this.value=='') this.value = 'Type Your Email';" value="Type Your Email" placeholder="Type Your Email" required="required">
 								<button type="submit"><i class="icon-ok"></i></button>
 							</form>

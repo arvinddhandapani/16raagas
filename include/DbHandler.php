@@ -137,6 +137,57 @@ class DbHandler {
 		
 	}
  
+ 	/**
+	* Get all orders of an user
+	*
+	*
+	*/
+ 	
+	public function getOrderfromUserID($user_id) {
+		//first get the userID
+		//$user_id = getuserIdfromEmail($email);
+		//Now get the date Amount and Order ID from Order Table
+        $stmt = $this->conn->prepare("SELECT order_id, order_amount, order_update_date from order_master WHERE order_user_id = ? GROUP BY order_id");
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $orderDetails = $stmt->get_result();
+        $stmt->close();
+        return $orderDetails;
+	}
+  
+ 
+ 	/**
+	* Get all details about the order
+	*
+	*
+	*/
+ 	
+	public function getOrderList($order_id) {
+		//first get the userID
+		//$user_id = getuserIdfromEmail($email);
+		//Now get the date Amount and Order ID from Order Table
+        $stmt = $this->conn->prepare("select s.song_name,s.price,a.album_name,o.order_amount,o.order_update_date from songs s, albums a, order_master o where s.song_id IN (SELECT c.cart_song_id from order_master o left join cart c on o.order_id = c.cart_order_id where o.order_id = ?) and a.id IN (SELECT c.album_id from order_master o left join cart c on o.order_id = c.cart_order_id where o.order_id = ?) and o.order_id = ?");
+        $stmt->bind_param("sss", $order_id,$order_id,$order_id);
+        $stmt->execute();
+        $orderDetails = $stmt->get_result();
+        $stmt->close();
+        return $orderDetails;
+	}
+  
+	public function getOrderInfo($order_id) {
+		//first get the userID
+		//$user_id = getuserIdfromEmail($email);
+		//Now get the date Amount and Order ID from Order Table
+        $stmt = $this->conn->prepare("SELECT * from order_master where order_id = ?");
+        $stmt->bind_param("s", $order_id);
+        $stmt->execute();
+        $orderDetails = $stmt->get_result();
+        $stmt->close();
+        return $orderDetails;
+	}
+  
+ 
+ 
     /**
      * Checking for duplicate user by email address
      * @param String $email email to check in db

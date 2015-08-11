@@ -52,8 +52,11 @@
 		var session_email_16raagas="<?php echo ($_SESSION['session_email_16raagas'])?>";
 		var url;
 		url='myOrder';
+		var url1;
+		url1='orderList';
 		var j = 0;
-	
+		var k = 0;
+	//Start Downloadable details
 		post_ajax_data_header(url,encode,session_id_raagas, session_email_16raagas, function(data)
 		{
 			if (data.tasks.length > 0) {
@@ -86,6 +89,25 @@
 					*/
 		
 		});
+		//End Downloadable Details
+		//Start Order History
+		post_ajax_data_header(url1,encode,session_id_raagas, session_email_16raagas, function(data)
+		{
+			if (data.tasks.length > 0) {
+			$.each(data.tasks, function(i,tasks)
+				{
+					var orderHtml="<li class=\"list-group-item\"><strong class=\"block\"><a href=\"invoice.php?order_id="+data.tasks[k].order_id+"\">"+data.tasks[k].order_id+"</strong><small> "+data.tasks[k].order_update_date+"          </small><br><small>Rs."+data.tasks[k].order_amount+"</small></li>";
+					$(orderHtml).appendTo("#orderHtml");
+					k = k+1;
+				});
+			
+			}
+		});
+		
+		
+		
+		//end Order history
+		
 		<?php } else {?>
 		   var msg="<span>Please login to Continue</span>";
 		   $(msg).appendTo("#loginfailedmsg");
@@ -179,9 +201,13 @@
                           </ul>
                         </div>
                         <div class="tab-pane" id="events">
-                          <div class="text-center wrapper">
+                         <!-- <div class="text-center wrapper">-->
+							  <div id="orderHtml"></div>
+							  
+                        <!--
                             <i class="fa fa-spinner fa fa-spin fa fa-large"></i>
-                          </div>
+                                                  </div>-->
+                        
                         </div>
                         <!--<div class="tab-pane" id="interaction">
                           <div class="text-center wrapper">

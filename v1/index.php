@@ -107,9 +107,7 @@ $app->post('/register', function() use ($app)
         
         $headers = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-        
-        $headers .= 'To: '.$email. "\r\n";
-        $headers .= 'From: 16raagas <support@16raagas.com>' . "\r\n";
+        //$headers .= 'From: 16raagas <support@16raagas.com>' . "\r\n";
         $message = '
                 <html>
                 <head>
@@ -119,13 +117,13 @@ $app->post('/register', function() use ($app)
                  <h1> <p>16raagas.com</p> </h1>
                  <p>
                  Thank you for registring with 16raaga.com. Please click the below link to activate your account.<br>
-                 http://localhost/adhandapani/16raagas/16raagas/register.php?email=' . $email . '&auth_code=' . $verification_code . '
+                 http://16raagas.com/beta/register.php?email=' . $email . '&auth_code=' . $verification_code . '
                 </body>
                 </html>
                 ';
-        $to      = "arvind.mib@gmail.com";
+        $to      = $email;
         $subject = "16raagas.com registration Confirmation";
-        mail($to, $subject, $message, $headers);
+        mail($to, $subject, $message, $headers, '-fsupport@16raagas.com');
         
     } else if ($res == USER_CREATE_FAILED) {
         $response["error"]   = true;
@@ -300,6 +298,9 @@ $app->get('/tracklist', function()
     
     echoRespnse(200, $response);
 });
+
+
+
 /**
  * Checking for the correctness of the data 
  * method GET
@@ -551,6 +552,105 @@ $app->get('/album/:id', function($task_id)
 /*
  * ------------------------ METHODS WITH AUTHENTICATION ------------------------
  */
+/**
+ * Listing Details of the order
+ * method GET
+ * url /orderDetails     
+ * Returns Order Id, Date, Amount     
+ */
+$app->post('/orderDetails', 'authenticate', function() use ($app)
+{
+    // check for required params
+    verifyRequiredParams(array(
+        'order_id'
+    ));
+    
+    //   global $user_id;
+    $response = array();
+    $db       = new DbHandler();
+    
+    $orderDetails = $app->request->post('order_id');
+   
+    
+   
+	$oderInfo = $db->getOrderInfo($orderDetails);
+    
+    $response["error"] = false;
+    $response["tasks"] = array();
+	$response["order"] = array();
+    // looping through result and preparing tasks array
+    while ($task = $oderInfo->fetch_assoc()) {
+        
+        $tmp = array();
+        
+        $tmp["order_amount"]      = $task["order_amount"];
+		$order_update_date = date('j M Y', strtotime($task["order_update_date"]));
+        $tmp["order_update_date"]   = $order_update_date;
+		
+        array_push($response["order"], $tmp);
+    }
+	
+     $result = $db->getOrderList($orderDetails);
+    // looping through result and preparing tasks array
+    while ($task = $result->fetch_assoc()) {
+        
+        $tmp = array();
+        
+        $tmp["order_amount"]      = $task["order_amount"];
+        $tmp["price"] = $task["price"];
+		$order_update_date = date('j M Y', strtotime($task["order_update_date"]));
+        $tmp["order_update_date"]   = $order_update_date;
+		$tmp["album_name"] = $task["album_name"];
+		$tmp["song_name"] = $task["song_name"];
+        
+        array_push($response["tasks"], $tmp);
+    }
+    
+    echoRespnse(200, $response);
+});
+
+
+/**
+ * Listing orderList
+ * method GET
+ * url /cart     
+ * Returns Order Id, Date, Amount     
+ */
+$app->post('/orderList', 'authenticate', function() use ($app)
+{
+    // check for required params
+    verifyRequiredParams(array(
+        'user_id'
+    ));
+    
+    //   global $user_id;
+    $response = array();
+    $db       = new DbHandler();
+    
+    $email_id = $app->request->post('user_id');
+    $user_id  = $db->getUserIdFromEmail($email_id);
+    
+    $result = $db->getOrderfromUserID($user_id);
+    
+    $response["error"] = false;
+    $response["tasks"] = array();
+    
+    // looping through result and preparing tasks array
+    while ($task = $result->fetch_assoc()) {
+        
+        $tmp = array();
+        
+        $tmp["order_id"]      = $task["order_id"];
+        $tmp["order_amount"] = $task["order_amount"];
+		$order_date_changed = date('j M Y', strtotime($task["order_update_date"]));
+        $tmp["order_update_date"]   = $order_date_changed;
+        
+        array_push($response["tasks"], $tmp);
+    }
+    
+    echoRespnse(200, $response);
+});
+
 
 /**
  * Listing all products in the cart

@@ -21,6 +21,8 @@
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="style.css" id="dark" media="screen" />
+		<link rel="stylesheet" type="text/css" href="include/popupmodal.css" media="screen" />
+		
 		<link id="light" media="screen" href="styles/light.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styles/icons/icons.css" media="screen" />
 		<!--<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>-->
@@ -35,6 +37,7 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles/icons/font-awesome-ie7.min.css" />
 	<![endif]-->
+		
 		<script>
 		var totalPrice = 0.00;
 		</script>
@@ -193,8 +196,10 @@
 						  </div>
 							  <div class="checkout16raagas">
 								  <div id="checkboxbutton"></div>
-								   <input type="checkbox" name="option-5" id="option-5"> <label for="option-5">I have read and Understood the Terms of Service.</label>
-							  <button class="tbutton color2 checkout" >Checkout</button>
+								  
+
+								   <input type="checkbox" name="option-5" id="option-5" onchange="buttonEnableDisable();"> <label for="option-5">I have read and Understood the <a class="tosLink" href="#tosLink">Terms of Service.</a></label>
+							  <button class="tbutton1" id="ckButton" disabled >Checkout</button>
 							  </div>
 						</div>
 						
@@ -202,6 +207,7 @@
 				</div><!-- posts -->
 
 			</div><!-- row clearfix -->
+		 
 		</div><!-- end page content -->
 <?php include 'footer.php'; ?>
 
@@ -213,7 +219,17 @@
 		var shippingRate = 0.00; 
 		var fadeTime = 300;
 		
-	
+		function buttonEnableDisable() {
+			if($('#option-5').is(':checked')) {
+			  $('#ckButton').removeAttr('disabled');
+			  $('#ckButton').removeAttr("class");
+			  $('#ckButton').attr("class", "tbutton color2 checkout");
+			} else {
+			 $('#ckButton').attr('disabled', 'disabled');
+  			  $('#ckButton').removeAttr("class");
+  			  $('#ckButton').attr("class", "tbutton1");
+		}
+	}
 		
 		function removeItem1(val) {
 			 //$(this).closest("div").remove();
