@@ -501,6 +501,41 @@ $app->get('/slider', function()
     echoRespnse(200, $response);
 });
 
+/**
+ * Listing all songs in the Album
+ * method GET
+ * url /album/:id
+ * Will return 404 if the task doesn't belongs to user
+ * returns song_id, album_id, song_name, price, artist_details, album_name, album_img, album_desc, music_director, language, demo_song, demo_song_duration, main_song_duration
+ */
+$app->get('/relatedalbums/:id', function($task_id)
+{
+ 
+    $response          = array();
+    $db                = new DbHandler();
+	//first get the artist from Album ID
+	$musicD = $db->getArtist($task_id);
+	//Now get the Albums related to Music Director
+	//$relatedAlbum = $db->searchAlbums($musicD);
+    $result            = $db->searchAlbums($musicD);
+    $response["error"] = false;
+    $response["tasks"] = array();
+    
+    if ($result != NULL) {
+        // looping through result and preparing tasks array
+        while ($task = $result->fetch_assoc()) {
+            $tmp                   = array();
+            $tmp["id"]             = $task["id"];
+            $tmp["album_name"]     = $task["album_name"];
+            $tmp["album_year"]     = $task["album_year"];
+            $tmp["album_img"]      = $task["album_img"];
+            $tmp["music_director"] = $task["music_director"];
+            $tmp["album_desc"]     = $task["album_desc"];
+            array_push($response["tasks"], $tmp);
+        }
+        echoRespnse(200, $response);
+    }
+});
 
 /**
  * Listing all songs in the Album
@@ -842,7 +877,7 @@ $app->post('/paymentsuccess', 'authenticate', function() use ($app)
         //check if the user has a folder
         $song_name     = $song123["main_song_mp3"];
         $song_name_wmv = $song123["main_song_wmv"];
-        if (file_exists(wmv_songs . $song_name_wmv)) {
+	
             if (!file_exists('../user_songs/' . $user_id)) {
                 
                 mkdir('../user_songs/' . $user_id . '/wmv', 0777, true);
@@ -850,7 +885,8 @@ $app->post('/paymentsuccess', 'authenticate', function() use ($app)
             
             while ($song123 = $invoice_detail->fetch_assoc()) {
                 $tmp = array();
-                
+                $song_name_wmv = $song123["main_song_wmv"];
+				if ($db->endsWith($song_name_wmv, "wmv")) {
                 copy(wmv_songs . $song_name, '../user_songs/' . $user_id . '/wmv/' . $song_name);
                 $file_add    = '../user_songs/' . $user_id . '/wmv/' . $song_name;
                 // Open the file to get existing content
@@ -939,7 +975,7 @@ $app->post('/paymentsuccess', 'authenticate', function() use ($app)
                 file_put_contents($file_add, $add_content);
                 
             }
-		}
+			}
         if (file_exists(mp3_Songs . $song_name)) {
             if (!file_exists('../user_songs/' . $user_id)) {
                 

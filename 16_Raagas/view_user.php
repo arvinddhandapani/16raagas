@@ -6,6 +6,14 @@ sec_session_start();
 $id = $_GET["id"];
 ?>
 <?php if (login_check($mysqli) == true) : ?>
+<?php
+error_reporting(E_ERROR);
+include_once 'admin_include/db_connect.php';
+include_once 'admin_include/functions.php';
+ 
+sec_session_start();
+?>
+<?php if (login_check($mysqli) == true) : ?>
 <!DOCTYPE html>
  <html lang="en"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
@@ -95,7 +103,7 @@ $id = $_GET["id"];
                             <li><a href="#"><i class="icon-gear"></i> Settings </a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="icon-signout"></i> Logout </a>
+                            <li><a href="login.php"><i class="icon-signout"></i> Logout </a>
                             </li>
                         </ul>
 
@@ -289,7 +297,12 @@ $id = $_GET["id"];
                 
     </div>
 
-    <!--END MAIN WRAPPER -->
+     <?php else : ?>
+	         <p>
+	             <span class="error">You are not authorized to access this page.</span> Please <a href="login.php">login</a>.
+	         </p>
+	     <?php endif; ?>
+     <!--END MAIN WRAPPER -->
 
 	 <?php else : ?>
 	         <p>

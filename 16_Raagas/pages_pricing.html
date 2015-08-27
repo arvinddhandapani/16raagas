@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+<?php
+error_reporting(E_ERROR);
+include_once 'admin_include/db_connect.php';
+include_once 'admin_include/functions.php';
+ 
+sec_session_start();
+?>
+<?php if (login_check($mysqli) == true) : ?>
+<!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
@@ -275,7 +283,7 @@
                             <li><a href="#"><i class="icon-gear"></i> Settings </a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="icon-signout"></i> Logout </a>
+                            <li><a href="login.php"><i class="icon-signout"></i> Logout </a>
                             </li>
                         </ul>
 
@@ -529,7 +537,7 @@
                         <li><a href="blank2.html"><i class="icon-angle-right"></i> Blank Page Two  </a></li>
                     </ul>
                 </li>
-                <li><a href="login.html"><i class="icon-signin"></i> Login Page </a></li>
+                <li><a href="login.php"><i class="icon-signin"></i> Login Page </a></li>
 
             </ul>
 
@@ -715,6 +723,11 @@
 
     </div>
 
+      <?php else : ?>
+	         <p>
+	             <span class="error">You are not authorized to access this page.</span> Please <a href="login.php">login</a>.
+	         </p>
+	     <?php endif; ?>
      <!--END MAIN WRAPPER -->
 
    <!-- FOOTER -->

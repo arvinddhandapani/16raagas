@@ -1,7 +1,11 @@
-﻿<?php
-//sec_session_start();
+<?php
+error_reporting(E_ERROR);
+include_once 'admin_include/db_connect.php';
+include_once 'admin_include/functions.php';
+ 
+sec_session_start();
 ?>
-<?php// if (login_check($mysqli) == true) : ?>
+<?php if (login_check($mysqli) == true) : ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -86,8 +90,15 @@
                                             <p class="help-block">Enter Music Director Name here.</p>
                                         </div>
 										<div class="form-group">
-                                            <label>Language</label>
-                                            <input class="form-control" name="language">
+                                            <!--<label>Language</label>
+                                            <input class="form-control" name="language">-->
+											<select name="select1" id="select1">
+											<option name="tamil">Tamil</option>
+											<option name="english">English</option>
+											<option name="telugu">Telugu</option>
+											<option name="malayalam">Malayalam</option>
+											<option name="kannada">Kannada</option>
+                                            </select>							
                                             <p class="help-block">Enter Album Language here.</p>
                                         </div>                                        
                                         <div class="form-group">
@@ -121,8 +132,13 @@
 
     </div>
 
+    
      <!--END MAIN WRAPPER -->
-	 <?php// else : ?>
+	 <?php else : ?>
+	         <p>
+	             <span class="error">You are not authorized to access this page.</span> Please <a href="login.php">login</a>.
+	         </p>
+	     <?php endif; ?>
 	         <!--<p>
 	             <span class="error">You are not authorized to access this page.</span> Please <a href="login.php">login</a>.
 	         </p>--!>

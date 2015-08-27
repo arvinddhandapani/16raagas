@@ -187,6 +187,7 @@ class DbHandler {
 	}
   
  
+
  
     /**
      * Checking for duplicate user by email address
@@ -219,6 +220,24 @@ class DbHandler {
             return NULL;
         }
     }
+	
+    /**
+     * Fetching artist by Album ID
+     * @param String $email User email id
+     */
+    public function getArtist($albumId) {
+		$stmt = $this->conn->prepare("SELECT music_director FROM albums WHERE id = ?");
+       // $stmt = $this->conn->prepare("SELECT u.name, u.email, u.api_key, u.status, u.created_at FROM users WHERE email = ?");
+        $stmt->bind_param("i", $albumId);
+        if ($stmt->execute()) {
+            $musicD = $stmt->get_result()->fetch_object()->music_director;
+            $stmt->close();
+            return $musicD;
+        } else {
+            return NULL;
+        }
+    }
+	
 	
     public function getSongSession($email) {
 		$stmt = $this->conn->prepare("SELECT song_session FROM login_details WHERE email = ?");
@@ -706,7 +725,7 @@ class DbHandler {
     }
 	
 	public function getSongsForInvoice($user_id) {
-        $stmt = $this->conn->prepare("SELECT s.song_name, s.price, s.main_song_mp3 FROM songs s, cart c where c.is_paid = 0 AND c.user_id = ? AND c.cart_song_id=s.song_id");
+        $stmt = $this->conn->prepare("SELECT s.song_name, s.main_song_wmv, s.price, s.main_song_mp3 FROM songs s, cart c where c.is_paid = 0 AND c.user_id = ? AND c.cart_song_id=s.song_id");
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
         $tasks = $stmt->get_result();
@@ -779,6 +798,11 @@ class DbHandler {
         $stmt->close();
         return $result;
     }
+	
+	public function endsWith($haystack, $needle) {
+	    // search forward starting from end minus needle length characters
+	    return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== FALSE);
+	}
  
 }
  

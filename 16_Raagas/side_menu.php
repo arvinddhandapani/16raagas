@@ -15,7 +15,7 @@
 
                 
                 <li class="panel">
-                    <a href="index1.html" >
+                    <a href="index.php" >
                         <i class="icon-table"></i> Dashboard
 	   
                        
@@ -33,7 +33,7 @@
                     </a>
                     <ul class="in" id="component-nav">
 						 <li><a href="user_account.php"><i class="icon-table"></i> User Account </a></li>
-						 <li><a href="user_order.php"><i class="icon-table"></i> User Order </a></li>
+						 
                     </ul>
                 </li> 
 				
@@ -93,12 +93,14 @@
                     </a>
                     <ul class="in" id="component-nav">
 						 <li><a href="payment_gateway.php"><i class="icon-table"></i> Payment Gateway Details </a></li>
-						 <li><a href="order_history.php"><i class="icon-table"></i> Order History </a></li>
+						 
                     </ul>
                 </li> 
                 
-                <li><a href="login.html"><i class="icon-signin"></i> Login Page </a></li>
-
+              <!--
+                <li><a href="login.php"><i class="icon-signin"></i> Login Page </a></li>
+              -->
+              
             </ul>
 
         </div>

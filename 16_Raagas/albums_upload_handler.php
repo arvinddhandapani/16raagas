@@ -3,7 +3,7 @@ $album_name = $_POST['album_name'];
 $album_year = $_POST['album_year'];
 $music_director = $_POST['music_director'];
 $description = $_POST['description'];
-$language = $_POST['language'];
+$language = strtolower($_POST['select1']);
 $album_image_name = $_FILES["uploadedfile"]["name"];
 
 include 'includes/psl-config.php';

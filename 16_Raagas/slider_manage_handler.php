@@ -13,9 +13,11 @@ $Connect = mysqli_connect(HOST,USER, PASSWORD, DATABASE);
 
 $sql = "UPDATE main_slider SET show_hide ='$selection' where id = '$id'";
 if ($Connect->query($sql) === TRUE) {
+	header( "refresh:2; url=slider_manage.php" );
     echo "Slider has been update successfully.";
 	echo "<br>";
 	echo "<br>";
+	
 } else {
     echo "Error: " . $sql . "<br>" . $Connect->error;
 }

@@ -1,3 +1,11 @@
+<?php
+error_reporting(E_ERROR);
+include_once 'admin_include/db_connect.php';
+include_once 'admin_include/functions.php';
+ 
+sec_session_start();
+?>
+<?php if (login_check($mysqli) == true) : ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -36,6 +44,7 @@
 
      <!-- MAIN WRAPPER -->
     <div id="wrap">
+		
 <?php include 'header_admin.php'; ?>
 <?php include 'side_menu.php'; ?>
 
@@ -43,7 +52,26 @@
 	
 
     </div>
-
+    <!--
+    <div id="content">
+            <div class="inner">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Album List</h2>
+    		
+    	
+    	Welcome To Admin Portal!
+    </div>
+    </div>
+    </div>
+    	-->
+    
+</div>
+      <?php else : ?>
+	         <p>
+	             <span class="error">You are not authorized to access this page.</span> Please <a href="login.php">login</a>.
+	         </p>
+	     <?php endif; ?>
      <!--END MAIN WRAPPER -->
 
    <!-- FOOTER -->

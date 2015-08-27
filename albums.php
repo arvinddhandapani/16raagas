@@ -100,6 +100,27 @@
 				<?php }?>
 			});
 		</script>
+			
+			<!-- start Related search -->
+			<script>
+			var albumId="<?php echo $_GET['a_id'];?>";
+			url='relatedalbums/'+albumId;
+			
+			var j=0;
+			test_ajax_data('GET',url, function(data)
+			{
+				$.each(data.tasks[j], function(i,tasks)
+				{
+					var relatedSearch = "<li><a class=\"m-thumbnail\" href=\"albums.php?a_id="+data.tasks[j].id+"\"><img width=\"50\" height=\"50\" src='images/albums/"+data.tasks[j].album_img+"' alt='#'></a><h3><a href=\"albums.php?a_id="+data.tasks[j].id+"\">"+data.tasks[j].album_name+"</a></h3><span> "+data.tasks[j].music_director+" </span><span> "+data.tasks[j].album_year+" </span></li>";	
+					j=j+1;
+					$(relatedSearch).appendTo("#relatedSearch");
+				});
+				
+			});
+			
+			
+			
+			</script>
 		
 		
 		
@@ -149,90 +170,7 @@
 							<div class="mtracks popular-by-person">
 								<div class="content">
 									<ul class="tab-content-items">
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/alexander1.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.php">Roja 1992</a></h3>
-											<span> A. R. Rahman </span>
-											<span> 922,250 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/alexander2.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.php">Gentleman 1993</a></h3>
-											<span> A. R. Rahman </span>
-											<span> 838,879 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/alexander3.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.php">Duet 1994</a></h3>
-											<span> A. R. Rahman </span>
-											<span> 772,240 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/alexander4.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.php">Kadhalan 1994</a></h3>
-											<span> A. R. Rahman </span>
-											<span> 668,471 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/alexander1.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.php">Bombay 1995</a></h3>
-											<span> A. R. Rahman </span>
-											<span> 550,105 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/alexander2.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.php">Indian 1996</a></h3>
-											<span> A. R. Rahman </span>
-											<span> 441,748 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/alexander3.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.php">Jeans 1998</a></h3>
-											<span> A. R. Rahman </span>
-											<span> 382,250 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/alexander4.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.php">Jodi 1999</a></h3>
-											<span> A. R. Rahman </span>
-											<span> 228,879 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/alexander3.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.php">Rhythm 2000</a></h3>
-											<span> A. R. Rahman </span>
-											<span> 122,240 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/alexander4.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.php">Lagaan 2001</a></h3>
-											<span> A. R. Rahman </span>
-											<span> 80,471 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/alexander1.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.php">Boys 2003</a></h3>
-											<span> A. R. Rahman </span>
-											<span> 80,105 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/alexander2.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.php">New 2004</a></h3>
-											<span> A. R. Rahman </span>
-											<span> 60,748 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/alexander3.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.php">Guru 2007</a></h3>
-											<span> A. R. Rahman </span>
-											<span> 509,240 Plays </span>
-										</li>
-										<li>
-											<a class="m-thumbnail" href="mp3_single_half.php"><img width="50" height="50" src="images/assets/alexander4.jpg" alt="#"></a>
-											<h3><a href="mp3_single_half.php">Raavan 2010</a></h3>
-											<span> A. R. Rahman </span>
-											<span> 48,471 Plays </span>
-										</li>
+									<div id="relatedSearch"></div>
 									</ul>
 								</div>
 							</div>

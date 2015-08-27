@@ -9,16 +9,13 @@ $song_name_demo = $_FILES["uploadedfile_mp3"]["name"];
 include 'mp3file.class.php';
 include 'includes/psl-config.php';
 $Connect = mysqli_connect(HOST,USER, PASSWORD, DATABASE);
-
 $query = "SELECT `id` FROM `albums` where album_name='$album_name'";
 $result = mysqli_query($Connect, $query)
 or die('Error querying database');
 $row = mysqli_fetch_array($result);
 $album_id = $row['id'];
-
 $is_mp3 = 0;
 $is_wmv = 0;
-
 $duration = "00:00:00";
 $duration_wmv = "00:00:00";
 $duration_demo = "00:00:00";
@@ -49,7 +46,6 @@ if (isset ($name_mp3)) {
     echo 'Demo Song Uploaded Successfully';    
 	echo "<br>";
     echo "<br>";
-
     if  (move_uploaded_file($tmp_name_mp3, $location_mp3.$name_mp3)){
 		$mp3file = new MP3File($location_mp3.$name_mp3);
 		$duration2 = $mp3file->getDuration();
@@ -78,7 +74,7 @@ if (isset ($name_wmv)) {
 		echo "<br>";
 	    echo "<br>";
         } else {
-          echo 'WMV Song not uploaded';
+          echo 'WAV Song not uploaded';
           }
         } 
     }
@@ -95,5 +91,4 @@ if (isset ($name_wmv)) {
 else      {
           echo 'Please choose atleast one file to upload';
           }
-
 ?>

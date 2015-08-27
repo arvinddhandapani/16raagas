@@ -1,7 +1,15 @@
-﻿<?php
+<?php
 //sec_session_start();
 ?>
-<?php// if (login_check($mysqli) == true) : ?>
+
+<?php
+error_reporting(E_ERROR);
+include_once 'admin_include/db_connect.php';
+include_once 'admin_include/functions.php';
+ 
+sec_session_start();
+?>
+<?php if (login_check($mysqli) == true) : ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -69,55 +77,55 @@
                             <div class="table-responsive">	
 												
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Image Name</th>
-                                            <th>Show-Hide Status</th>                                    
-											<th>Select/Unselect Image</th>									       											
-											<th>Set</th>
-										                                 										
-                                        </tr>
+                                 <thead>
+                                     <tr>
+                                         <th>Id</th>
+                                         <th>Image Name</th>
+                                         <th>Show-Hide Status</th>                                    
+										<th>Select/Unselect Image</th>									       											
+										<th>Set</th>
+									 </tr>
+								
+                                 </thead>
+								 
+                                      <tbody>
+									<?php
+ 								   include 'includes/psl-config.php';
+   								 $Connect = mysqli_connect(HOST,USER, PASSWORD, DATABASE);
+   							   	 $sql = "SELECT id,image_name,show_hide FROM main_slider";
+   							  	  $result = mysqli_query($Connect, $sql);
+								  while ($row=mysqli_fetch_assoc($result)){
+									?>  
+								<tr class="odd gradeX">
+									<form action="slider_manage_handler.php" method="post">	
+									<?php
 									
-                                    </thead>
-									 
-                                         <tbody>
-										<?php
-	 								   include 'includes/psl-config.php';
-      								 $Connect = mysqli_connect(HOST,USER, PASSWORD, DATABASE);
-      							   	 $sql = "SELECT id,image_name,show_hide FROM main_slider";
-      							  	  $result = mysqli_query($Connect, $sql);
-									  while ($row=mysqli_fetch_assoc($result)){
-										?>  
-									<tr class="odd gradeX">
-										<form action="slider_manage_handler.php" method="post">	
-										<?php
-										echo("<tr><td><label>$row[id]</label><input type=text value=$row[id] name=sid hidden></input></td>");
-										echo ("<td><input type=text value=$row[image_name] name=image_name disabled></input></td>");
-										if ($row['show_hide']=='1'){
-										echo("<td>Image Shown in Slider</td>");	
-										}  else {
-											echo("<td>Image Not Shown</td>");	
-										}							
-                                        if ($row['show_hide']=='1'){
-											?>
-											<td><label><input type="radio" name="optionsRadios" id="optionsRadios1" value="selected" checked="True" /> Selected</label><br>
-										<label><input type="radio" name="optionsRadios" id="optionsRadios1" value="unselected" /> UnSelected</label></td>
-										<?php	
-										}  else {
-											?>
-											<td><label><input type="radio" name="optionsRadios" id="optionsRadios1" value="selected"  /> Selected</label><br>
-									<label><input type="radio" name="optionsRadios" id="optionsRadios1" value="unselected" checked="True" /> UnSelected</label></td>
-										<?php
-										}
-										echo("<td><input type=submit name=submit value=Set></input></td>");										
+									echo("<td><label>$row[id]</label><input type=text value=$row[id] name=sid hidden></input></td>");
+									echo ("<td><input type=text value=$row[image_name] name=image_name disabled></input></td>");
+									if ($row['show_hide']=='1'){
+									echo("<td>Image Shown in Slider</td>");	
+									}  elseif ($row['show_hide']=='0') {
+										echo("<td>Image Not Shown</td>");	
+									}							
+                                     if ($row['show_hide']=='1'){
 										?>
-											</form>	</tr>
-										<?php							
-	       								} 
-									 	?>	  
-													  		
-                                    </tbody>									
+										<td><label><input type="radio" name="optionsRadios" id="optionsRadios1" value="selected" checked="True" /> Show</label><br>
+									<label><input type="radio" name="optionsRadios" id="optionsRadios1" value="unselected" /> Hide</label></td>
+									<?php	
+									}  else {
+										?>
+										<td><label><input type="radio" name="optionsRadios" id="optionsRadios1" value="selected"  /> Show</label><br>
+								<label><input type="radio" name="optionsRadios" id="optionsRadios1" value="unselected" checked="True" /> Hide</label></td>
+									<?php
+									}
+									echo("<td><input type=submit name=submit value=Set></input></td>");										
+									?>
+										</form>	</tr>
+									<?php							
+       								} 
+								 	?>	  
+												  		
+                                 </tbody>							
                                 </table>		
 													
                             </div>
@@ -133,6 +141,11 @@
 
     </div>
 
+      <?php else : ?>
+	         <p>
+	             <span class="error">You are not authorized to access this page.</span> Please <a href="login.php">login</a>.
+	         </p>
+	     <?php endif; ?>
      <!--END MAIN WRAPPER -->
 	 <?php// else : ?>
 	         <!--<p>

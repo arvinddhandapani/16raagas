@@ -1,4 +1,11 @@
-       <!-- HEADER SECTION -->
+	   <?php
+	   error_reporting(E_ERROR);
+	   include_once 'admin_include/db_connect.php';
+	   include_once 'admin_include/functions.php';
+ 
+	   sec_session_start();
+	   ?>
+	   <!-- HEADER SECTION -->
         <div id="top">
 
             <nav class="navbar navbar-inverse navbar-fixed-top " style="padding-top: 10px;">
@@ -18,16 +25,18 @@
 
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="icon-user "></i>&nbsp; <i class="icon-chevron-down "></i>
+                            <i class="icon-user "> <?php echo strtoupper($_SESSION['username']);?></i>&nbsp; <i class="icon-chevron-down "></i>
                         </a>
 
                         <ul class="dropdown-menu dropdown-user">
+                           <!--
                             <li><a href="#"><i class="icon-user"></i> User Profile </a>
-                            </li>
-                            <li><a href="#"><i class="icon-gear"></i> Settings </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li><a href="login.html"><i class="icon-signout"></i> Logout </a>
+                                                       </li>
+                                                       <li><a href="#"><i class="icon-gear"></i> Settings </a>
+                                                       </li>
+                                                       <li class="divider"></li>-->
+                           
+                            <li><a href="logout.php"><i class="icon-signout"></i> Logout </a>
                             </li>
                         </ul>
 
