@@ -96,7 +96,7 @@ $astrFileName="http://16raagas.com/transaction/key/icici/00215325.key";
 					var message = (data.message);
 					//alert (error);
 					//alert (message);
-					window.location = "../profile.php";
+					window.location = "../profile.php?message="+message;
 					});
 });					
 			 		</script>

@@ -867,7 +867,7 @@ $app->post('/paymentsuccess', 'authenticate', function() use ($app)
     
     $orderReturn = $db->insertIntoOrderTable($user_id, $order_id, $ResponseCode, $Message, $TxnID, $ePGTxnID, $AuthIdCode, $RRN, $CVRespCode, $raagas_amount);
     
-    
+    if ($Message == "Transaction Successful"){
     if ($orderReturn == 1) {
         //get the List of songs for Invoice Preparation
         $invoice_detail = $db->getSongsForInvoice($user_id);
@@ -1097,7 +1097,11 @@ $app->post('/paymentsuccess', 'authenticate', function() use ($app)
         }*/
         
     }
-    
+} else {
+    $response["error"]   = false;
+    $response["message"] = "0";
+	echoRespnse(200, $response);
+}
     
     
 });

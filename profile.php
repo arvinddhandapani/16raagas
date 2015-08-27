@@ -186,7 +186,17 @@
 				<div class="span8 posts">
 					<div class="def-block">
 						<header class="header bg-light lt">
+							<?php
+							if (isset($_GET["message"])) {
+								if ($_GET["message"] == "0") {
+									echo "Transaction Failed. Please Try Again";
+								} else {
+									echo "Transaction Successful";
+								}
+							}
+							?>
                       <ul class="nav nav-tabs nav-white">
+						  
                         <li class="active"><a href="#activity" data-toggle="tab">Download History</a></li>
                         <li class=""><a href="#events" data-toggle="tab">Purchase History</a></li>
                         <!-- <li class=""><a href="#interaction" data-toggle="tab">Interaction</a></li> -->
