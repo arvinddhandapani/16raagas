@@ -96,7 +96,20 @@
 						 
                     </ul>
                 </li> 
-                
+				<li class="panel active">
+                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
+                        <i class="icon-tasks"> </i> Admin Accounts   
+	   
+                        <span class="pull-right">
+                          <i class="icon-angle-left"></i>
+                        </span>
+                       
+                    </a>
+                    <ul class="in" id="component-nav">
+						 <li><a href="admin_account.php"><i class="icon-table"></i> Admin Password Change </a></li>
+						 
+                    </ul>
+                </li>
               <!--
                 <li><a href="login.php"><i class="icon-signin"></i> Login Page </a></li>
               -->
