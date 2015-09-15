@@ -120,8 +120,8 @@
 					?>
 			
 					<div class="navbar-right">
-						<ul class="nav navbar-nav m-n hidden-xs nav-user user">
-						<li class="hidden-xs">
+						<ul class="nav navbar-nav m-n nav-user user">
+						<li>
 							<div id="badgeItem"></div>
 							<a href="#" class="dropdown-toggle lt" data-toggle="dropdown">
 								<!---->
@@ -160,12 +160,6 @@
 							  </li>
 							  <li>
 								<a href="profile.php">Profile</a>
-							  </li>
-							  <li>
-								<a href="#">
-								  <span class="badge bg-danger pull-right">3</span>
-								  Notifications
-								</a>
 							  </li>
 							  <li>
 								<a href="#">Help</a>
@@ -212,8 +206,9 @@
 								<ul>
 									<li><a href="mp3s.php?lang=tamil">Tamil</a></li>
 									<li><a href="mp3s.php?lang=telugu">Telugu</a></li>
-									<li><a href="mp3s.php?lang=hindi">Hindi</a></li>
 									<li><a href="mp3s.php?lang=malayalam">Malayalam</a></li>
+									<li><a href="mp3s.php?lang=kannada">Kannada</a></li>
+									<li><a href="mp3s.php?lang=hindi">Hindi</a></li>
 								</ul>
 							</li>
 							<!--<li><a href="archive.php">Archive</a></li>-->

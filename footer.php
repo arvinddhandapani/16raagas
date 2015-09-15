@@ -9,9 +9,8 @@
 					<div class="foot-menu">
 						<ul>
 							<li><a href="index.php">Home</a></li>
+							<li><a href="index.php">About Us</a></li>
 							<li><a href="mp3s.php">MP3</a></li>
-							<li><a href="mp3s.php">Video</a></li>
-							<li><a href="">Photo Gallery</a></li>
 							<li><a href="contact.php">Contact</a></li>
 						</ul><!-- end links -->
 					</div><!-- end foot menu -->

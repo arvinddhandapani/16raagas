@@ -149,7 +149,7 @@
 			<div class="row clearfix mb">
 				<div class="breadcrumbIn">
 					<ul>
-						<li><a href="index.html" class="toptip" title="Homepage"> <i class="icon-home"></i> </a></li>
+						<li><a href="index.php" class="toptip" title="Homepage"> <i class="icon-home"></i> </a></li>
 						<li> Profile </li>
 					</ul>
 				</div><!-- breadcrumb -->
