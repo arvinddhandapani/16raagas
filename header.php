@@ -12,7 +12,43 @@
 			visibility: visible;
 			width: auto;
 		}
-		
+		.close {
+  background: none !important;
+  color: #000 !important;
+  line-height: 35px;
+  position: static !important;
+  text-align: center;
+  width: 35px;
+  text-decoration: none !important;
+  font-weight: bold;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px !important;
+  box-shadow: none !important;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out !important;
+  -webkit-transition-delay: 0.2s;
+  -moz-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+  -transition-delay: 0.2s;
+  opacity: 0.2;
+}
+.close .ie7 {
+  filter: progid:DXImageTransform.Microsoft.Shadow(color='#000000', Direction=135, Strength=3);
+}
+.close:hover {
+  background: none;
+  color: #000;
+  opacity: 0.4;
+  -moz-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
 	</style>
 
 		<script src="js/jquery.min.js"></script>
@@ -61,6 +97,7 @@
 			post_ajax_data_w(url,encode, function(data)
 			{
 				   if(data.error===true){
+					   $("#loginfailed").show();
 					   var msg="<span>"+data.message+"</span>";
 					   $(msg).appendTo("#loginfailedmsg");
 				
@@ -83,6 +120,9 @@
 		//}
 			
 }
+function warningClose() {
+		$("#loginfailed").fadeOut("slow");
+}
 		</script>	
 		
 <div id="layout" class="full">
@@ -92,7 +132,10 @@
 					<h4> Sign In </h4><span class="liner"></span>
 					<div class="widget-content row-fluid">
 					<form id="popup_login_form">
-											     <div id="loginfailedmsg">
+											     <div class="alert alert-danger" style="display: none" role="alert" id="loginfailed">
+                                                 <button type="button" class="close" onClick="warningClose()">&times;</button>
+  <strong>Warning!</strong>
+                                                 <div id="loginfailedmsg"></div>
 												 </div>
 												<input type="text" name="login_username" id="login_username" onfocus="if (this.value=='username') this.value = '';" onblur="if (this.value=='') this.value = 'username';" value="username" placeholder="username">
 												<input type="password" name="login_password" id="login_password" onfocus="if (this.value=='password') this.value = '';" onblur="if (this.value=='') this.value = 'password';" value="password" placeholder="password">
@@ -125,7 +168,7 @@
 							<div id="badgeItem"></div>
 							<a href="#" class="dropdown-toggle lt" data-toggle="dropdown">
 								<!---->
-							  <i class="icon-shopping-cart"></i>
+							  <i class="icon-shopping-cart" style="font-size:1.3em"></i>
 							  
 							<!--  <span class="badge badge-sm up bg-danger count">2</span>-->
 							</a>

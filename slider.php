@@ -69,7 +69,7 @@
 																								 data-y="375" 
 																								 data-speed="300" 
 																								 data-start="2000" 
-																								 data-easing="easeInOutExpo"  ><a href="movie_single.html" class="tbutton small"><span>Buy Now</span></a></div>-->
+																								 data-easing="easeInOutExpo"  ><a href="movie_single.php" class="tbutton small"><span>Buy Now</span></a></div>-->
 											
 						
 									</li>

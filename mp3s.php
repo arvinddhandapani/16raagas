@@ -207,27 +207,27 @@
 
 							<li id="Albums">
 								<div class="mp3-albums">
-									<a href="mp3_play_list.html" class="grid_3">
+									<a href="mp3_play_list.php" class="grid_3">
 										<img src="images/assets/album1.jpg" alt="#">
 										<span><strong>Michele Jordan</strong>New Day</span>
 									</a>
-									<a href="mp3_play_list.html" class="grid_3">
+									<a href="mp3_play_list.php" class="grid_3">
 										<img src="images/assets/album2.jpg" alt="#">
 										<span><strong>Dj Alaska</strong>No Name No Number</span>
 									</a>
-									<a href="mp3_play_list.html" class="grid_3">
+									<a href="mp3_play_list.php" class="grid_3">
 										<img src="images/assets/album3.jpg" alt="#">
 										<span><strong>Alexander Lea</strong>R.T.O 2</span>
 									</a>
-									<a href="mp3_play_list.html" class="grid_3">
+									<a href="mp3_play_list.php" class="grid_3">
 										<img src="images/assets/album4.jpg" alt="#">
 										<span><strong>Jessica Alma</strong>Love Rock'n Roll</span>
 									</a>
-									<a href="mp3_play_list.html" class="grid_3">
+									<a href="mp3_play_list.php" class="grid_3">
 										<img src="images/assets/album5.jpg" alt="#">
 										<span><strong>Bob Jexman</strong>Your Heart in my Hand</span>
 									</a>
-									<a href="mp3_play_list.html" class="grid_3">
+									<a href="mp3_play_list.php" class="grid_3">
 										<img src="images/assets/album6.jpg" alt="#">
 										<span><strong>Abele</strong>Set Rain to The Fire</span>
 									</a>
@@ -264,7 +264,7 @@
 							<div class="videos clearfix flexslider">
 								<ul class="slides">
 									<li class="featured-video">
-										<a href="video_single_wide.html">
+										<a href="video_single_wide.php">
 											<img src="images/assets/video1.jpg" alt="#">
 											<i class="icon-play-sign"></i>
 											<h3>I Know You Want Me</h3>
@@ -272,7 +272,7 @@
 										</a>
 									</li><!-- slide -->
 									<li class="featured-video">
-										<a href="video_single_wide.html">
+										<a href="video_single_wide.php">
 											<img src="images/assets/video2.jpg" alt="#">
 											<i class="icon-play-sign"></i>
 											<h3>I Like It</h3>
@@ -280,7 +280,7 @@
 										</a>
 									</li><!-- slide -->
 									<li class="featured-video">
-										<a href="video_single_wide.html">
+										<a href="video_single_wide.php">
 											<img src="images/assets/video3.jpg" alt="#">
 											<i class="icon-play-sign"></i>
 											<h3>Tommorow</h3>

@@ -65,7 +65,7 @@
 					$(tag).appendTo("#tags");
 					
 					//Breadcrumbs
-					var bred="<li><a href='index.php' class='toptip' title='Homepage'> <i class='icon-home'></i> </a></li><li><a href='mp3s.html'> Songs </a></li>\<li><a href='mp3s.php?lang="+data.tasks[0].language+"'>"+data.tasks[0].language+"</a></li><li> "+data.tasks[0].album_name+" </li>";
+					var bred="<li><a href='index.php' class='toptip' title='Homepage'> <i class='icon-home'></i> </a></li><li><a href='mp3s.php'> Songs </a></li>\<li><a href='mp3s.php?lang="+data.tasks[0].language+"'>"+data.tasks[0].language+"</a></li><li> "+data.tasks[0].album_name+" </li>";
 					$(bred).appendTo("#breadcrumbs");
 					
 					$.each(data.tasks, function(i,tasks)

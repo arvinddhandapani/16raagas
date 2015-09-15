@@ -43,9 +43,9 @@
 			<div class="row clearfix mb">
 				<div class="breadcrumbIn">
 					<ul>
-						<li><a href="index.html" class="toptip" title="Homepage"> <i class="icon-home"></i> </a></li>
-						<li><a href="mp3s.html"> MP3s </a></li>
-						<li><a href="mp3s.html"> A. R. Rahman </a></li>
+						<li><a href="index.php" class="toptip" title="Homepage"> <i class="icon-home"></i> </a></li>
+						<li><a href="mp3s.php"> MP3s </a></li>
+						<li><a href="mp3s.php"> A. R. Rahman </a></li>
 						<li> O Kadhal Kanmani </li>
 					</ul>
 				</div><!-- breadcrumb -->

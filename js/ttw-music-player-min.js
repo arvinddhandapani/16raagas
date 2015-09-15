@@ -23,7 +23,7 @@
             track: ".track",
             trackRating: ".rating-bar",
             trackInfo: ".track-info",
-            rating: ".rating",
+            //rating: ".rating",
             ratingLevel: ".rating-level",
             ratingLevelOn: ".on",
             title: ".title",

@@ -147,7 +147,7 @@
 			<div class="row clearfix mb">
 				<div class="breadcrumbIn">
 					<ul>
-						<li><a href="index.html" class="toptip" original-title="Homepage"> <i class="icon-home"></i> </a></li>
+						<li><a href="index.php" class="toptip" original-title="Homepage"> <i class="icon-home"></i> </a></li>
 						<li> Cart </li>
 					</ul>
 				</div><!-- breadcrumb -->
