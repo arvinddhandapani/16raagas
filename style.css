@@ -4878,7 +4878,7 @@ a.notification-close {
 	.sticky {margin-top: -150px !important}
 	.ttw-music-player .player {width: 100%}
 	.ttw-music-player .track-info, .ttw-music-player .player-controls {width: 69%}
-	.ttw-music-player .tracklist {width: 94%;margin-top: 20px;}
+	.ttw-music-player .tracklist {width: 100%;margin-top: 20px;}
 	.ttw-music-player .progress-wrapper {width: 82%}
 	.ttw-music-player .tracklist .title {width: 62%}
 	.wide-mp3 .ttw-music-player .track-info, .wide-mp3 .ttw-music-player .player-controls {width: 67%}
@@ -4935,7 +4935,7 @@ a.notification-close {
 	.sticky {margin-top: -150px !important}
 	.ttw-music-player .player {width: 100%}
 	.ttw-music-player .track-info, .ttw-music-player .player-controls {width: 47%}
-	.ttw-music-player .tracklist {width: 94%;margin-top: 20px;}
+	.ttw-music-player .tracklist {width: 100%;margin-top: 20px;}
 	.ttw-music-player .progress-wrapper {width: 55%}
 	.ttw-music-player .tracklist .title {width: 47%}
 	.duration {display: none}
@@ -5012,7 +5012,7 @@ a.notification-close {
 	.sticky {margin-top: -150px !important}
 	.ttw-music-player .player {width: 100%}
 	.ttw-music-player .track-info, .ttw-music-player .player-controls {width: 100%;margin: 10px 0 0 0;}
-	.ttw-music-player .tracklist {width: 86%;margin-top: 20px;}
+	.ttw-music-player .tracklist {width: 100%;margin-top: 20px;}
 	.ttw-music-player .progress-wrapper {width: 55%}
 	.ttw-music-player .tracklist .title {width: 47%}
 	.ttw-music-player .album-cover, .ttw-music-player .album-cover .img, .ttw-music-player .album-cover .highlight {margin: 0 auto;display: table;text-align: center;float: none;}
