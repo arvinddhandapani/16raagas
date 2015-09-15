@@ -83,7 +83,7 @@ sec_session_start();
                                     <form id="uploadForm" action="slider_upload_handler.php" method="post" enctype="multipart/form-data">
                                            <div class="form-group">
                                             <label>Slider Image</label>
-											<input name="uploadedfile" id="uploadedfile" type="file" class="demoInputBox" />                                     
+											<input name="uploadedfile" id="uploadedfile" type="file" class="demoInputBox" required/>                                     
                                         </div>                                           
 										<button type="submit" name="submit" value="submit" class="btn btn-default">Submit</button>
                                         <button type="reset" class="btn btn-default">Reset</button>

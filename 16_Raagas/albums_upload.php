@@ -76,23 +76,23 @@ sec_session_start();
                                     <form id="uploadForm" action="albums_upload_handler.php" method="post" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label>Album Name</label>
-                                            <input class="form-control" name="album_name">
+                                            <input class="form-control" name="album_name" size="150" required>
                                             <p class="help-block">Enter Album Name here.</p>
                                         </div>
                                         <div class="form-group">
                                             <label>Album Year</label>
-                                            <input class="form-control" name="album_year">
+                                            <input type="number" min="1900" max="9999" class="form-control" name="album_year" required>
                                             <p class="help-block">Enter Album Year here.</p>
                                         </div>
 										<div class="form-group">
                                             <label>Music Director</label>
-                                            <input class="form-control" name="music_director">
+                                            <input class="form-control" name="music_director" required>
                                             <p class="help-block">Enter Music Director Name here.</p>
                                         </div>
 										<div class="form-group">
                                             <!--<label>Language</label>
                                             <input class="form-control" name="language">-->
-											<select name="select1" id="select1">
+											<select name="select1" id="select1" required>
 											<option name="tamil">Tamil</option>
 											<option name="english">English</option>
 											<option name="telugu">Telugu</option>
@@ -103,11 +103,11 @@ sec_session_start();
                                         </div>                                        
                                         <div class="form-group">
                                             <label>Album Image</label>
-                                            <input name="uploadedfile" id="uploadedfile" type="file" />
+                                            <input name="uploadedfile" id="uploadedfile" type="file" required accept="image/*"/>
                                         </div>
                                         <div class="form-group">
                                             <label>Album Description</label>
-                                            <textarea class="form-control" rows="3" name="description"></textarea>
+                                            <textarea class="form-control" rows="3" name="description" required></textarea>
                                         </div>
                                         
                                         <button type="submit" name="submit" value="submit" class="btn btn-default">Submit</button>

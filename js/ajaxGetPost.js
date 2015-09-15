@@ -1,5 +1,5 @@
-var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
-//var base_url="http://16raagas.com/beta/v1/";
+//var base_url="http://localhost:8888/adhandapani/16raagas/16raagas/v1/";
+var base_url="http://16raagas.com/beta/v1/";
 function post_ajax_data(url,encodedata, success)
 
 {

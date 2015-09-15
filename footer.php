@@ -4,7 +4,7 @@
 		<footer id="footer">
 			<div class="footer-last">
 				<div class="row clearfix">
-					<span class="copyright">© 2015 by <a href="">16RaaGas</a>. All Rights Reserved. Design by <a href="">Raam Data Systems</a>. <a class="tosLink" href="#tosLink"> Terms of Service.</a></span>
+					<span class="copyright">© 2015 by <a href="">16Raagas</a>. All Rights Reserved. Design by <a href="">Raam Data Systems</a>. <a class="tosLink" href="#tosLink"> Terms of Service.</a></span>
 					<div id="toTop"><i class="icon-angle-up"></i></div><!-- Back to top -->
 					<div class="foot-menu">
 						<ul>

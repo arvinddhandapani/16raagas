@@ -200,9 +200,31 @@
 					</div><!-- end logo -->
 					<nav>
 						<ul class="sf-menu">
-							<li class="current selectedLava"><a href="index.php">Home</a></li>
+							<?php
+							$current_file = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
+							if ($current_file == "mp3s.php") {
+								
+							
+							?>
+							<li ><a href="index.php">Home</a></li>
 							<li><a href="index.php">About Us</a></li>
-							<li><a href="mp3s.php">MP3<span class="sub"></span></a>
+							<li class="current selectedLava"> <a href="mp3s.php">MP3<span class="sub"></span></a>
+								<?php
+									
+								} elseif ($current_file == "aboutus.php") {
+									
+								?>
+								<li><a href="index.php">Home</a></li>
+								<li class="current selectedLava"><a href="index.php">About Us</a></li>
+								<li > <a href="mp3s.php">MP3<span class="sub"></span></a>
+
+<?php } else {?>
+	<li class="current selectedLava"><a href="index.php">Home</a></li>
+	<li><a href="index.php">About Us</a></li>
+	<li > <a href="mp3s.php">MP3<span class="sub"></span></a>
+	<?php
+}
+	?>
 								<ul>
 									<li><a href="mp3s.php?lang=tamil">Tamil</a></li>
 									<li><a href="mp3s.php?lang=telugu">Telugu</a></li>

@@ -1,3 +1,6 @@
+<script type="text/javascript">
+setTimeout("window.location='albums_removal.php'",3000);
+</script>
 <?php
 include 'includes/psl-config.php';
 $Connect = mysqli_connect(HOST,USER, PASSWORD, DATABASE);
@@ -11,7 +14,8 @@ if (mysqli_query($Connect, $sql)) {
 mysqli_close($Connect);	
 echo $res1;
 echo "<br>";
+
 echo "Please Wait while we redirect you";
-header('Refresh: 2; albums_removal.php');									 
+/*header( "refresh:2; url=albums_removal.php" );	*/						 
 //header("Location: albums_removal.php?res=$res1");
 ?>

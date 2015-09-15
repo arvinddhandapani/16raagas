@@ -158,9 +158,11 @@
 					<div class="def-block">
 						<ul class="tabs">
 							<li><a href="#Latest" class="active"> Latest MP3's </a></li>
+						<!--
 							<li><a href="#Featured"> Featured </a></li>
-							<li><a href="#Albums"> New Albums</a></li>
-							<li><a href="#Soon"> Comming Soon </a></li>
+													<li><a href="#Albums"> New Albums</a></li>
+													<li><a href="#Soon"> Comming Soon </a></li>-->
+						
 						</ul><!-- tabs -->
 
 						<ul class="tabs-content">

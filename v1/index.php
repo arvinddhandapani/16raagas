@@ -105,9 +105,9 @@ $app->post('/register', function() use ($app)
         $response["message"] = "You are successfully registered";
         $response["url1"]    = "http://16raagas.com/beta/register.php?email=" . $email . "&auth_code=" . $verification_code;
         
-        $headers = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-        //$headers .= 'From: 16raagas <support@16raagas.com>' . "\r\n";
+		$headers = "MIME-version: 1.0\n";
+		$headers.= "Content-type: text/html; charset= iso-8859-1\n";
+        $headers .= "From: 16raagas <support@16raagas.com>\n";
         $message = '
                 <html>
                 <head>
@@ -123,7 +123,7 @@ $app->post('/register', function() use ($app)
                 ';
         $to      = $email;
         $subject = "16raagas.com registration Confirmation";
-        mail($to, $subject, $message, $headers, '-fsupport@16raagas.com');
+        mail($to, $subject, $message, $headers);
         
     } else if ($res == USER_CREATE_FAILED) {
         $response["error"]   = true;
@@ -381,7 +381,9 @@ $app->get('/search/:search1', function($search1)
     
     $response = array();
     $db       = new DbHandler();
-    
+    if ($search1 == "Start Searching..."){
+    	$search1 = "all";
+    }
     $result            = $db->searchAlbums($search1);
     $response["error"] = false;
     $response["tasks"] = array();
@@ -414,7 +416,9 @@ $app->get('/searchSong/:search1', function($search1)
     
     $response = array();
     $db       = new DbHandler();
-    
+    if ($search1 == "Start Searching..."){
+    	$search1 = "all";
+    }
     $result            = $db->searchSong($search1);
     $response["error"] = false;
     $response["tasks"] = array();

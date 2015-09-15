@@ -36,11 +36,14 @@ sec_session_start();
 
     <!-- PAGE LEVEL STYLES -->
     <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+	
+	
     <!-- END PAGE LEVEL  STYLES -->
        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+		
     <![endif]-->
 </head>
      <!-- END HEAD -->
@@ -114,7 +117,10 @@ sec_session_start();
 	       													      }
 									 	?>	  							  		
                                     </tbody>
+									
                                 </table>
+								<button>Export</button>
+								
                             </div>
                            
                         </div>
@@ -146,7 +152,21 @@ sec_session_start();
     </div>
     <!--END FOOTER -->
      <!-- GLOBAL SCRIPTS -->
+ 	
     <script src="assets/plugins/jquery-2.0.3.min.js"></script>
+	
+ 	<script src="includes/jquery.table2excel.js"></script>
+	 <script>
+	 $("button").click(function(){
+		 $("#dataTables-example").table2excel({
+ // exclude CSS class
+exclude: ".noExl",
+name: "Testing"
+		 });
+	 });
+		 
+	 </script>
+   
      <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <!-- END GLOBAL SCRIPTS -->

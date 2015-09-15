@@ -77,7 +77,7 @@ sec_session_start();
                                     <thead>
                                         <tr>
                                             <th>Song Id</th>
-                                            <th>Album Id</th>
+                                            <th>Album Name</th>
                                             <th>Song Name</th>
                                         	<th>Price</th>
 											<th>Music Director</th>
@@ -86,23 +86,46 @@ sec_session_start();
                                     </thead>
 									 
                                          <tbody>
-										<?php
-	 								   include 'includes/psl-config.php';
-      								 $Connect = mysqli_connect(HOST,USER, PASSWORD, DATABASE);
-      							   	 $sql = "SELECT * FROM songs";
-      							  	  $result = mysqli_query($Connect, $sql);
-									  while ($row=mysqli_fetch_assoc($result)){
-										  ?>
-									<tr class="odd gradeX">
-										<?php
-										 echo ("<td>$row[song_id]</td>");
-										echo ("<td>$row[album_id]</td>");
-										echo ("<td>$row[song_name]</td>");
-										echo("<td>$row[price]</td>");										
-										echo("<td>$row[artist_details]</td>");											
-										echo ("<td><a href=\"songs_removal_handler.php?id=$row[song_id]\">Delete</a></td></tr>");
-	       													      }
-									 	?>	  							  		
+		 										<?php
+		 	 								  
+		 	 								   include 'includes/psl-config.php';
+		 	 								  		       								 $Connect = mysqli_connect(HOST,USER, PASSWORD, DATABASE);
+		 	 								  		       							   	 $sql = "SELECT s.song_id,a.album_name,s.song_name,s.price,s.artist_details FROM songs s, albums a where s.album_id=a.id";
+		 	 								  		       							  	  $result = mysqli_query($Connect, $sql);
+		 	 								  		 									  while ($row=mysqli_fetch_assoc($result)){
+		 	 								  		 										  ?>
+		 	 								  		 									<tr class="odd gradeX">
+		 	 								  		 										<?php
+		 	 								  		 										 echo ("<td>$row[song_id]</td>");
+		 	 								  		 										echo ("<td>$row[album_name]</td>");
+		 	 								  		 										echo ("<td>$row[song_name]</td>");
+		 	 								  		 										echo("<td>$row[price]</td>");										
+		 	 								  		 										echo("<td>$row[artist_details]</td>");											
+		 	 								  		 										echo ("<td><a href=\"songs_removal_handler.php?id=$row[song_id]\">Delete</a></td></tr>");
+		 	 								  		 	       													      }
+		 	 								  
+		 									 	?>
+										
+										<?php/*
+										
+																					 								   include 'includes/psl-config.php';
+																				      								 $Connect = mysqli_connect(HOST,USER, PASSWORD, DATABASE);
+																				      							   	 $sql = "SELECT * FROM songs";
+																				      							  	  $result = mysqli_query($Connect, $sql);
+																													  while ($row=mysqli_fetch_assoc($result)){
+																														  ?>
+																													<tr class="odd gradeX">
+																														<?php
+																														 echo ("<td>$row[song_id]</td>");
+																														echo ("<td>$row[album_id]</td>");
+																														echo ("<td>$row[song_name]</td>");
+																														echo("<td>$row[price]</td>");										
+																														echo("<td>$row[artist_details]</td>");											
+																														echo ("<td><a href=\"songs_removal_handler.php?id=$row[song_id]\">Delete</a></td></tr>");
+																					       													      }*/
+										
+																			 	?>	  
+																  		
                                     </tbody>
                                 </table>
                             </div>

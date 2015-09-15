@@ -82,7 +82,7 @@ sec_session_start();
                                         	<th>Verification Code</th>
 											<th>Status</th>
 											<th>Created At</th>
-											<th>Browser</th>
+											<th>Last Logged In</th>
 											<th>Lock Account</th>
 											<th>Resend Code</th>
                                         </tr>
@@ -92,7 +92,7 @@ sec_session_start();
 										<?php
 	 								   include 'includes/psl-config.php';
       								 $Connect = mysqli_connect(HOST,USER, PASSWORD, DATABASE);
-      							   	 $sql = "SELECT u.id, name, u.email, verification_code, status, created_at,song_session FROM users u left join login_details l on u.email = l.email";
+      							   	 $sql = "SELECT u.id, name, u.email, verification_code, status, created_at,song_session,l.login_at FROM users u left join login_details l on u.email = l.email";
       							  	  $result = mysqli_query($Connect, $sql);
 									  while ($row=mysqli_fetch_assoc($result)){
 										  ?>
@@ -111,13 +111,14 @@ sec_session_start();
 										}
                                           										
 										echo("<td>$row[created_at]</td>");
-										echo("<td>$row[song_session]</td>");
+										echo("<td>$row[login_at]</td>");
 										echo ("<td><a href=\"lock_user.php?id=$row[id]\">Lock</a></td>");
 										echo ("<td><a href=\"resend_user.php?id=$row[id]\">Resend</a></td></tr>");
 	       													      }
 									 	?>	  							  		
                                     </tbody>
                                 </table>
+								<button>Export</button>
                             </div>
                            
                         </div>
@@ -149,7 +150,22 @@ sec_session_start();
     </div>
     <!--END FOOTER -->
      <!-- GLOBAL SCRIPTS -->
-    <script src="assets/plugins/jquery-2.0.3.min.js"></script>
+	     <script src="assets/plugins/jquery-2.0.3.min.js"></script>
+	
+	  	<script src="includes/jquery.table2excel.js"></script>
+	 	 <script>
+	 	 $("button").click(function(){
+	 		 $("#dataTables-example").table2excel({
+	  // exclude CSS class
+	 exclude: ".noExl",
+				  filename:"user_details",
+	 name: "Testing"
+	 		 });
+	 	 });
+		 
+	 	 </script>
+	 
+  
      <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <!-- END GLOBAL SCRIPTS -->

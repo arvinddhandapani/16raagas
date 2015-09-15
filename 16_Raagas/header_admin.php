@@ -15,7 +15,7 @@
                 <!-- LOGO SECTION -->
                 <header class="navbar-header">
 
-                    <a href="index1.html" class="navbar-brand">
+                    <a href="index.php" class="navbar-brand">
                     <img src="assets/img/logo.png" alt="" /></a>
                 </header>
                 <!-- END LOGO SECTION -->

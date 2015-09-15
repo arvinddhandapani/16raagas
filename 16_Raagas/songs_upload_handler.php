@@ -1,4 +1,7 @@
-﻿<?php
+﻿<script type="text/javascript">
+setTimeout("window.location='songs_upload.php'",3000);
+</script>
+<?php
 $album_name = $_POST['select1'];
 $song_name = $_POST['song_name'];
 $price = $_POST['price'];

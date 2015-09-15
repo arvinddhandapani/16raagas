@@ -136,7 +136,7 @@ error_reporting(0);?>
 							<div id="mainContent">
 								
 							</div>
-						<div class="load-news tac"><a href="albums.php" class="tbutton small"><span>Load More</span></a></div>
+						<div class="load-news tac"><a href="mp3s.php" class="tbutton small"><span>Load More</span></a></div>
 					</div><!-- def block -->
 				</div><!-- span8 news -->
 
