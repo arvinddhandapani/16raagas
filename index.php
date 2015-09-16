@@ -70,7 +70,7 @@
 				$.each(data.tasks[k], function(i,tasks)
 				{
 					if (k<4){
-						var popularTracks="<li class=\"clearfix\"><a class=\"m-thumbnail\" href=\"mp3_single.php\"><img width=\"50\" height=\"50\" src=\"images/albums/"+data.tasks[k].album_img+"\"alt=\"#\"></a><h3><a href=\"albums.php?album="+data.tasks[k].album_name+"&a_id="+data.tasks[k].id+"\">"+data.tasks[k].song_name+"</a></h3><span>"+data.tasks[k].music_director+"</span><span> "+Number(data.tasks[k].no_Downloads).toLocaleString('en')+" Downloads </span></li>";
+						var popularTracks="<li class=\"clearfix\"><a class=\"m-thumbnail\" href=\"albums.php?album="+data.tasks[k].album_name+"&a_id="+data.tasks[k].id+"\"><img width=\"50\" height=\"50\" src=\"images/albums/"+data.tasks[k].album_img+"\"alt=\"#\"></a><h3><a href=\"albums.php?album="+data.tasks[k].album_name+"&a_id="+data.tasks[k].id+"\">"+data.tasks[k].song_name+"</a></h3><span>"+data.tasks[k].music_director+"</span><span> "+Number(data.tasks[k].no_Downloads).toLocaleString('en')+" Downloads </span></li>";
 			$(popularTracks).appendTo("#popularTracks");
 		}
 			k=k+1;
@@ -146,11 +146,11 @@ error_reporting(0);?>
 									<h4> Events </h4><span class="liner"></span>
 									<div class="widget-content row-fluid">
 										<div class="span3 tac">
-											<span class="event-date">25</span>
-											<span class="event-month">aug</span>
+											<span class="event-date">16</span>
+											<span class="event-month">Dec</span>
 										</div>
 										<div class="span9">
-											<p>Bono Serenades Warren Buffet at NYC Event.</p>
+											<p>A K R MAHAL & BALAMBAL MAHAL(SRI KANNAIH REDDIYAR TOWERS), 156/28A KALIAMAN KOIL STREET VIRUGAMBAKKAM, CHENNAI- 600 092</p>
 											<a href="#" class="tbutton buy-ticket small"><span>Buy Ticket</span></a>
 										</div>
 			
@@ -164,7 +164,7 @@ error_reporting(0);?>
 												<div class="videos clearfix flexslider">
 													<ul class="slides">
 														<li class="featured-video">
-															<a href="video_single_wide.php">
+															<a href="index.php">
 																<img src="images/assets/video1.jpg" alt="#">
 																<i class="icon-play-sign"></i>
 																<h3>I Know You Want Me</h3>
@@ -174,7 +174,7 @@ error_reporting(0);?>
 					<!-- slide -->
 									
 									<li class="featured-video">
-																			<a href="video_single_wide.php">
+																			<a href="index.php">
 																				<img src="images/assets/video2.jpg" alt="#">
 																				<i class="icon-play-sign"></i>
 																				<h3>I Like It</h3>
@@ -184,7 +184,7 @@ error_reporting(0);?>
 									<!-- slide -->
 							
 									<li class="featured-video">
-																		<a href="video_single_wide.php">
+																		<a href="index.php">
 																			<img src="images/assets/video3.jpg" alt="#">
 																			<i class="icon-play-sign"></i>
 																			<h3>Tommorow</h3>

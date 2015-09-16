@@ -96,7 +96,7 @@
 			if (data.tasks.length > 0) {
 			$.each(data.tasks, function(i,tasks)
 				{
-					var orderHtml="<li class=\"list-group-item\"><strong class=\"block\"><a href=\"invoice.php?order_id="+data.tasks[k].order_id+"\">"+data.tasks[k].order_id+"</strong><small> "+data.tasks[k].order_update_date+"          </small><br><small>Rs."+data.tasks[k].order_amount+"</small></li>";
+					var orderHtml="<li class=\"list-group-item\"><strong class=\"block\"><a href=\"invoice.php?order_id="+data.tasks[k].order_id+"\" target='_blank' >"+data.tasks[k].order_id+"</strong><small> "+data.tasks[k].order_update_date+"          </small><br><small>Rs."+data.tasks[k].order_amount+"</small></li>";
 					$(orderHtml).appendTo("#orderHtml");
 					k = k+1;
 				});

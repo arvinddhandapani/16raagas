@@ -83,7 +83,7 @@
 					//alert (data.tasks);
 					$.each(data.tasks[j], function(i,tasks)
 					{
-						var html="<li class='grid_6'><a class='m-thumbnail' href='mp3_single_half.php'><img width='50' height='50' src='images/albums/"+data.tasks[j].album_img+"' alt='#'></a><h3><a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'>"+data.tasks[j].album_name+"</a></h3><span>"+data.tasks[j].music_director+" </span></li>";
+						var html="<li class='grid_6'><a class='m-thumbnail' href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'><img width='50' height='50' src='images/albums/"+data.tasks[j].album_img+"' alt='#'></a><h3><a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'>"+data.tasks[j].album_name+"</a></h3><span>"+data.tasks[j].music_director+" </span></li>";
 				$(html).appendTo("#songlist");
 		
 				j=j+1;
@@ -264,7 +264,7 @@
 							<div class="videos clearfix flexslider">
 								<ul class="slides">
 									<li class="featured-video">
-										<a href="video_single_wide.php">
+										<a href="mp3s.php">
 											<img src="images/assets/video1.jpg" alt="#">
 											<i class="icon-play-sign"></i>
 											<h3>I Know You Want Me</h3>
@@ -272,7 +272,7 @@
 										</a>
 									</li><!-- slide -->
 									<li class="featured-video">
-										<a href="video_single_wide.php">
+										<a href="mp3s.php">
 											<img src="images/assets/video2.jpg" alt="#">
 											<i class="icon-play-sign"></i>
 											<h3>I Like It</h3>
@@ -280,7 +280,7 @@
 										</a>
 									</li><!-- slide -->
 									<li class="featured-video">
-										<a href="video_single_wide.php">
+										<a href="mp3s.php">
 											<img src="images/assets/video3.jpg" alt="#">
 											<i class="icon-play-sign"></i>
 											<h3>Tommorow</h3>
