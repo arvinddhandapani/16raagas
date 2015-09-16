@@ -231,6 +231,7 @@
 									<li><a href="mp3s.php?lang=malayalam">Malayalam</a></li>
 									<li><a href="mp3s.php?lang=kannada">Kannada</a></li>
 									<li><a href="mp3s.php?lang=hindi">Hindi</a></li>
+									<li><a href="mp3s.php?lang=english">English</a></li>
 								</ul>
 							</li>
 							<!--<li><a href="archive.php">Archive</a></li>-->
