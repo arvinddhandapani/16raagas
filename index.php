@@ -70,11 +70,7 @@
 				$.each(data.tasks[k], function(i,tasks)
 				{
 					if (k<4){
-<<<<<<< HEAD
 						var popularTracks="<li class=\"clearfix\"><a class=\"m-thumbnail\" href=\"albums.php?album="+data.tasks[k].album_name+"&a_id="+data.tasks[k].id+"\"><img width=\"50\" height=\"50\" src=\"images/albums/"+data.tasks[k].album_img+"\"alt=\"#\"></a><h3><a href=\"albums.php?album="+data.tasks[k].album_name+"&a_id="+data.tasks[k].id+"\">"+data.tasks[k].song_name+"</a></h3><span>"+data.tasks[k].music_director+"</span><span> "+Number(data.tasks[k].no_Downloads).toLocaleString('en')+" Downloads </span></li>";
-=======
-						var popularTracks="<li class=\"clearfix\"><a class=\"m-thumbnail\" href=\"mp3_single.php\"><img width=\"50\" height=\"50\" src=\"images/albums/"+data.tasks[k].album_img+"\"alt=\"#\"></a><h3><a href=\"albums.php?album="+data.tasks[k].album_name+"&a_id="+data.tasks[k].id+"\">"+data.tasks[k].song_name+"</a></h3><span>"+data.tasks[k].music_director+"</span></li>";
->>>>>>> origin/master
 			$(popularTracks).appendTo("#popularTracks");
 		}
 			k=k+1;
@@ -129,13 +125,13 @@ error_reporting(0);?>
 		<div class="page-content">
 		
 			<div class="row clearfix mbf">
-							<div class="music-player-list widget animtt" data-gen="fadeUp" style="opacity:0;"></div>
+							<div class="music-player-list"></div>
 						</div>
 			<!-- row music player -->
 
 			<div class="row row-fluid clearfix mbf">
 				<div class="span8">
-					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
+					<div class="def-block">
 						<h4> Latest Releases </h4><span class="liner"></span>
 							<div id="mainContent">
 								
@@ -146,7 +142,6 @@ error_reporting(0);?>
 
 		
 				<div class="span4">
-<<<<<<< HEAD
 								<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
 									<h4> Events </h4><span class="liner"></span>
 									<div class="widget-content row-fluid">
@@ -159,22 +154,11 @@ error_reporting(0);?>
 											<a href="#" class="tbutton buy-ticket small"><span>Buy Ticket</span></a>
 										</div>
 			
-=======
-					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
-						<h4> NewsLetters </h4><span class="liner"></span>
-						<div class="widget-content">
-							<p>It has survived not only five centuries, but also the leap into electronic typesetting.</p>
-							<form id="newsletters" method="post" action="http://feedburner.google.com/fb/a/mailverify" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=sevenpsd', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
-								<input type="email" onfocus="if (this.value=='Type Your Email') this.value = '';" onblur="if (this.value=='') this.value = 'Type Your Email';" value="Type Your Email" placeholder="Type Your Email" required="required">
-								<button type="submit"><i class="icon-ok"></i></button>
-							</form>
->>>>>>> origin/master
 						</div><!-- widget content -->
-					</div><!-- def block widget NewsLetters -->
+				</div><!-- def block widget events -->
 
 			
 					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
-<<<<<<< HEAD
 											<h4> Featured Videos </h4><span class="liner"></span>
 											<div class="widget-content row-fluid">
 												<div class="videos clearfix flexslider">
@@ -214,31 +198,18 @@ error_reporting(0);?>
 													</div>
 							<!-- widget content -->
 				</div><!-- def block widget videos -->
-=======
-						<h4> Tags </h4><span class="liner"></span>
-						<div class="widget-content tags">
-							<a href="#" class="#" title="17 topic"><i class="icon-tag"></i> mp3 </a>
-							<a href="#" class="#" title="44 topic"><i class="icon-tag"></i> interview </a>
-							<a href="#" class="#" title="10 topic"><i class="icon-tag"></i> video </a>
-							<a href="#" class="#" title="20 topic"><i class="icon-tag"></i> ogg </a>
-							<a href="#" class="#" title="2 topic"><i class="icon-tag"></i> fl studio </a>
-							<a href="#" class="#" title="29 topic"><i class="icon-tag"></i> dj angel </a>
-							<a href="#" class="#" title="4 topic"><i class="icon-tag"></i> remix </a>
-						</div><!-- widget content -->
-					</div><!-- def block widget tags -->
->>>>>>> origin/master
 
 			
 					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
-						<h4> Popular Tracks </h4><span class="liner"></span>
-						<div class="widget-content row-fluid">
-							<div class="mtracks">
-								<div class="content">
-									<ul class="tab-content-items">
-										<div id="popularTracks"></div>
-									</ul>
-								</div>
-							</div>
+										<h4> Popular Tracks </h4><span class="liner"></span>
+										<div class="widget-content row-fluid">
+											<div class="mtracks">
+												<div class="content">
+													<ul class="tab-content-items">
+														<div id="popularTracks"></div>
+													</ul>
+												</div>
+											</div>
 				
 						</div><!-- widget content -->
 				</div><!-- def block widget popular items -->
