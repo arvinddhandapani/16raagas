@@ -257,6 +257,7 @@
 					</div><!-- def block -->
 				</div><!-- span8 posts -->
 
+<<<<<<< HEAD
 				<div class="span4 sidebar">					
 					<div class="def-block widget">
 						<h4> Featured Videos </h4><span class="liner"></span>
@@ -289,10 +290,20 @@
 									</li><!-- slide -->
 								</ul>
 							</div>
+=======
+				<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
+						<h4> Tags </h4><span class="liner"></span>
+						<div class="widget-content tags">
+							<a href="#" class="#" title="17 topic"><i class="icon-tag"></i> mp3 </a>
+							<a href="#" class="#" title="44 topic"><i class="icon-tag"></i> interview </a>
+							<a href="#" class="#" title="10 topic"><i class="icon-tag"></i> video </a>
+							<a href="#" class="#" title="20 topic"><i class="icon-tag"></i> ogg </a>
+							<a href="#" class="#" title="2 topic"><i class="icon-tag"></i> fl studio </a>
+							<a href="#" class="#" title="29 topic"><i class="icon-tag"></i> dj angel </a>
+							<a href="#" class="#" title="4 topic"><i class="icon-tag"></i> remix </a>
+>>>>>>> origin/master
 						</div><!-- widget content -->
-					</div><!-- def block widget videos -->
-
-				</div><!-- span4 sidebar -->
+					</div><!-- def block widget tags -->
 			</div><!-- row clearfix -->
 		</div><!-- end page content -->
 
