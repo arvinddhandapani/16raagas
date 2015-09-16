@@ -257,7 +257,7 @@
 					</div><!-- def block -->
 				</div><!-- span8 posts -->
 
-				<div class="span4 sidebar">					
+				<!-- <div class="span4 sidebar">					
 					<div class="def-block widget">
 						<h4> Featured Videos </h4><span class="liner"></span>
 						<div class="widget-content row-fluid">
@@ -270,7 +270,7 @@
 											<h3>I Know You Want Me</h3>
 											<span>Fitbull</span>
 										</a>
-									</li><!-- slide -->
+									</li>
 									<li class="featured-video">
 										<a href="video_single_wide.html">
 											<img src="images/assets/video2.jpg" alt="#">
@@ -278,7 +278,7 @@
 											<h3>I Like It</h3>
 											<span>Enrique</span>
 										</a>
-									</li><!-- slide -->
+									</li>
 									<li class="featured-video">
 										<a href="video_single_wide.html">
 											<img src="images/assets/video3.jpg" alt="#">
@@ -286,11 +286,11 @@
 											<h3>Tommorow</h3>
 											<span>Dj Michele</span>
 										</a>
-									</li><!-- slide -->
+									</li>
 								</ul>
 							</div>
-						</div><!-- widget content -->
-					</div><!-- def block widget videos -->
+						</div>
+					</div>
 
 				</div><!-- span4 sidebar -->
 			</div><!-- row clearfix -->
