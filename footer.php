@@ -1,7 +1,7 @@
-		<head>
+<head>
 			<link rel="stylesheet" type="text/css" href="include/popupmodal.css" media="screen" />
 		</head>
-		<footer id="footer">
+				<footer id="footer">
 			<div class="footer-last">
 				<div class="row clearfix">
 					<span class="copyright">© 2015 by <a href="">16Raagas</a>. All Rights Reserved. Design by <a href="">Raam Data Systems</a>. <a class="tosLink" href="#tosLink"> Terms of Service.</a></span>
@@ -9,7 +9,7 @@
 					<div class="foot-menu">
 						<ul>
 							<li><a href="index.php">Home</a></li>
-							<li><a href="index.php">About Us</a></li>
+							<li><a href="aboutus.php">About Us</a></li>
 							<li><a href="mp3s.php">MP3</a></li>
 							<li><a href="contact.php">Contact</a></li>
 						</ul><!-- end links -->
