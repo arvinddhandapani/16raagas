@@ -251,7 +251,7 @@ function warningClose() {
 							
 							?>
 							<li ><a href="index.php">Home</a></li>
-							<li><a href="index.php">About Us</a></li>
+							<li><a href="aboutus.php">About Us</a></li>
 							<li class="current selectedLava"> <a href="mp3s.php">MP3<span class="sub"></span></a>
 								<?php
 									
@@ -264,7 +264,7 @@ function warningClose() {
 
 <?php } else {?>
 	<li class="current selectedLava"><a href="index.php">Home</a></li>
-	<li><a href="index.php">About Us</a></li>
+	<li><a href="aboutus.php">About Us</a></li>
 	<li > <a href="mp3s.php">MP3<span class="sub"></span></a>
 	<?php
 }
