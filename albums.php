@@ -61,7 +61,7 @@
 					$(album_desc).appendTo("#description");
 					
 					//tags
-					var tag="<span> Tags: </span><a href='search.php?artist="+data.tasks[0].artist_details +"'class='#'>"+data.tasks[0].artist_details+" </a>,<a href='mp3s.php?lang="+ data.tasks[0].language +"'class='#'>"+data.tasks[0].language+" </a>";
+					var tag="<span> Tags: </span><a href='search.php?search="+data.tasks[0].artist_details +"'class='#'>"+data.tasks[0].artist_details+" </a> <a href='mp3s.php?lang="+ data.tasks[0].language +"'class='#'>"+data.tasks[0].language+" </a> <a href='search.php?search="+ data.tasks[0].music_director +"'class='#'>"+data.tasks[0].music_director+" </a>";
 					$(tag).appendTo("#tags");
 					
 					//Breadcrumbs
@@ -80,7 +80,7 @@
 					mp3: 'music/demo_songs/'+data.tasks[j].demo_song,
 					//oga: 'music/5.ogg',
 					title: data.tasks[j].song_name,
-					artist: data.tasks[0].artist_details,
+					artist: data.tasks[0].music_director,
 					rating: '3',
 					//buy:'addtocart.php?song_id='+data.tasks[j].song_id+'&album_id='+data.tasks[j].album_id+'&base_url_al='+window.location.href,
 					buy:'addtocart.php?song_id='+data.tasks[j].song_id+'&album_id='+data.tasks[j].album_id,
@@ -114,6 +114,9 @@
 					var relatedSearch = "<li><a class=\"m-thumbnail\" href=\"albums.php?a_id="+data.tasks[j].id+"\"><img width=\"50\" height=\"50\" src='images/albums/"+data.tasks[j].album_img+"' alt='#'></a><h3><a href=\"albums.php?a_id="+data.tasks[j].id+"\">"+data.tasks[j].album_name+"</a></h3><span> "+data.tasks[j].music_director+" </span><span> "+data.tasks[j].album_year+" </span></li>";	
 					j=j+1;
 					$(relatedSearch).appendTo("#relatedSearch");
+					
+					var relatedheader = "<h4> Popular By <span>"+data.tasks[j].music_director+"</span> </h4><span class=\"liner\"></span>";
+					$(relatedheader).appendTo("#relatedheader");
 				});
 				
 			});
@@ -156,8 +159,8 @@
 							</p><!-- tags -->
 
 							<div class="meta">
-								<span> <i class="icon-user mi"></i> Admin </span>
-								<span> <i class="icon-time mi"></i>June 10, 2015 2:00 AM </span>
+								<!-- <span> <i class="icon-user mi"></i> Admin </span>
+								<span> <i class="icon-time mi"></i>June 10, 2015 2:00 AM </span> -->
 							</div><!-- meta -->
 						</div><!-- post -->
 					</div><!-- def block -->
@@ -165,7 +168,7 @@
 
 				<div class="span4 sidebar">
 					<div class="def-block widget">
-						<h4> Popular By <span>A. R. Rahman</span> </h4><span class="liner"></span>
+						<div id="relatedheader"></div>
 						<div class="widget-content row-fluid">
 							<div class="mtracks popular-by-person">
 								<div class="content">

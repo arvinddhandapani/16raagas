@@ -55,7 +55,7 @@
 				$.each(data.tasks[j], function(i,tasks)
 				{
 					//alert (data.tasks[j].album_name);	
-					var html="<li class='grid_6'><a class='m-thumbnail' href='mp3_single_half.php'><img width='50' height='50' src='images/albums/"+data.tasks[j].album_img+"' alt='#'></a><h3><a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'>"+data.tasks[j].album_name+"</a></h3><span>"+data.tasks[j].music_director+" </span></li>";
+					var html="<li class='grid_6'><a class='m-thumbnail' href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'><img width='50' height='50' src='images/albums/"+data.tasks[j].album_img+"' alt='#'></a><h3><a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'>"+data.tasks[j].album_name+"</a></h3><span>"+data.tasks[j].music_director+" </span></li>";
 				//var html="<div class='news row-fluid animtt' data-gen='fadeUp'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"'alt='#'></div><div class='span7'><h3 class='news-title'> <a href='mp3_single_half.php'>"+data.tasks[j].album_name+"</a> </h3><p>"+data.tasks[j].album_desc+"</p><a href='' class='sign-btn tbutton small'><span>Buy Now</span></a></div></div>";
 			$(html).appendTo("#songlist");
 		
@@ -83,7 +83,7 @@
 					//alert (data.tasks);
 					$.each(data.tasks[j], function(i,tasks)
 					{
-						var html="<li class='grid_6'><a class='m-thumbnail' href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'><img width='50' height='50' src='images/albums/"+data.tasks[j].album_img+"' alt='#'></a><h3><a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'>"+data.tasks[j].album_name+"</a></h3><span>"+data.tasks[j].music_director+" </span></li>";
+						var html="<li class='grid_6'><a class='m-thumbnail' href='#'><img width='50' height='50' src='images/albums/"+data.tasks[j].album_img+"' alt='#'></a><h3><a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'>"+data.tasks[j].album_name+"</a></h3><span>"+data.tasks[j].music_director+" </span></li>";
 				$(html).appendTo("#songlist");
 		
 				j=j+1;
@@ -259,17 +259,38 @@
 
 				<div class="span4 sidebar">					
 					<div class="def-block widget">
-						<h4> Tags </h4><span class="liner"></span>
-						<div class="widget-content tags">
-							<a href="#" class="#" title="17 topic"><i class="icon-tag"></i> mp3 </a>
-							<a href="#" class="#" title="44 topic"><i class="icon-tag"></i> interview </a>
-							<a href="#" class="#" title="10 topic"><i class="icon-tag"></i> video </a>
-							<a href="#" class="#" title="20 topic"><i class="icon-tag"></i> ogg </a>
-							<a href="#" class="#" title="2 topic"><i class="icon-tag"></i> fl studio </a>
-							<a href="#" class="#" title="29 topic"><i class="icon-tag"></i> dj angel </a>
-							<a href="#" class="#" title="4 topic"><i class="icon-tag"></i> remix </a>
+						<h4> Featured Videos </h4><span class="liner"></span>
+						<div class="widget-content row-fluid">
+							<div class="videos clearfix flexslider">
+								<ul class="slides">
+									<li class="featured-video">
+										<a href="mp3s.php">
+											<img src="images/assets/video1.jpg" alt="#">
+											<i class="icon-play-sign"></i>
+											<h3>I Know You Want Me</h3>
+											<span>Fitbull</span>
+										</a>
+									</li><!-- slide -->
+									<li class="featured-video">
+										<a href="mp3s.php">
+											<img src="images/assets/video2.jpg" alt="#">
+											<i class="icon-play-sign"></i>
+											<h3>I Like It</h3>
+											<span>Enrique</span>
+										</a>
+									</li><!-- slide -->
+									<li class="featured-video">
+										<a href="mp3s.php">
+											<img src="images/assets/video3.jpg" alt="#">
+											<i class="icon-play-sign"></i>
+											<h3>Tommorow</h3>
+											<span>Dj Michele</span>
+										</a>
+									</li><!-- slide -->
+								</ul>
+							</div>
 						</div><!-- widget content -->
-					</div><!-- def block widget tags -->
+					</div><!-- def block widget videos -->
 
 				</div><!-- span4 sidebar -->
 			</div><!-- row clearfix -->

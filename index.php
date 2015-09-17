@@ -46,7 +46,7 @@
 				{
 					if (j<4){
 						
-				var html="<div class='news row-fluid animtt' data-gen='fadeUp'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"'alt='#'></div><div class='span7'><h3 class='news-title'> <a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'>"+data.tasks[j].album_name+"</a> </h3><p>"+data.tasks[j].album_desc+"</p><a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"' class='sign-btn tbutton small'><span>Buy Now</span></a></div></div>";
+				var html="<div class='news row-fluid animtt'><div class='span5'><img class='four-radius' src='images/albums/"+data.tasks[j].album_img+"'alt='#'></div><div class='span7'><h3 class='news-title'> <a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"'>"+data.tasks[j].album_name+"</a> </h3><p>"+data.tasks[j].album_desc+"</p><a href='albums.php?album="+data.tasks[j].album_name+"&a_id="+data.tasks[j].id+"' class='sign-btn tbutton small'><span>Buy Now</span></a></div></div>";
 				
 			$(html).appendTo("#mainContent");
 		}
@@ -124,9 +124,9 @@ error_reporting(0);?>
 	?>
 		<div class="page-content">
 		
-			<div class="row clearfix mbf">
-							<div class="music-player-list widget animtt" data-gen="fadeUp" style="opacity:0;"></div>
-						</div>
+			<div class="row clearfix mbf animtt" data-gen="fadeUp" style="opacity:0;">
+                <div class="music-player-list"></div>
+            </div>
 			<!-- row music player -->
 
 			<div class="row row-fluid clearfix mbf">
@@ -142,43 +142,74 @@ error_reporting(0);?>
 
 		
 				<div class="span4">
-					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
-						<h4> NewsLetters </h4><span class="liner"></span>
-						<div class="widget-content">
-							<p>It has survived not only five centuries, but also the leap into electronic typesetting.</p>
-							<form id="newsletters" method="post" action="http://feedburner.google.com/fb/a/mailverify" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=sevenpsd', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
-								<input type="email" onfocus="if (this.value=='Type Your Email') this.value = '';" onblur="if (this.value=='') this.value = 'Type Your Email';" value="Type Your Email" placeholder="Type Your Email" required="required">
-								<button type="submit"><i class="icon-ok"></i></button>
-							</form>
+								<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
+									<h4> Events </h4><span class="liner"></span>
+									<div class="widget-content row-fluid">
+										<div class="span3 tac">
+											<span class="event-date">16</span>
+											<span class="event-month">Dec</span>
+										</div>
+										<div class="span9">
+											<p>A K R MAHAL & BALAMBAL MAHAL(SRI KANNAIH REDDIYAR TOWERS), 156/28A KALIAMAN KOIL STREET VIRUGAMBAKKAM, CHENNAI- 600 092</p>
+											<a href="#" class="tbutton buy-ticket small"><span>Buy Ticket</span></a>
+										</div>
+			
 						</div><!-- widget content -->
-					
-					</div><!-- def block widget NewsLetters -->
+				</div><!-- def block widget events -->
 
 			
 					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
-						<h4> Tags </h4><span class="liner"></span>
-						<div class="widget-content tags">
-							<a href="#" class="#" title="17 topic"><i class="icon-tag"></i> mp3 </a>
-							<a href="#" class="#" title="44 topic"><i class="icon-tag"></i> interview </a>
-							<a href="#" class="#" title="10 topic"><i class="icon-tag"></i> video </a>
-							<a href="#" class="#" title="20 topic"><i class="icon-tag"></i> ogg </a>
-							<a href="#" class="#" title="2 topic"><i class="icon-tag"></i> fl studio </a>
-							<a href="#" class="#" title="29 topic"><i class="icon-tag"></i> dj angel </a>
-							<a href="#" class="#" title="4 topic"><i class="icon-tag"></i> remix </a>
-						</div><!-- widget content -->
-					</div><!-- def block widget tags -->
+											<h4> Featured Videos </h4><span class="liner"></span>
+											<div class="widget-content row-fluid">
+												<div class="videos clearfix flexslider">
+													<ul class="slides">
+														<li class="featured-video">
+															<a href="index.php">
+																<img src="images/assets/video1.jpg" alt="#">
+																<i class="icon-play-sign"></i>
+																<h3>I Know You Want Me</h3>
+																<span>Fitbull</span>
+															</a>
+														</li>
+					<!-- slide -->
+									
+									<li class="featured-video">
+																			<a href="index.php">
+																				<img src="images/assets/video2.jpg" alt="#">
+																				<i class="icon-play-sign"></i>
+																				<h3>I Like It</h3>
+																				<span>Enrique</span>
+																			</a>
+																		</li>
+									<!-- slide -->
+							
+									<li class="featured-video">
+																		<a href="index.php">
+																			<img src="images/assets/video3.jpg" alt="#">
+																			<i class="icon-play-sign"></i>
+																			<h3>Tommorow</h3>
+																			<span>Dj Michele</span>
+																		</a>
+																	</li>
+								<!-- slide -->
+						
+								</ul>
+														</div>
+													</div>
+							<!-- widget content -->
+				</div><!-- def block widget videos -->
 
 			
 					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
-						<h4> Popular Tracks </h4><span class="liner"></span>
-						<div class="widget-content row-fluid">
-							<div class="mtracks">
-								<div class="content">
-									<ul class="tab-content-items">
-										<div id="popularTracks"></div>
-									</ul>
-								</div>
-							</div>
+                        <h4> Popular Tracks </h4><span class="liner"></span>
+                        <div class="widget-content row-fluid">
+                            <div class="mtracks">
+                                <div class="content">
+                                    <ul class="tab-content-items">
+                                        <div id="popularTracks"></div>
+                                    </ul>
+                                </div>
+                            </div>
 				
 						</div><!-- widget content -->
 				</div><!-- def block widget popular items -->

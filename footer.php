@@ -20,7 +20,7 @@
 	  <div id="tosLink" class="modalbg">
 	    <div class="dialog">
 	      <a href="#close" title="Close" class="close">X</a>
-	    	<p><h2>WELCOME TO 16RAAGAS.COM, A FLAGSHIP PORTAL OPERATED BYRAAM DATA SYSTEMS AND/OR ITS SUBSIDIARY(IES) AND/OR AFFILIATE(S) (COLLECTIVELY REFERRED TO AS THE “COMPANY”).</h2><br></p>
+	    	<p><h2>WELCOME TO 16RAAGAS.COM, A FLAGSHIP PORTAL OPERATED BY RAAM DATA SYSTEMS AND/OR ITS SUBSIDIARY(IES) AND/OR AFFILIATE(S) (COLLECTIVELY REFERRED TO AS THE “COMPANY”).</h2><br></p>
 		<p>1. ACCEPTANCE OF TERMS OF USE</p>
 		<p>These terms of use (Terms) constitute a legally binding agreement between User or you (as defined below) and the Company regarding your use of the Raajasir web site i.e www.16raagas.com, (the Site), 16raagas.com, (the WAP Site), touch. 16raagas.com, (the Mobile Site), Raajasir Application (the Mobile Application on Android, iOS, Java, Windows devices) and the services including but not limited to delivery of music and related content via the Site¸ any mobile or internet connected device or otherwise (the " Raam Data Systems’s service").</p>
 		<p>

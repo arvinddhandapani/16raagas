@@ -96,6 +96,7 @@
 		{
 			post_ajax_data_w(url,encode, function(data)
 			{
+				$("#loginfailedmsg").empty();
 				   if(data.error===true){
 					   $("#loginfailed").show();
 					   var msg="<span>"+data.message+"</span>";
