@@ -143,63 +143,13 @@ error_reporting(0);?>
 		
 				<div class="span4">
 								<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
-									<h4> Events </h4><span class="liner"></span>
+									<h4> News</h4><span class="liner"></span>
 									<div class="widget-content row-fluid">
-										<div class="span3 tac">
-											<span class="event-date">16</span>
-											<span class="event-month">Dec</span>
-										</div>
-										<div class="span9">
-											<p>A K R MAHAL & BALAMBAL MAHAL(SRI KANNAIH REDDIYAR TOWERS), 156/28A KALIAMAN KOIL STREET VIRUGAMBAKKAM, CHENNAI- 600 092</p>
-											<a href="#" class="tbutton buy-ticket small"><span>Buy Ticket</span></a>
-										</div>
+										<?php include 'news.php'; ?>
 			
 						</div><!-- widget content -->
 				</div><!-- def block widget events -->
 
-			
-					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
-											<h4> Featured Videos </h4><span class="liner"></span>
-											<div class="widget-content row-fluid">
-												<div class="videos clearfix flexslider">
-													<ul class="slides">
-														<li class="featured-video">
-															<a href="index.php">
-																<img src="images/assets/video1.jpg" alt="#">
-																<i class="icon-play-sign"></i>
-																<h3>I Know You Want Me</h3>
-																<span>Fitbull</span>
-															</a>
-														</li>
-					<!-- slide -->
-									
-									<li class="featured-video">
-																			<a href="index.php">
-																				<img src="images/assets/video2.jpg" alt="#">
-																				<i class="icon-play-sign"></i>
-																				<h3>I Like It</h3>
-																				<span>Enrique</span>
-																			</a>
-																		</li>
-									<!-- slide -->
-							
-									<li class="featured-video">
-																		<a href="index.php">
-																			<img src="images/assets/video3.jpg" alt="#">
-																			<i class="icon-play-sign"></i>
-																			<h3>Tommorow</h3>
-																			<span>Dj Michele</span>
-																		</a>
-																	</li>
-								<!-- slide -->
-						
-								</ul>
-														</div>
-													</div>
-							<!-- widget content -->
-				</div><!-- def block widget videos -->
-
-			
 					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
                         <h4> Popular Tracks </h4><span class="liner"></span>
                         <div class="widget-content row-fluid">
