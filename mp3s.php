@@ -110,7 +110,7 @@
 		</div><!-- under header -->
 
 		<div class="page-content back_to_up">
-			<div class="row clearfix mb">
+			<div class="row clearfix mb animtt" data-gen="fadeUp" style="opacity:0;">
 				<div class="Alphabet">
 					<ul>
 						<?php
@@ -259,38 +259,17 @@
 
 				<div class="span4 sidebar">					
 					<div class="def-block widget">
-						<h4> Featured Videos </h4><span class="liner"></span>
-						<div class="widget-content row-fluid">
-							<div class="videos clearfix flexslider">
-								<ul class="slides">
-									<li class="featured-video">
-										<a href="mp3s.php">
-											<img src="images/assets/video1.jpg" alt="#">
-											<i class="icon-play-sign"></i>
-											<h3>I Know You Want Me</h3>
-											<span>Fitbull</span>
-										</a>
-									</li><!-- slide -->
-									<li class="featured-video">
-										<a href="mp3s.php">
-											<img src="images/assets/video2.jpg" alt="#">
-											<i class="icon-play-sign"></i>
-											<h3>I Like It</h3>
-											<span>Enrique</span>
-										</a>
-									</li><!-- slide -->
-									<li class="featured-video">
-										<a href="mp3s.php">
-											<img src="images/assets/video3.jpg" alt="#">
-											<i class="icon-play-sign"></i>
-											<h3>Tommorow</h3>
-											<span>Dj Michele</span>
-										</a>
-									</li><!-- slide -->
-								</ul>
-							</div>
+						<h4> Tags </h4><span class="liner"></span>
+						<div class="widget-content tags">
+							<a href="#" class="#" title="17 topic"><i class="icon-tag"></i> mp3 </a>
+							<a href="#" class="#" title="44 topic"><i class="icon-tag"></i> interview </a>
+							<a href="#" class="#" title="10 topic"><i class="icon-tag"></i> video </a>
+							<a href="#" class="#" title="20 topic"><i class="icon-tag"></i> ogg </a>
+							<a href="#" class="#" title="2 topic"><i class="icon-tag"></i> fl studio </a>
+							<a href="#" class="#" title="29 topic"><i class="icon-tag"></i> dj angel </a>
+							<a href="#" class="#" title="4 topic"><i class="icon-tag"></i> remix </a>
 						</div><!-- widget content -->
-					</div><!-- def block widget videos -->
+					</div><!-- def block widget tags -->
 
 				</div><!-- span4 sidebar -->
 			</div><!-- row clearfix -->

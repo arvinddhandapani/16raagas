@@ -68,9 +68,6 @@
 
 				    $.each(data.tasks[j], function(i, tasks) {
 				        var html = "<li><a class=\"m-thumbnail\" href='albums.php?a_id=" + data.tasks[j].id + "'><img width=\"50\" height=\"50\" src='images/albums/" + data.tasks[j].album_img + "' alt='#'></a><h3><a href='albums.php?a_id=" + data.tasks[j].id + "'>" + data.tasks[j].song_name + "</a></h3><h9>Album Name: " + data.tasks[j].album_name + "</h9><span>Artists: " + data.tasks[j].artist_details + "</span><span>Music Director: " + data.tasks[j].music_director + "</span></li>";
-
-
-
 				        $(html).appendTo("#songList");
 				        j = j + 1;
 				    });
@@ -79,10 +76,6 @@
 
 				});
 			</script>
-		
-		
-		
-		
 		
 </head>
 <body id="fluidGridSystem">
